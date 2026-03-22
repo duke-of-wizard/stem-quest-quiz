@@ -1,0 +1,158 @@
+╔══════════════════════════════════════════════════════════════╗
+║                     STEM QUEST - QUICK START                 ║
+║                          Kids Quiz App                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+📋 PREREQUISITES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Install Node.js (if not installed):
+
+   For Mac:
+   ──────────────────────────────────────────────────────────
+   brew install node
+   ──────────────────────────────────────────────────────────
+
+   OR download from: https://nodejs.org/
+
+
+🚀 GETTING STARTED (3 STEPS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Open Terminal and navigate to the project
+   ──────────────────────────────────────────────────────────
+   cd /Users/Hemant/Desktop/quiz
+   ──────────────────────────────────────────────────────────
+
+
+STEP 2: Install dependencies (first time only)
+   ──────────────────────────────────────────────────────────
+   npm install
+   ──────────────────────────────────────────────────────────
+
+
+STEP 3: Start the server
+   ──────────────────────────────────────────────────────────
+   npm start
+   ──────────────────────────────────────────────────────────
+
+   You should see:
+   ✓ Database initialized successfully
+   ✓ Server running on http://localhost:3000
+
+
+🌐 OPEN IN BROWSER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   http://localhost:3000
+
+
+🎮 HOW TO PLAY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   1. Select your age group (5-7, 8-10, or 11-13 years)
+   2. Choose a category (Maths, Science, Riddles, Spelling, India)
+   3. Click "Start Quiz!"
+   4. Answer 10 questions
+   5. See your score!
+
+   Scoring:
+   • First try correct  = 2 points ⭐⭐
+   • Second try correct = 1 point  ⭐
+   • Both wrong         = 0 points (shows answer)
+
+
+⏹️  STOP THE SERVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Press: Ctrl + C
+
+
+📁 PROJECT FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   index.html         - Main page
+   style.css          - ClickUp-inspired design
+   app.js             - Game logic
+   server.js          - Backend API + 73 questions
+   quiz.db            - SQLite database (auto-created)
+
+
+🔧 DEVELOPMENT MODE (auto-restart on changes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   npm run dev
+
+
+📊 TEST QUESTION BANK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   node test-questions.js
+
+
+❓ TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   "npm: command not found"
+   → Node.js not installed. Install it first!
+
+   "Port 3000 already in use"
+   → Stop other apps using port 3000
+   → Or change PORT in server.js
+
+   "Cannot find module"
+   → Run: npm install
+
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   README.md          - Full documentation
+   SETUP_GUIDE.md     - Detailed setup instructions
+   FEATURES.md        - Complete feature list
+   PROJECT_SUMMARY.md - Technical overview
+
+
+✨ FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   ✅ 73 questions across 5 categories
+   ✅ 3 difficulty levels (Easy, Medium, Hard)
+   ✅ No repeated questions per session
+   ✅ Smart scoring with second chances
+   ✅ Auto-difficulty increase after 3 correct
+   ✅ SQLite database tracking
+   ✅ ClickUp-inspired vibrant design
+   ✅ Responsive design (works on all devices)
+
+
+🎨 COLOR SCHEME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Purple:  #7B68EE
+   Pink:    #FF6B9D
+   Blue:    #49CCF9
+   Green:   #49E9A6
+   Yellow:  #FFC800
+   Orange:  #FF9F40
+
+
+💡 TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   • Questions are stored in server.js
+   • Add more questions by editing the questionBank object
+   • Database is automatically created in quiz.db
+   • Each play session is tracked separately
+   • Scores are stored for future leaderboard feature
+
+
+🚀 READY TO PLAY!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Just run:    npm start
+   Then visit:  http://localhost:3000
+
+   Have fun learning! 🎯📚🎮
+
+╚══════════════════════════════════════════════════════════════╝

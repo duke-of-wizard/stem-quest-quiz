@@ -1,0 +1,199 @@
+╔══════════════════════════════════════════════════════════════╗
+║              🎉 STEM QUEST - WHAT'S NEW! 🎉                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+📅 Updated: January 16, 2026
+🚀 Version: 2.0 - Mixed Categories & Confetti Edition
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 THREE MAJOR UPDATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 🔀 MIXED CATEGORIES
+   ──────────────────────────────────────────────────────────
+   BEFORE: Choose one category (Maths OR Science OR...)
+   NOW:    Questions randomly mix ALL categories!
+
+   ✓ Every question is a surprise
+   ✓ Test knowledge across all subjects
+   ✓ Category badge shows what type each question is
+   ✓ More engaging and varied gameplay
+
+
+2. ✨ SHARPER UI (ClickUp-Style)
+   ──────────────────────────────────────────────────────────
+   BEFORE: Rounded, playful design
+   NOW:    Sharp, professional ClickUp aesthetic
+
+   ✓ Cleaner borders and shadows
+   ✓ Better typography and spacing
+   ✓ Smoother, faster transitions
+   ✓ Modern badge system
+   ✓ More polished look and feel
+
+
+3. 🎊 CONFETTI CELEBRATIONS
+   ──────────────────────────────────────────────────────────
+   NEW FEATURE: Winning Streak System!
+
+   ✓ Get 5 correct in a row → CONFETTI EXPLOSION! 🎉
+   ✓ Streak counter badge (🔥 icon)
+   ✓ Big celebration announcement
+   ✓ Every 5 questions (10, 15, 20...) = more confetti
+   ✓ One wrong answer resets your streak
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 BEFORE & AFTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BEFORE (Version 1.0):
+┌─────────────────────────────────────────┐
+│  Select Age: [5-7] [8-10] [11-13]      │
+│                                          │
+│  Select Category:                        │
+│  [📊 Maths]  [🔬 Science]  [🧩 Riddles] │
+│  [✏️ Spelling]  [🇮🇳 India]             │
+│                                          │
+│  [Start Quiz!]                          │
+└─────────────────────────────────────────┘
+
+NOW (Version 2.0):
+┌─────────────────────────────────────────┐
+│  Select Age: [5-7] [8-10] [11-13]      │
+│                                          │
+│  [Start Quiz!]                          │
+└─────────────────────────────────────────┘
+(Categories automatically mixed!)
+
+
+QUIZ SCREEN - BEFORE:
+┌─────────────────────────────────────────┐
+│  Score: 12          [Easy]              │
+│                                          │
+│  Question 3                              │
+│  What is 5 + 3?                         │
+│  [ ] 6  [ ] 7  [✓] 8  [ ] 9            │
+└─────────────────────────────────────────┘
+
+QUIZ SCREEN - NOW:
+┌─────────────────────────────────────────┐
+│  Score: 12    🔥 5 Streak    [Medium]   │
+│                                          │
+│  Question 3               📊 MATHS       │
+│  What is 5 + 3?                         │
+│  [ ] 6  [ ] 7  [✓] 8  [ ] 9            │
+└─────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎮 HOW TO PLAY (NEW VERSION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to: http://localhost:3000
+
+2. Select your age group (5-7, 8-10, or 11-13)
+
+3. Click "Start Quiz!"
+
+4. Answer mixed questions from all categories:
+   📊 Maths   🔬 Science   🧩 Riddles
+   ✏️ Spelling   🇮🇳 India Quiz
+
+5. Watch your streak grow! 🔥
+
+6. Get 5 in a row for CONFETTI! 🎊
+
+7. Try to beat your high score!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏆 ACHIEVEMENT SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 5 Streak   →  "🎉 AMAZING! 5 in a row!"
+🔥 10 Streak  →  "🔥 10 STREAK! Unstoppable!"
+🔥 15 Streak  →  "🔥 15 STREAK! Unstoppable!"
+🔥 20 Streak  →  "🔥 20 STREAK! Unstoppable!"
+
+Each milestone = CONFETTI EXPLOSION! 🎊
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ UI IMPROVEMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SHARPER DESIGN:
+• Cleaner 2px borders (was 3px)
+• Tailwind-inspired shadows
+• Better spacing and alignment
+• Improved button hover effects
+• Professional color palette
+• Modern badge system
+
+BETTER UX:
+• Streak counter always visible
+• Category shown on each question
+• Faster animations (0.15s)
+• Smoother transitions
+• More responsive feedback
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎨 DESIGN PHILOSOPHY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Inspired by ClickUp's interface:
+✓ Sharp, clean edges
+✓ Professional yet playful
+✓ Subtle shadows and borders
+✓ Fast, snappy interactions
+✓ Modern typography
+✓ Color-coded elements
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📦 WHAT'S STILL THE SAME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Age-appropriate questions
+✅ 2 points first try, 1 point second try
+✅ Second chance on wrong answers
+✅ Difficulty auto-increases
+✅ No repeated questions
+✅ Database tracking
+✅ 73 total questions
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 TRY IT NOW!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Server is running at:
+http://localhost:3000
+
+Just REFRESH your browser to see the new design!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 PRO TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Aim for a 10-question streak for epic confetti!
+
+2. Watch the difficulty badge - it changes color as
+   you level up (Easy → Medium → Hard)
+
+3. Category badges help you know what's coming - use
+   them to prepare your brain for different subjects!
+
+4. Don't break your streak! One wrong answer resets
+   it to zero, so stay focused! 🎯
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Enjoy the new experience! 🎉
+
+Have fun learning! 🚀📚🎮

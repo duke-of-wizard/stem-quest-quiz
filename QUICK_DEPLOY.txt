@@ -1,0 +1,73 @@
+╔══════════════════════════════════════════════════════════════╗
+║          ⚡ QUICK DEPLOY - 5 MINUTE GUIDE ⚡                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+Want to deploy FAST? Follow these exact steps:
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣  PUSH TO GITHUB (2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open Terminal and run:
+
+cd /Users/Hemant/Desktop/quiz
+git init
+git add .
+git commit -m "Initial commit"
+
+Then:
+• Go to github.com
+• Create new repository: "stem-quest-quiz"
+• Run:
+
+git remote add origin https://github.com/YOUR_USERNAME/stem-quest-quiz.git
+git branch -M main
+git push -u origin main
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2️⃣  DEPLOY TO RAILWAY (3 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Go to railway.app
+• Click "Start a New Project"
+• Click "Deploy from GitHub repo"
+• Select your repository
+• Wait 2-3 minutes
+• Click "Settings" → "Networking" → "Generate Domain"
+• DONE! ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR APP IS LIVE! 🎉
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+URL: https://your-app-name.up.railway.app
+
+Share it with everyone!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NEED MORE HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Read: DEPLOYMENT.md (detailed guide)
+Read: DEPLOY_CHECKLIST.txt (step-by-step)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY RAILWAY?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ FREE (500 hours/month)
+✅ Zero configuration
+✅ Auto-deploy from GitHub
+✅ SQLite works perfectly
+✅ No credit card required
+✅ 5-minute setup
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+That's it! Your quiz is now live on the internet! 🚀

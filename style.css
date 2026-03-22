@@ -1,0 +1,502 @@
+/* Sharp ClickUp-inspired Design System */
+:root {
+    --primary-purple: #7B68EE;
+    --primary-pink: #FF6B9D;
+    --primary-blue: #49CCF9;
+    --primary-green: #49E9A6;
+    --primary-yellow: #FFC800;
+    --primary-orange: #FF9F40;
+
+    --bg-dark: #1F1F1F;
+    --bg-card: #FFFFFF;
+    --bg-subtle: #F9FAFB;
+    --text-primary: #1F2937;
+    --text-secondary: #6B7280;
+    --text-light: #FFFFFF;
+
+    --success: #10B981;
+    --error: #EF4444;
+    --warning: #F59E0B;
+
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    --border-radius-sm: 6px;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    --transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Confetti Canvas */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo and Branding */
+.logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(255,255,255,0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.brand-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* Card Styles - Sharp ClickUp Design */
+.card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.card p {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Age Selection */
+.age-selection {
+    margin-bottom: 1.5rem;
+}
+
+.age-selection h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.age-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.age-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #E5E7EB;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.age-btn:hover {
+    border-color: var(--primary-purple);
+    background: #F9FAFB;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.age-btn.selected {
+    background: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+/* Primary Button - Sharp Design */
+.primary-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--primary-purple);
+    color: white;
+    box-shadow: var(--shadow-md);
+    margin-top: 1.5rem;
+}
+
+.primary-btn:hover {
+    background: #6B5BD6;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Quiz Screen */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.score-display {
+    background: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.score-label {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.score-value {
+    color: var(--primary-purple);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.header-badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.difficulty-badge {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    color: white;
+    padding: 0.625rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.streak-badge {
+    background: linear-gradient(135deg, #FF6B6B, #FF9F40);
+    color: white;
+    padding: 0.625rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-sm);
+    animation: streakPulse 2s infinite;
+}
+
+@keyframes streakPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.question-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.question-number {
+    color: var(--primary-purple);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.category-badge {
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #E5E7EB;
+}
+
+.question-text {
+    color: var(--text-primary);
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.3px;
+}
+
+/* Options - Sharp Design */
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.option-btn {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid #E5E7EB;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    background: white;
+    color: var(--text-primary);
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+}
+
+.option-btn:hover:not(.correct):not(.incorrect):not(.disabled) {
+    border-color: var(--primary-purple);
+    background: #F9FAFB;
+    transform: translateX(2px);
+    box-shadow: var(--shadow-md);
+}
+
+.option-btn.correct {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+    box-shadow: var(--shadow-md);
+    animation: correctBounce 0.4s ease;
+}
+
+.option-btn.incorrect {
+    background: var(--error);
+    color: white;
+    border-color: var(--error);
+    box-shadow: var(--shadow-md);
+    animation: shake 0.4s ease;
+}
+
+.option-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@keyframes correctBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* Feedback Message */
+.feedback-message {
+    padding: 0.875rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+    display: none;
+    font-size: 0.9375rem;
+}
+
+.feedback-message.success {
+    background: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+    display: block;
+}
+
+.feedback-message.error {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+    display: block;
+}
+
+.feedback-message.retry {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+    display: block;
+}
+
+/* Results Screen */
+.results-card {
+    text-align: center;
+}
+
+.final-score {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--bg-subtle);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid #E5E7EB;
+}
+
+.final-score p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.final-score h1 {
+    font-size: 4rem;
+    color: var(--primary-purple);
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.results-stats {
+    margin: 2rem 0;
+}
+
+.results-stats p {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.results-stats span {
+    font-weight: 700;
+    color: var(--primary-purple);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .brand-title {
+        font-size: 2.25rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .age-buttons {
+        flex-direction: column;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .header-badges {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .score-display {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .question-text {
+        font-size: 1.125rem;
+    }
+
+    .final-score h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+button, .option-btn, .age-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus, .option-btn:focus, .age-btn:focus {
+    outline: 2px solid var(--primary-purple);
+    outline-offset: 2px;
+}

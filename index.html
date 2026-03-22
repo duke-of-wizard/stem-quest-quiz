@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM Quiz for Kids</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen" class="screen active">
+            <div class="logo">
+                <h1 class="brand-title">🚀 STEM Quest</h1>
+                <p class="brand-subtitle">Learn, Play, Explore!</p>
+            </div>
+
+            <div class="card welcome-card">
+                <h2>Welcome, Young Explorer!</h2>
+                <p>Test your knowledge across Math, Science, Riddles, Spelling & India Quiz!</p>
+
+                <div class="age-selection">
+                    <h3>Select Your Age Group:</h3>
+                    <div class="age-buttons">
+                        <button class="age-btn" data-age="5-7">5-7 years</button>
+                        <button class="age-btn" data-age="8-10">8-10 years</button>
+                        <button class="age-btn" data-age="11-13">11-13 years</button>
+                    </div>
+                </div>
+
+                <button id="startQuizBtn" class="primary-btn" style="display: none;">Start Quiz!</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen">
+            <div class="quiz-header">
+                <div class="score-display">
+                    <span class="score-label">Score:</span>
+                    <span id="currentScore" class="score-value">0</span>
+                </div>
+                <div class="header-badges">
+                    <div class="streak-badge" id="streakBadge" style="display: none;">
+                        <span>🔥 <span id="streakCount">0</span> Streak</span>
+                    </div>
+                    <div class="difficulty-badge">
+                        <span id="difficultyLevel">Easy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card quiz-card">
+                <div class="question-meta">
+                    <span class="question-number">Question <span id="questionNum">1</span></span>
+                    <span class="category-badge" id="categoryBadge"></span>
+                </div>
+
+                <div class="question-container">
+                    <h2 id="questionText" class="question-text"></h2>
+                </div>
+
+                <div id="optionsContainer" class="options-container"></div>
+
+                <div id="feedbackMessage" class="feedback-message"></div>
+            </div>
+
+            <button id="nextQuestionBtn" class="primary-btn" style="display: none;">Next Question</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="card results-card">
+                <h2>🎉 Quiz Complete!</h2>
+                <div class="final-score">
+                    <p>Your Final Score:</p>
+                    <h1 id="finalScore">0</h1>
+                </div>
+                <div class="results-stats">
+                    <p>Questions Answered: <span id="totalQuestions">0</span></p>
+                    <p>Difficulty Reached: <span id="finalDifficulty">Easy</span></p>
+                </div>
+                <button id="playAgainBtn" class="primary-btn">Play Again!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+quiz.db
+*.log
+.DS_Store
+.env
