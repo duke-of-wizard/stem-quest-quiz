@@ -33,12 +33,16 @@ const gameState = {
     correctStreak: 0,
     winningStreak: 0,
     bestStreak: 0,
-    totalQuestions: 10,
+    totalQuestions: Infinity, // endless mode
+    lives: 5,              // hearts system
+    maxLives: 5,
     allCategories: ['maths', 'science', 'riddles', 'spelling', 'india'],
     currentScreen: 'welcome',
     answered: false,
     autoAdvanceTimer: null,
-    questionResults: [] // track correct/wrong for progress bar
+    questionResults: [], // track correct/wrong for progress bar
+    isDifficultyChanging: false, // suppress character pop-in during difficulty change
+    recentWrong: 0 // track wrong answers in recent window for difficulty downgrade
 };
 
 // ============================================
@@ -66,7 +70,7 @@ const els = {
 
     // Quiz
     progressSegments: document.getElementById('progressSegments'),
-    progressLabel: document.getElementById('progressLabel'),
+    progressLabel: document.getElementById('progressLabel'), // may be null in new layout
     currentScore: document.getElementById('currentScore'),
     streakBadge: document.getElementById('streakBadge'),
     streakCount: document.getElementById('streakCount'),
@@ -272,14 +276,9 @@ async function startQuiz() {
 }
 
 function setupQuizUI() {
-    // Build progress segments
+    // Build hearts display instead of progress segments
     els.progressSegments.innerHTML = '';
-    for (let i = 0; i < gameState.totalQuestions; i++) {
-        const seg = document.createElement('div');
-        seg.className = 'progress-segment';
-        if (i === 0) seg.classList.add('current');
-        els.progressSegments.appendChild(seg);
-    }
+    updateHeartsDisplay();
 
     // Reset UI
     els.currentScore.textContent = '0';
@@ -290,6 +289,21 @@ function setupQuizUI() {
     // Prep character avatar (panel hidden by default)
     updateCharacterAvatar('happy');
     els.characterPanel.classList.remove('pop-in');
+}
+
+function updateHeartsDisplay() {
+    els.progressSegments.innerHTML = '';
+    for (let i = 0; i < gameState.maxLives; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart-icon' + (i < gameState.lives ? ' alive' : ' lost');
+        heart.innerHTML = `<svg width="22" height="20" viewBox="0 0 22 20" fill="${i < gameState.lives ? '#FF4B4B' : '#3A3A4A'}"><path d="M11 18.5l-1.4-1.3C3.7 11.7 0 8.4 0 4.5 0 1.4 2.4-1 5.5-1c1.7 0 3.4.8 4.5 2.1C11.1-.2 12.8-1 14.5-1 17.6-1 20 1.4 20 4.5c0 3.9-3.7 7.2-9.6 12.7L11 18.5z" transform="translate(1 1)"/></svg>`;
+        if (i >= gameState.lives) {
+            heart.style.opacity = '0.3';
+        }
+        els.progressSegments.appendChild(heart);
+    }
+    // Update progress label if it exists
+    if (els.progressLabel) els.progressLabel.textContent = `${gameState.questionsAnswered} answered`;
 }
 
 // ============================================
@@ -310,6 +324,8 @@ let panelTimeout = null;
 
 function showCharacterPopIn(type, duration = 3000) {
     if (!gameState.selectedCharacter) return;
+    // Don't show character pop-in during difficulty transitions to avoid animation collision
+    if (gameState.isDifficultyChanging) return;
 
     const msg = getCharacterMessage(gameState.selectedCharacter, type);
     if (!msg) return;
@@ -408,7 +424,7 @@ async function loadNextQuestion() {
     // Clear auto-advance timer
     clearTimeout(gameState.autoAdvanceTimer);
 
-    if (gameState.questionsAnswered >= gameState.totalQuestions) {
+    if (gameState.lives <= 0) {
         completeQuiz();
         return;
     }
@@ -509,7 +525,7 @@ function displayQuestion() {
     });
 
     // Update progress label
-    els.progressLabel.textContent = `${gameState.questionsAnswered + 1} of ${gameState.totalQuestions}`;
+    if (els.progressLabel) els.progressLabel.textContent = `${gameState.questionsAnswered + 1} answered`;
 }
 
 // ============================================
@@ -517,15 +533,7 @@ function displayQuestion() {
 // ============================================
 
 function updateProgress() {
-    const segments = els.progressSegments.children;
-    for (let i = 0; i < segments.length; i++) {
-        segments[i].className = 'progress-segment';
-        if (i < gameState.questionResults.length) {
-            segments[i].classList.add(gameState.questionResults[i] ? 'correct' : 'wrong');
-        } else if (i === gameState.questionResults.length) {
-            segments[i].classList.add('current');
-        }
-    }
+    updateHeartsDisplay();
 }
 
 // ============================================
@@ -580,6 +588,7 @@ async function handleAnswer(selectedIndex) {
                 gameState.correctStreak++;
                 gameState.winningStreak++;
                 gameState.questionsCorrect++;
+                gameState.recentWrong = Math.max(0, gameState.recentWrong - 1); // reduce wrong counter on correct
 
                 if (gameState.winningStreak > gameState.bestStreak) {
                     gameState.bestStreak = gameState.winningStreak;
@@ -654,10 +663,14 @@ async function handleAnswer(selectedIndex) {
                         }
                     });
                 } else {
-                    // Second attempt wrong
+                    // Second attempt wrong — lose a life
                     gameState.answered = true;
                     gameState.questionsAnswered++;
                     gameState.questionResults.push(false);
+                    gameState.lives--;
+                    gameState.recentWrong++;
+
+                    // Animate the lost heart
                     updateProgress();
 
                     optionButtons[correctIndex].classList.add('correct');
@@ -666,8 +679,18 @@ async function handleAnswer(selectedIndex) {
                     showCharacterPopIn('encouragement', 3000);
 
                     els.feedbackMessage.className = 'feedback-message error';
-                    els.feedbackMessage.textContent = `The answer was: ${gameState.currentQuestion.options[correctIndex]}`;
+                    if (gameState.lives <= 0) {
+                        els.feedbackMessage.textContent = `The answer was: ${gameState.currentQuestion.options[correctIndex]}. No lives left!`;
+                    } else {
+                        els.feedbackMessage.textContent = `The answer was: ${gameState.currentQuestion.options[correctIndex]}`;
+                    }
                     els.feedbackMessage.style.display = 'block';
+
+                    // Check for difficulty downgrade (3 wrong in last 5)
+                    if (gameState.recentWrong >= 3) {
+                        decreaseDifficulty();
+                        gameState.recentWrong = 0;
+                    }
 
                     els.nextQuestionBtn.style.display = 'flex';
 
@@ -718,6 +741,7 @@ async function increaseDifficulty() {
     }
 
     if (newDifficulty !== gameState.difficulty) {
+        gameState.isDifficultyChanging = true;
         gameState.difficulty = newDifficulty;
 
         // Track max difficulty
@@ -730,6 +754,42 @@ async function increaseDifficulty() {
 
         SoundSystem.levelUp();
         showNotification(`Level up! ${els.difficultyBadge.textContent} mode`, 'difficulty');
+
+        // Clear flag after notification animation completes
+        setTimeout(() => { gameState.isDifficultyChanging = false; }, 2700);
+
+        try {
+            await fetch(`${API_URL}/difficulty/update`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sessionId: gameState.gameSessionId,
+                    difficulty: newDifficulty
+                })
+            });
+        } catch (error) {
+            console.error('Error updating difficulty:', error);
+        }
+    }
+}
+
+async function decreaseDifficulty() {
+    let newDifficulty = gameState.difficulty;
+
+    if (gameState.difficulty === 'hard') {
+        newDifficulty = 'medium';
+    } else if (gameState.difficulty === 'medium') {
+        newDifficulty = 'easy';
+    }
+
+    if (newDifficulty !== gameState.difficulty) {
+        gameState.isDifficultyChanging = true;
+        gameState.difficulty = newDifficulty;
+
+        els.difficultyBadge.textContent = newDifficulty.charAt(0).toUpperCase() + newDifficulty.slice(1);
+        showNotification(`Easing up: ${els.difficultyBadge.textContent} mode`, 'difficulty');
+
+        setTimeout(() => { gameState.isDifficultyChanging = false; }, 2700);
 
         try {
             await fetch(`${API_URL}/difficulty/update`, {
@@ -863,9 +923,9 @@ function setupResultsScreen() {
         els.resultsSpeechBubble.classList.add('visible');
     }
 
-    // Animate score ring
-    const maxScore = gameState.totalQuestions * 2;
-    const percentage = gameState.currentScore / maxScore;
+    // Animate score ring — base max on questions answered
+    const maxScore = Math.max(gameState.questionsAnswered * 2, 1);
+    const percentage = Math.min(gameState.currentScore / maxScore, 1);
     const circumference = 2 * Math.PI * 52; // r=52
     const offset = circumference * (1 - percentage);
 
@@ -950,6 +1010,9 @@ function resetQuizState() {
     gameState.bestStreak = 0;
     gameState.answered = false;
     gameState.questionResults = [];
+    gameState.lives = gameState.maxLives;
+    gameState.isDifficultyChanging = false;
+    gameState.recentWrong = 0;
 }
 
 // ============================================

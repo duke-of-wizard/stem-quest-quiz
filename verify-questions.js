@@ -120,7 +120,7 @@ async function main() {
                 process.stdout.write(`  Batch ${batchNum}/${totalBatches} (${batch.length} questions)... `);
 
                 try {
-                    const model = category === 'maths' ? MATH_MODEL : 'gpt-4o-mini';
+                    const model = MATH_MODEL; // Use GPT-5.4 for all categories
                     const verdicts = await verifyBatch(batch, client, model);
 
                     for (const v of verdicts) {

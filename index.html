@@ -83,22 +83,18 @@
 
         <!-- Quiz Screen -->
         <div id="quizScreen" class="screen">
-            <!-- Progress bar -->
-            <div class="progress-bar">
-                <div id="progressSegments" class="progress-segments">
-                    <!-- 10 segments populated by JS -->
-                </div>
-                <span id="progressLabel" class="progress-label">1 of 10</span>
-            </div>
-
             <!-- Quiz header -->
             <div class="quiz-header">
                 <div class="quiz-header-left">
+                    <div id="progressSegments" class="progress-segments hearts-bar">
+                        <!-- Hearts populated by JS -->
+                    </div>
                     <div class="score-pill">
                         <span class="score-icon">
                             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
                         </span>
                         <span id="currentScore" class="score-value">0</span>
+                        <span class="score-label">pts</span>
                     </div>
                     <div class="streak-pill" id="streakBadge" style="display:none">
                         <span class="streak-fire">
