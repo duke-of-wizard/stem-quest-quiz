@@ -260,6 +260,79 @@ app.post('/api/session/complete', (req, res) => {
         });
 });
 
+// LLM-as-judge: verify generated questions have correct answers
+async function verifyQuestions(questions, client) {
+    if (!questions.length) return questions;
+
+    const questionsForVerification = questions.map((q, i) => ({
+        index: i,
+        question: q.question,
+        options: q.options,
+        claimed_correct: q.correct,
+        claimed_answer: q.options[q.correct]
+    }));
+
+    try {
+        const verification = await client.chat.completions.create({
+            model: 'gpt-4o-mini',
+            max_tokens: 4000,
+            messages: [{
+                role: 'user',
+                content: `You are a fact-checker for a children's quiz. For each question below, verify if the claimed correct answer is actually correct.
+
+Return ONLY a valid JSON array (no markdown fences) with objects:
+- "index": number (the question index)
+- "verdict": "correct" | "wrong" | "ambiguous"
+- "correct_index": number (the actual correct 0-based index if verdict is "wrong", otherwise same as claimed)
+
+Be strict: for maths, compute the answer. For facts, verify accuracy. For spelling, check the dictionary.
+
+Questions to verify:
+${JSON.stringify(questionsForVerification)}`
+            }]
+        });
+
+        const verifyText = verification.choices[0].message.content.trim();
+        let verdicts;
+        try {
+            verdicts = JSON.parse(verifyText);
+        } catch (e) {
+            const jsonMatch = verifyText.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                verdicts = JSON.parse(jsonMatch[0]);
+            } else {
+                console.log('Could not parse verification response, keeping all questions');
+                return questions;
+            }
+        }
+
+        // Apply verdicts: fix wrong answers, remove ambiguous
+        const verified = [];
+        for (const v of verdicts) {
+            const q = questions[v.index];
+            if (!q) continue;
+
+            if (v.verdict === 'correct') {
+                verified.push(q);
+            } else if (v.verdict === 'wrong' && typeof v.correct_index === 'number' && v.correct_index >= 0 && v.correct_index <= 3) {
+                // Fix the answer
+                q.correct = v.correct_index;
+                verified.push(q);
+                console.log(`Fixed answer for: "${q.question}" -> option ${v.correct_index}`);
+            } else {
+                // Ambiguous or unfixable — drop it
+                console.log(`Dropped ambiguous question: "${q.question}"`);
+            }
+        }
+
+        console.log(`Verification: ${verified.length}/${questions.length} questions passed`);
+        return verified;
+    } catch (e) {
+        console.error('Verification failed, keeping all questions:', e.message);
+        return questions;
+    }
+}
+
 // Generate new questions on-demand using OpenAI API
 app.post('/api/question/generate', async (req, res) => {
     const { category, difficulty, deviceId } = req.body;
@@ -331,20 +404,34 @@ ${JSON.stringify(existingTexts)}
             }
         }
 
-        // Validate and assign IDs
-        const newQuestions = [];
+        // Validate structure
+        const structValid = [];
         for (const q of generated) {
             if (!q.question || !Array.isArray(q.options) || q.options.length !== 4 ||
                 typeof q.correct !== 'number' || q.correct < 0 || q.correct > 3) {
                 continue;
             }
-            const id = getNextQuestionId(category, difficulty);
-            newQuestions.push({ id, question: q.question, options: q.options, correct: q.correct });
+            structValid.push(q);
         }
 
-        if (newQuestions.length === 0) {
+        if (structValid.length === 0) {
             return res.json({ success: false, reason: 'generation_failed' });
         }
+
+        // LLM-as-judge: verify answers are correct
+        const verified = await verifyQuestions(structValid, client);
+
+        if (verified.length === 0) {
+            return res.json({ success: false, reason: 'verification_failed' });
+        }
+
+        // Assign IDs to verified questions
+        const newQuestions = verified.map(q => ({
+            id: getNextQuestionId(category, difficulty),
+            question: q.question,
+            options: q.options,
+            correct: q.correct
+        }));
 
         // Add to bank and save
         if (!questionBank[category]) questionBank[category] = {};

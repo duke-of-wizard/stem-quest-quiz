@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "generate": "node generate-questions.js"
+    "generate": "node generate-questions.js",
+    "verify": "node verify-questions.js"
   },
   "keywords": ["quiz", "stem", "kids", "education", "learning"],
   "author": "Hemant",

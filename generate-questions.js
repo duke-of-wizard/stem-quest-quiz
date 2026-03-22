@@ -81,6 +81,78 @@ function getNextId(questions, category, difficulty) {
     return maxNum;
 }
 
+// LLM-as-judge: verify generated questions have correct answers
+async function verifyBatch(questions, client) {
+    if (!questions.length) return questions;
+
+    const questionsForVerification = questions.map((q, i) => ({
+        index: i,
+        question: q.question,
+        options: q.options,
+        claimed_correct: q.correct,
+        claimed_answer: q.options[q.correct]
+    }));
+
+    try {
+        const verification = await client.chat.completions.create({
+            model: 'gpt-4o-mini',
+            max_tokens: 4000,
+            messages: [{
+                role: 'user',
+                content: `You are a fact-checker for a children's quiz. For each question below, verify if the claimed correct answer is actually correct.
+
+Return ONLY a valid JSON array (no markdown fences) with objects:
+- "index": number (the question index)
+- "verdict": "correct" | "wrong" | "ambiguous"
+- "correct_index": number (the actual correct 0-based index if verdict is "wrong", otherwise same as claimed)
+
+Be strict: for maths, compute the answer. For facts, verify accuracy. For spelling, check the dictionary.
+
+Questions to verify:
+${JSON.stringify(questionsForVerification)}`
+            }]
+        });
+
+        const verifyText = verification.choices[0].message.content.trim();
+        let verdicts;
+        try {
+            verdicts = JSON.parse(verifyText);
+        } catch (e) {
+            const jsonMatch = verifyText.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                verdicts = JSON.parse(jsonMatch[0]);
+            } else {
+                console.log('    Could not parse verification response, keeping all questions');
+                return questions;
+            }
+        }
+
+        const verified = [];
+        let fixed = 0, dropped = 0;
+        for (const v of verdicts) {
+            const q = questions[v.index];
+            if (!q) continue;
+
+            if (v.verdict === 'correct') {
+                verified.push(q);
+            } else if (v.verdict === 'wrong' && typeof v.correct_index === 'number' && v.correct_index >= 0 && v.correct_index <= 3) {
+                q.correct = v.correct_index;
+                verified.push(q);
+                fixed++;
+            } else {
+                dropped++;
+            }
+        }
+
+        if (fixed > 0) console.log(`    Fixed ${fixed} wrong answers`);
+        if (dropped > 0) console.log(`    Dropped ${dropped} ambiguous questions`);
+        return verified;
+    } catch (e) {
+        console.error('    Verification failed, keeping all questions:', e.message);
+        return questions;
+    }
+}
+
 async function generateBatch(client, category, difficulty, existingQuestions, batchSize) {
     const sampleTexts = existingQuestions.slice(-30).map(q => q.question);
 
@@ -139,6 +211,13 @@ ${JSON.stringify(sampleTexts)}
         if (seenTexts.has(normalizedText)) continue;
         seenTexts.add(normalizedText);
         valid.push({ question: q.question, options: q.options, correct: q.correct });
+    }
+
+    // LLM-as-judge: verify answers before returning
+    if (valid.length > 0) {
+        console.log(`    Verifying ${valid.length} questions...`);
+        const verified = await verifyBatch(valid, client);
+        return verified;
     }
 
     return valid;
