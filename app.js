@@ -1,6 +1,17 @@
+// Persistent device ID for cross-session tracking
+function getDeviceId() {
+    let deviceId = localStorage.getItem('stemquest_device_id');
+    if (!deviceId) {
+        deviceId = 'device_' + Date.now() + '_' + Math.random().toString(36).substr(2, 12);
+        localStorage.setItem('stemquest_device_id', deviceId);
+    }
+    return deviceId;
+}
+
 // Game State
 const gameState = {
     sessionId: null,
+    deviceId: getDeviceId(),
     userId: null,
     gameSessionId: null,
     ageGroup: null,
@@ -100,65 +111,93 @@ async function startQuiz() {
     }
 }
 
+// Try to get a question from a specific category/difficulty
+async function fetchQuestion(category, difficulty) {
+    const response = await fetch(`${API_URL}/question/get`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            sessionId: gameState.gameSessionId,
+            category: category,
+            difficulty: difficulty,
+            deviceId: gameState.deviceId
+        })
+    });
+    return response.json();
+}
+
+// Try to generate new questions online
+async function fetchGeneratedQuestion(category, difficulty) {
+    if (!navigator.onLine) return null;
+    try {
+        const response = await fetch(`${API_URL}/question/generate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                category: category,
+                difficulty: difficulty,
+                deviceId: gameState.deviceId
+            })
+        });
+        const data = await response.json();
+        return (data.success && data.question) ? data : null;
+    } catch (e) {
+        return null;
+    }
+}
+
 // Load Next Question - Mix categories
 async function loadNextQuestion() {
-    // Check if quiz is complete
     if (gameState.questionsAnswered >= gameState.totalQuestions) {
         completeQuiz();
         return;
     }
 
-    // Reset attempt for new question
     gameState.attempt = 1;
 
     try {
-        // Get random category
-        const randomCategory = gameState.allCategories[
-            Math.floor(Math.random() * gameState.allCategories.length)
-        ];
+        // Shuffle categories to try
+        const shuffled = [...gameState.allCategories].sort(() => Math.random() - 0.5);
 
-        const response = await fetch(`${API_URL}/question/get`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                sessionId: gameState.gameSessionId,
-                category: randomCategory,
-                difficulty: gameState.difficulty
-            })
-        });
+        for (const category of shuffled) {
+            const data = await fetchQuestion(category, gameState.difficulty);
 
-        const data = await response.json();
+            if (data.success && data.question) {
+                gameState.currentQuestion = data.question;
+                gameState.currentQuestion.category = category;
+                displayQuestion();
+                return;
+            }
 
-        if (data.success && data.question) {
-            gameState.currentQuestion = data.question;
-            gameState.currentQuestion.category = randomCategory;
-            displayQuestion();
-        } else {
-            // Try another category if no questions available
-            const otherCategories = gameState.allCategories.filter(c => c !== randomCategory);
-            if (otherCategories.length > 0) {
-                const fallbackCategory = otherCategories[Math.floor(Math.random() * otherCategories.length)];
-                const fallbackResponse = await fetch(`${API_URL}/question/get`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        sessionId: gameState.gameSessionId,
-                        category: fallbackCategory,
-                        difficulty: gameState.difficulty
-                    })
-                });
-                const fallbackData = await fallbackResponse.json();
-                if (fallbackData.success && fallbackData.question) {
-                    gameState.currentQuestion = fallbackData.question;
-                    gameState.currentQuestion.category = fallbackCategory;
+            // If exhausted, try online generation
+            if (data.exhausted) {
+                const generated = await fetchGeneratedQuestion(category, gameState.difficulty);
+                if (generated) {
+                    gameState.currentQuestion = generated.question;
+                    gameState.currentQuestion.category = category;
                     displayQuestion();
-                } else {
-                    completeQuiz();
+                    return;
                 }
-            } else {
-                completeQuiz();
             }
         }
+
+        // All categories exhausted at current difficulty - try other difficulties
+        const allDifficulties = ['easy', 'medium', 'hard'].filter(d => d !== gameState.difficulty);
+        for (const diff of allDifficulties) {
+            for (const category of shuffled) {
+                const data = await fetchQuestion(category, diff);
+                if (data.success && data.question) {
+                    gameState.currentQuestion = data.question;
+                    gameState.currentQuestion.category = category;
+                    displayQuestion();
+                    return;
+                }
+            }
+        }
+
+        // Truly exhausted everything
+        completeQuiz();
+
     } catch (error) {
         console.error('Error:', error);
         alert('Error loading question. Please try again.');
@@ -222,7 +261,10 @@ async function handleAnswer(selectedIndex) {
                 questionId: gameState.currentQuestion.id,
                 selectedOption: selectedIndex,
                 correctOption: correctIndex,
-                attempt: gameState.attempt
+                attempt: gameState.attempt,
+                deviceId: gameState.deviceId,
+                category: gameState.currentQuestion.category,
+                difficulty: gameState.difficulty
             })
         });
 

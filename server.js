@@ -2,6 +2,11 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
+
+// Load OpenAI SDK if available (for online question generation)
+let OpenAI;
+try { OpenAI = require('openai'); } catch (e) { /* SDK not installed, online mode unavailable */ }
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -58,6 +63,23 @@ function initializeTables() {
                 answered_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (session_id) REFERENCES game_sessions(id)
             )
+        `);
+
+        db.run(`
+            CREATE TABLE IF NOT EXISTS user_question_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                device_id TEXT NOT NULL,
+                question_id TEXT NOT NULL,
+                category TEXT NOT NULL,
+                difficulty TEXT NOT NULL,
+                seen_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(device_id, question_id)
+            )
+        `);
+
+        db.run(`
+            CREATE INDEX IF NOT EXISTS idx_uqh_device
+            ON user_question_history(device_id, category, difficulty)
         `, (err) => {
             if (!err) {
                 console.log('Database initialized successfully');
@@ -66,487 +88,28 @@ function initializeTables() {
     });
 }
 
-// Question Bank
-const questionBank = {
-    maths: {
-        easy: [
-            {
-                id: 'm_e_1',
-                question: 'What is 5 + 3?',
-                options: ['6', '7', '8', '9'],
-                correct: 2
-            },
-            {
-                id: 'm_e_2',
-                question: 'How many sides does a triangle have?',
-                options: ['2', '3', '4', '5'],
-                correct: 1
-            },
-            {
-                id: 'm_e_3',
-                question: 'What is 10 - 4?',
-                options: ['5', '6', '7', '8'],
-                correct: 1
-            },
-            {
-                id: 'm_e_4',
-                question: 'Which number comes after 9?',
-                options: ['8', '10', '11', '12'],
-                correct: 1
-            },
-            {
-                id: 'm_e_5',
-                question: 'What is 2 × 3?',
-                options: ['4', '5', '6', '7'],
-                correct: 2
-            },
-            {
-                id: 'm_e_6',
-                question: 'How many corners does a square have?',
-                options: ['3', '4', '5', '6'],
-                correct: 1
-            },
-            {
-                id: 'm_e_7',
-                question: 'What is half of 8?',
-                options: ['2', '3', '4', '5'],
-                correct: 2
-            },
-            {
-                id: 'm_e_8',
-                question: 'What is 7 + 2?',
-                options: ['7', '8', '9', '10'],
-                correct: 2
-            }
-        ],
-        medium: [
-            {
-                id: 'm_m_1',
-                question: 'What is 12 × 5?',
-                options: ['50', '55', '60', '65'],
-                correct: 2
-            },
-            {
-                id: 'm_m_2',
-                question: 'What is 144 ÷ 12?',
-                options: ['10', '11', '12', '13'],
-                correct: 2
-            },
-            {
-                id: 'm_m_3',
-                question: 'What is the perimeter of a square with side 5 cm?',
-                options: ['15 cm', '20 cm', '25 cm', '30 cm'],
-                correct: 1
-            },
-            {
-                id: 'm_m_4',
-                question: 'What is 15% of 100?',
-                options: ['10', '15', '20', '25'],
-                correct: 1
-            },
-            {
-                id: 'm_m_5',
-                question: 'If a book costs ₹45 and you pay ₹50, how much change?',
-                options: ['₹3', '₹4', '₹5', '₹6'],
-                correct: 2
-            },
-            {
-                id: 'm_m_6',
-                question: 'What is 8 × 7?',
-                options: ['54', '56', '58', '60'],
-                correct: 1
-            }
-        ],
-        hard: [
-            {
-                id: 'm_h_1',
-                question: 'What is the square root of 144?',
-                options: ['10', '11', '12', '13'],
-                correct: 2
-            },
-            {
-                id: 'm_h_2',
-                question: 'What is 25% of 240?',
-                options: ['50', '55', '60', '65'],
-                correct: 2
-            },
-            {
-                id: 'm_h_3',
-                question: 'If x + 7 = 15, what is x?',
-                options: ['6', '7', '8', '9'],
-                correct: 2
-            },
-            {
-                id: 'm_h_4',
-                question: 'What is the area of a rectangle 8m × 5m?',
-                options: ['30 m²', '35 m²', '40 m²', '45 m²'],
-                correct: 2
-            },
-            {
-                id: 'm_h_5',
-                question: 'What is 15² (15 squared)?',
-                options: ['200', '215', '225', '235'],
-                correct: 2
-            }
-        ]
-    },
-    science: {
-        easy: [
-            {
-                id: 's_e_1',
-                question: 'Which planet do we live on?',
-                options: ['Mars', 'Earth', 'Venus', 'Jupiter'],
-                correct: 1
-            },
-            {
-                id: 's_e_2',
-                question: 'How many legs does a spider have?',
-                options: ['6', '8', '10', '12'],
-                correct: 1
-            },
-            {
-                id: 's_e_3',
-                question: 'What do plants need to make food?',
-                options: ['Moonlight', 'Sunlight', 'Starlight', 'Firelight'],
-                correct: 1
-            },
-            {
-                id: 's_e_4',
-                question: 'What color is the sky on a clear day?',
-                options: ['Green', 'Red', 'Blue', 'Yellow'],
-                correct: 2
-            },
-            {
-                id: 's_e_5',
-                question: 'Which animal is known as the King of the Jungle?',
-                options: ['Tiger', 'Elephant', 'Lion', 'Bear'],
-                correct: 2
-            },
-            {
-                id: 's_e_6',
-                question: 'How many bones do sharks have?',
-                options: ['Zero', 'Ten', 'Fifty', 'Hundred'],
-                correct: 0
-            }
-        ],
-        medium: [
-            {
-                id: 's_m_1',
-                question: 'What is the process by which plants make food?',
-                options: ['Respiration', 'Photosynthesis', 'Digestion', 'Absorption'],
-                correct: 1
-            },
-            {
-                id: 's_m_2',
-                question: 'What is the largest organ in the human body?',
-                options: ['Heart', 'Brain', 'Skin', 'Liver'],
-                correct: 2
-            },
-            {
-                id: 's_m_3',
-                question: 'Which gas do plants absorb from the air?',
-                options: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Hydrogen'],
-                correct: 2
-            },
-            {
-                id: 's_m_4',
-                question: 'At what temperature does water boil?',
-                options: ['50°C', '75°C', '100°C', '125°C'],
-                correct: 2
-            },
-            {
-                id: 's_m_5',
-                question: 'What type of animal is a whale?',
-                options: ['Fish', 'Mammal', 'Reptile', 'Amphibian'],
-                correct: 1
-            }
-        ],
-        hard: [
-            {
-                id: 's_h_1',
-                question: 'What is the speed of light?',
-                options: ['300,000 km/s', '150,000 km/s', '450,000 km/s', '600,000 km/s'],
-                correct: 0
-            },
-            {
-                id: 's_h_2',
-                question: 'Which scientist developed the theory of relativity?',
-                options: ['Newton', 'Einstein', 'Galileo', 'Tesla'],
-                correct: 1
-            },
-            {
-                id: 's_h_3',
-                question: 'What is the smallest unit of life?',
-                options: ['Atom', 'Molecule', 'Cell', 'Organ'],
-                correct: 2
-            },
-            {
-                id: 's_h_4',
-                question: 'How many planets are in our solar system?',
-                options: ['7', '8', '9', '10'],
-                correct: 1
-            }
-        ]
-    },
-    riddles: {
-        easy: [
-            {
-                id: 'r_e_1',
-                question: 'I have hands but cannot clap. What am I?',
-                options: ['A tree', 'A clock', 'A book', 'A chair'],
-                correct: 1
-            },
-            {
-                id: 'r_e_2',
-                question: 'What has to be broken before you can use it?',
-                options: ['A stick', 'An egg', 'A bottle', 'A door'],
-                correct: 1
-            },
-            {
-                id: 'r_e_3',
-                question: 'What goes up but never comes down?',
-                options: ['A balloon', 'Your age', 'A kite', 'A bird'],
-                correct: 1
-            },
-            {
-                id: 'r_e_4',
-                question: 'What has keys but no locks?',
-                options: ['A car', 'A piano', 'A house', 'A safe'],
-                correct: 1
-            },
-            {
-                id: 'r_e_5',
-                question: 'I am tall when I am young, and short when I am old. What am I?',
-                options: ['A tree', 'A candle', 'A person', 'A building'],
-                correct: 1
-            }
-        ],
-        medium: [
-            {
-                id: 'r_m_1',
-                question: 'The more you take, the more you leave behind. What am I?',
-                options: ['Money', 'Footsteps', 'Time', 'Food'],
-                correct: 1
-            },
-            {
-                id: 'r_m_2',
-                question: 'What can travel around the world while staying in a corner?',
-                options: ['A bird', 'A stamp', 'A plane', 'A cloud'],
-                correct: 1
-            },
-            {
-                id: 'r_m_3',
-                question: 'What gets wetter the more it dries?',
-                options: ['A sponge', 'A towel', 'Rain', 'Water'],
-                correct: 1
-            },
-            {
-                id: 'r_m_4',
-                question: 'I have cities but no houses, forests but no trees, and water but no fish. What am I?',
-                options: ['A painting', 'A map', 'A dream', 'A story'],
-                correct: 1
-            }
-        ],
-        hard: [
-            {
-                id: 'r_h_1',
-                question: 'What can run but never walks, has a mouth but never talks?',
-                options: ['A river', 'A car', 'Wind', 'Time'],
-                correct: 0
-            },
-            {
-                id: 'r_h_2',
-                question: 'I speak without a mouth and hear without ears. I have no body, but come alive with wind. What am I?',
-                options: ['A ghost', 'An echo', 'A shadow', 'A thought'],
-                correct: 1
-            },
-            {
-                id: 'r_h_3',
-                question: 'The more of this there is, the less you see. What is it?',
-                options: ['Light', 'Darkness', 'Fog', 'Distance'],
-                correct: 1
-            }
-        ]
-    },
-    spelling: {
-        easy: [
-            {
-                id: 'sp_e_1',
-                question: 'How do you spell the color of the sky?',
-                options: ['Blu', 'Blue', 'Bleu', 'Bloo'],
-                correct: 1
-            },
-            {
-                id: 'sp_e_2',
-                question: 'How do you spell the day after Monday?',
-                options: ['Teusday', 'Tuesday', 'Tusday', 'Tuesdy'],
-                correct: 1
-            },
-            {
-                id: 'sp_e_3',
-                question: 'How do you spell the animal that meows?',
-                options: ['Kat', 'Cat', 'Catt', 'Cet'],
-                correct: 1
-            },
-            {
-                id: 'sp_e_4',
-                question: 'How do you spell the number after seven?',
-                options: ['Eigt', 'Eigth', 'Eight', 'Ate'],
-                correct: 2
-            },
-            {
-                id: 'sp_e_5',
-                question: 'How do you spell where you live?',
-                options: ['Hous', 'Howse', 'House', 'Houce'],
-                correct: 2
-            }
-        ],
-        medium: [
-            {
-                id: 'sp_m_1',
-                question: 'How do you spell a large gray animal with a trunk?',
-                options: ['Elefant', 'Elephant', 'Elephent', 'Eliphant'],
-                correct: 1
-            },
-            {
-                id: 'sp_m_2',
-                question: 'How do you spell the opposite of easy?',
-                options: ['Dificult', 'Difficult', 'Dificolt', 'Difficalt'],
-                correct: 1
-            },
-            {
-                id: 'sp_m_3',
-                question: 'How do you spell a place with many books?',
-                options: ['Libary', 'Library', 'Librairy', 'Librery'],
-                correct: 1
-            },
-            {
-                id: 'sp_m_4',
-                question: 'How do you spell knowledge?',
-                options: ['Knowlege', 'Nowledge', 'Knowledge', 'Knolege'],
-                correct: 2
-            }
-        ],
-        hard: [
-            {
-                id: 'sp_h_1',
-                question: 'How do you spell: existing everywhere at the same time?',
-                options: ['Ubiquitous', 'Ubiquituous', 'Ubiquitus', 'Ubiquitios'],
-                correct: 0
-            },
-            {
-                id: 'sp_h_2',
-                question: 'How do you spell: understanding someone\'s feelings?',
-                options: ['Empathy', 'Empethey', 'Empathi', 'Empethy'],
-                correct: 0
-            },
-            {
-                id: 'sp_h_3',
-                question: 'How do you spell: very important or necessary?',
-                options: ['Necesary', 'Neccessary', 'Necessary', 'Neccesary'],
-                correct: 2
-            }
-        ]
-    },
-    india: {
-        easy: [
-            {
-                id: 'i_e_1',
-                question: 'What is the capital of India?',
-                options: ['Mumbai', 'New Delhi', 'Kolkata', 'Chennai'],
-                correct: 1
-            },
-            {
-                id: 'i_e_2',
-                question: 'Which is the national bird of India?',
-                options: ['Parrot', 'Peacock', 'Pigeon', 'Eagle'],
-                correct: 1
-            },
-            {
-                id: 'i_e_3',
-                question: 'How many colors are there in the Indian flag?',
-                options: ['2', '3', '4', '5'],
-                correct: 1
-            },
-            {
-                id: 'i_e_4',
-                question: 'What is the national animal of India?',
-                options: ['Lion', 'Elephant', 'Tiger', 'Leopard'],
-                correct: 2
-            },
-            {
-                id: 'i_e_5',
-                question: 'Which river is considered the holiest in India?',
-                options: ['Yamuna', 'Ganga', 'Godavari', 'Krishna'],
-                correct: 1
-            },
-            {
-                id: 'i_e_6',
-                question: 'Who is known as the Father of the Nation in India?',
-                options: ['Nehru', 'Gandhi', 'Patel', 'Ambedkar'],
-                correct: 1
-            }
-        ],
-        medium: [
-            {
-                id: 'i_m_1',
-                question: 'In which year did India gain independence?',
-                options: ['1942', '1945', '1947', '1950'],
-                correct: 2
-            },
-            {
-                id: 'i_m_2',
-                question: 'Which is the largest state in India by area?',
-                options: ['Maharashtra', 'Rajasthan', 'Madhya Pradesh', 'Uttar Pradesh'],
-                correct: 1
-            },
-            {
-                id: 'i_m_3',
-                question: 'Which festival is known as the Festival of Lights?',
-                options: ['Holi', 'Diwali', 'Eid', 'Christmas'],
-                correct: 1
-            },
-            {
-                id: 'i_m_4',
-                question: 'Where is the Taj Mahal located?',
-                options: ['Delhi', 'Jaipur', 'Agra', 'Lucknow'],
-                correct: 2
-            },
-            {
-                id: 'i_m_5',
-                question: 'Which is the smallest state in India by area?',
-                options: ['Sikkim', 'Goa', 'Tripura', 'Manipur'],
-                correct: 1
-            }
-        ],
-        hard: [
-            {
-                id: 'i_h_1',
-                question: 'Who was the first President of India?',
-                options: ['Dr. Rajendra Prasad', 'Dr. S. Radhakrishnan', 'Zakir Hussain', 'V.V. Giri'],
-                correct: 0
-            },
-            {
-                id: 'i_h_2',
-                question: 'Which is the longest river in India?',
-                options: ['Ganga', 'Yamuna', 'Godavari', 'Brahmaputra'],
-                correct: 0
-            },
-            {
-                id: 'i_h_3',
-                question: 'When is Republic Day celebrated in India?',
-                options: ['15th August', '26th January', '2nd October', '14th November'],
-                correct: 1
-            },
-            {
-                id: 'i_h_4',
-                question: 'Which Indian city is known as the Silicon Valley of India?',
-                options: ['Hyderabad', 'Pune', 'Bangalore', 'Chennai'],
-                correct: 2
-            }
-        ]
+// Load question bank from JSON file
+const questionsFilePath = path.join(__dirname, 'questions.json');
+let questionBank = JSON.parse(fs.readFileSync(questionsFilePath, 'utf-8'));
+
+function saveQuestionBank() {
+    fs.writeFileSync(questionsFilePath, JSON.stringify(questionBank, null, 2));
+}
+
+// ID prefix map for generating new question IDs
+const categoryIdPrefix = { maths: 'm', science: 's', riddles: 'r', spelling: 'sp', india: 'i' };
+const difficultyIdPrefix = { easy: 'e', medium: 'm', hard: 'h' };
+
+function getNextQuestionId(category, difficulty) {
+    const prefix = `${categoryIdPrefix[category]}_${difficultyIdPrefix[difficulty]}_`;
+    const existing = (questionBank[category]?.[difficulty] || []);
+    let maxNum = 0;
+    for (const q of existing) {
+        const num = parseInt(q.id.replace(prefix, ''), 10);
+        if (!isNaN(num) && num > maxNum) maxNum = num;
     }
-};
+    return prefix + (maxNum + 1);
+}
 
 // API Routes
 
@@ -579,43 +142,55 @@ app.post('/api/user/create', (req, res) => {
         });
 });
 
-// Get question (ensuring no repeats)
+// Get question (ensuring no repeats across sessions)
 app.post('/api/question/get', (req, res) => {
-    const { sessionId, category, difficulty } = req.body;
+    const { sessionId, category, difficulty, deviceId } = req.body;
 
-    // Get already asked questions for this session
-    db.all('SELECT question_id FROM question_history WHERE session_id = ?',
-        [sessionId],
-        (err, rows) => {
-            if (err) {
-                return res.status(500).json({ success: false, error: err.message });
-            }
+    if (!questionBank[category] || !questionBank[category][difficulty]) {
+        return res.json({ success: false, message: 'Invalid category or difficulty' });
+    }
 
-            const askedIds = rows.map(q => q.question_id);
+    // Get questions this device has already seen (cross-session)
+    const query = deviceId
+        ? 'SELECT question_id FROM user_question_history WHERE device_id = ? AND category = ? AND difficulty = ?'
+        : 'SELECT question_id FROM question_history WHERE session_id = ?';
+    const params = deviceId ? [deviceId, category, difficulty] : [sessionId];
 
-            // Get available questions from the bank
-            const availableQuestions = questionBank[category][difficulty].filter(
-                q => !askedIds.includes(q.id)
-            );
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            return res.status(500).json({ success: false, error: err.message });
+        }
 
-            if (availableQuestions.length === 0) {
-                return res.json({ success: false, message: 'No more questions available' });
-            }
+        const seenIds = new Set(rows.map(q => q.question_id));
 
-            // Return random question
-            const randomIndex = Math.floor(Math.random() * availableQuestions.length);
-            const question = availableQuestions[randomIndex];
+        const availableQuestions = questionBank[category][difficulty].filter(
+            q => !seenIds.has(q.id)
+        );
 
-            res.json({ success: true, question });
-        });
+        if (availableQuestions.length === 0) {
+            return res.json({ success: false, exhausted: true, category, difficulty });
+        }
+
+        const randomIndex = Math.floor(Math.random() * availableQuestions.length);
+        const question = availableQuestions[randomIndex];
+
+        res.json({ success: true, question });
+    });
 });
 
 // Submit answer
 app.post('/api/answer/submit', (req, res) => {
-    const { sessionId, questionId, selectedOption, correctOption, attempt } = req.body;
+    const { sessionId, questionId, selectedOption, correctOption, attempt, deviceId, category, difficulty } = req.body;
 
     const isCorrect = selectedOption === correctOption;
     const pointsEarned = isCorrect ? (attempt === 1 ? 2 : 1) : 0;
+
+    // Record in cross-session history
+    if (deviceId && category && difficulty) {
+        db.run(`INSERT OR IGNORE INTO user_question_history (device_id, question_id, category, difficulty)
+                VALUES (?, ?, ?, ?)`,
+            [deviceId, questionId, category, difficulty]);
+    }
 
     // Record the answer
     db.run(`INSERT INTO question_history (session_id, question_id, was_correct, attempts, points_earned)
@@ -683,6 +258,115 @@ app.post('/api/session/complete', (req, res) => {
             }
             res.json({ success: true });
         });
+});
+
+// Generate new questions on-demand using OpenAI API
+app.post('/api/question/generate', async (req, res) => {
+    const { category, difficulty, deviceId } = req.body;
+
+    if (!OpenAI || !process.env.OPENAI_API_KEY) {
+        return res.json({ success: false, reason: 'no_api_key' });
+    }
+
+    try {
+        const client = new OpenAI();
+
+        const categoryDescriptions = {
+            maths: 'mathematics (arithmetic, geometry, algebra)',
+            science: 'science (physics, chemistry, biology, earth science)',
+            riddles: 'riddles and brain teasers',
+            spelling: 'spelling (ask which spelling is correct)',
+            india: 'India general knowledge (history, geography, culture, famous people)'
+        };
+
+        const difficultyDescriptions = {
+            easy: 'easy (ages 5-7, simple and straightforward)',
+            medium: 'medium (ages 8-10, requires some thinking)',
+            hard: 'hard (ages 11-13, challenging)'
+        };
+
+        const existingTexts = (questionBank[category]?.[difficulty] || [])
+            .slice(-20)
+            .map(q => q.question);
+
+        const completion = await client.chat.completions.create({
+            model: 'gpt-4o-mini',
+            max_tokens: 4000,
+            messages: [{
+                role: 'user',
+                content: `Generate 10 unique multiple-choice quiz questions for children about ${categoryDescriptions[category]}, at ${difficultyDescriptions[difficulty]} level.
+
+Return ONLY a JSON array (no markdown, no explanation) with objects having these fields:
+- "question": string (the question text)
+- "options": array of exactly 4 strings (answer choices)
+- "correct": number (0-based index of the correct answer)
+
+Requirements:
+- Questions must be factually accurate
+- All 4 options must be plausible but only one correct
+- Questions must be age-appropriate
+- UNIQUENESS IS CRITICAL: Each question must test a DIFFERENT fact, concept, or skill. Do NOT rephrase existing questions, use the same template with swapped values, or ask the same concept with different numbers.
+- Cover DIVERSE topics within the category.
+- Do NOT duplicate or closely resemble any of these existing questions: ${JSON.stringify(existingTexts)}`
+            }]
+        });
+
+        const responseText = completion.choices[0].message.content.trim();
+        let generated;
+        try {
+            generated = JSON.parse(responseText);
+        } catch (e) {
+            const jsonMatch = responseText.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                generated = JSON.parse(jsonMatch[0]);
+            } else {
+                throw new Error('Could not parse AI response as JSON');
+            }
+        }
+
+        // Validate and assign IDs
+        const newQuestions = [];
+        for (const q of generated) {
+            if (!q.question || !Array.isArray(q.options) || q.options.length !== 4 ||
+                typeof q.correct !== 'number' || q.correct < 0 || q.correct > 3) {
+                continue;
+            }
+            const id = getNextQuestionId(category, difficulty);
+            newQuestions.push({ id, question: q.question, options: q.options, correct: q.correct });
+        }
+
+        if (newQuestions.length === 0) {
+            return res.json({ success: false, reason: 'generation_failed' });
+        }
+
+        // Add to bank and save
+        if (!questionBank[category]) questionBank[category] = {};
+        if (!questionBank[category][difficulty]) questionBank[category][difficulty] = [];
+        questionBank[category][difficulty].push(...newQuestions);
+        saveQuestionBank();
+
+        // Find an unseen question for this device
+        const seenIds = new Set();
+        if (deviceId) {
+            const rows = await new Promise((resolve, reject) => {
+                db.all('SELECT question_id FROM user_question_history WHERE device_id = ? AND category = ? AND difficulty = ?',
+                    [deviceId, category, difficulty], (err, rows) => err ? reject(err) : resolve(rows));
+            });
+            rows.forEach(r => seenIds.add(r.question_id));
+        }
+
+        const unseen = newQuestions.filter(q => !seenIds.has(q.id));
+        if (unseen.length === 0) {
+            return res.json({ success: false, reason: 'all_seen' });
+        }
+
+        const question = unseen[Math.floor(Math.random() * unseen.length)];
+        res.json({ success: true, question });
+
+    } catch (error) {
+        console.error('Question generation error:', error.message);
+        res.json({ success: false, reason: 'api_error', error: error.message });
+    }
 });
 
 // Get leaderboard

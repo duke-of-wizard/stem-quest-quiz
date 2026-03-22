@@ -3,3 +3,5 @@ quiz.db
 *.log
 .DS_Store
 .env
+generate-progress.json
+questions.backup.json
