@@ -88,9 +88,12 @@ async function verifyBatch(questions, client) {
     const questionsForVerification = questions.map((q, i) => ({
         index: i,
         question: q.question,
-        options: q.options,
-        claimed_correct: q.correct,
-        claimed_answer: q.options[q.correct]
+        option_0: q.options[0],
+        option_1: q.options[1],
+        option_2: q.options[2],
+        option_3: q.options[3],
+        claimed_correct_index: q.correct,
+        claimed_correct_text: q.options[q.correct]
     }));
 
     try {
@@ -99,16 +102,18 @@ async function verifyBatch(questions, client) {
             max_tokens: 4000,
             messages: [{
                 role: 'user',
-                content: `You are a fact-checker for a children's quiz. For each question below, verify if the claimed correct answer is actually correct.
+                content: `You are a fact-checker for a children's quiz.
+
+For each question, verify if claimed_correct_text is the right answer. "correct_index" in your response must be the OPTION NUMBER (0-3) whose TEXT is correct.
 
 Return ONLY a valid JSON array (no markdown fences) with objects:
-- "index": number (the question index)
+- "index": number (question index)
 - "verdict": "correct" | "wrong" | "ambiguous"
-- "correct_index": number (the actual correct 0-based index if verdict is "wrong", otherwise same as claimed)
+- "correct_index": number (0-3, the option number with the right answer text)
 
-Be strict: for maths, compute the answer. For facts, verify accuracy. For spelling, check the dictionary.
+For maths, compute the answer then find the matching option. If no option is right, verdict is "ambiguous".
 
-Questions to verify:
+Questions:
 ${JSON.stringify(questionsForVerification)}`
             }]
         });

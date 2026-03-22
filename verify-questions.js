@@ -7,8 +7,9 @@ const fs = require('fs');
 const OpenAI = require('openai');
 
 const QUESTIONS_FILE = './questions.json';
-const BATCH_SIZE = 20; // Questions per verification call
-const DELAY_MS = 1000; // Delay between API calls to avoid rate limits
+const BATCH_SIZE = 15; // Questions per verification call
+const DELAY_MS = 1500; // Delay between API calls to avoid rate limits
+const MATH_MODEL = 'gpt-5.4'; // Latest model for maths verification
 
 const args = process.argv.slice(2);
 let filterCategory = null;
@@ -19,37 +20,45 @@ for (let i = 0; i < args.length; i++) {
     if (args[i] === '--difficulty' && args[i + 1]) filterDifficulty = args[i + 1];
 }
 
-async function verifyBatch(questions, client) {
+async function verifyBatch(questions, client, model = 'gpt-4o-mini') {
     const questionsForVerification = questions.map((q, i) => ({
         index: i,
         question: q.question,
-        options: q.options,
-        claimed_correct: q.correct,
-        claimed_answer: q.options[q.correct]
+        option_0: q.options[0],
+        option_1: q.options[1],
+        option_2: q.options[2],
+        option_3: q.options[3],
+        claimed_correct_index: q.correct,
+        claimed_correct_text: q.options[q.correct]
     }));
 
     const verification = await client.chat.completions.create({
-        model: 'gpt-4o-mini',
-        max_tokens: 4000,
+        model: model,
+        max_completion_tokens: 4000,
         messages: [{
             role: 'user',
-            content: `You are a strict fact-checker for a children's quiz. For each question below, verify if the claimed correct answer is actually correct.
+            content: `You are a strict fact-checker for a children's quiz.
+
+For each question, I give you the question text, four options (option_0 through option_3), and the claimed_correct_index (which option is marked as correct).
+
+Your job: verify if claimed_correct_text is ACTUALLY the right answer to the question.
+
+IMPORTANT: "correct_index" in your response must refer to the OPTION NUMBER (0, 1, 2, or 3) whose TEXT is the right answer. For example, if option_2 has text "6" and 6 is the right answer, correct_index should be 2.
 
 Return ONLY a valid JSON array (no markdown fences) with objects:
-- "index": number (the question index)
+- "index": number (the question's index field from input)
 - "verdict": "correct" | "wrong" | "ambiguous"
-- "correct_index": number (the actual correct 0-based index if verdict is "wrong", otherwise same as claimed)
+- "correct_index": number (0-3, the option number that has the RIGHT answer text. Same as claimed if verdict is "correct")
 - "reason": string (brief explanation if wrong or ambiguous)
 
-Be very strict:
-- For maths: compute the exact answer
-- For science: verify the fact
-- For spelling: check if the "correct" option is actually spelled correctly
-- For India GK: verify the fact
-- For riddles: verify the logic
+Rules:
+- For maths: compute the exact numerical answer, then find which option matches that number
+- For science/GK: verify the fact, then find which option matches
+- For spelling: the correct option must be spelled correctly
+- If no option has the right answer, verdict is "ambiguous"
 
-Questions to verify:
-${JSON.stringify(questionsForVerification)}`
+Questions:
+${JSON.stringify(questionsForVerification, null, 2)}`
         }]
     });
 
@@ -111,7 +120,8 @@ async function main() {
                 process.stdout.write(`  Batch ${batchNum}/${totalBatches} (${batch.length} questions)... `);
 
                 try {
-                    const verdicts = await verifyBatch(batch, client);
+                    const model = category === 'maths' ? MATH_MODEL : 'gpt-4o-mini';
+                    const verdicts = await verifyBatch(batch, client, model);
 
                     for (const v of verdicts) {
                         const q = batch[v.index];
