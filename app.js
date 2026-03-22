@@ -1,3 +1,7 @@
+// ============================================
+// STEM Quest — Application Logic
+// ============================================
+
 // Persistent device ID for cross-session tracking
 function getDeviceId() {
     let deviceId = localStorage.getItem('stemquest_device_id');
@@ -8,81 +12,232 @@ function getDeviceId() {
     return deviceId;
 }
 
+// ============================================
 // Game State
+// ============================================
+
 const gameState = {
     sessionId: null,
     deviceId: getDeviceId(),
     userId: null,
     gameSessionId: null,
     ageGroup: null,
+    selectedCharacter: null,
     currentQuestion: null,
     currentScore: 0,
     questionsAnswered: 0,
+    questionsCorrect: 0,
     difficulty: 'easy',
+    maxDifficulty: 'easy',
     attempt: 1,
     correctStreak: 0,
     winningStreak: 0,
+    bestStreak: 0,
     totalQuestions: 10,
-    allCategories: ['maths', 'science', 'riddles', 'spelling', 'india']
+    allCategories: ['maths', 'science', 'riddles', 'spelling', 'india'],
+    currentScreen: 'welcome',
+    answered: false,
+    autoAdvanceTimer: null,
+    questionResults: [] // track correct/wrong for progress bar
 };
 
+// ============================================
 // DOM Elements
-const welcomeScreen = document.getElementById('welcomeScreen');
-const quizScreen = document.getElementById('quizScreen');
-const resultsScreen = document.getElementById('resultsScreen');
+// ============================================
 
-const ageButtons = document.querySelectorAll('.age-btn');
-const startQuizBtn = document.getElementById('startQuizBtn');
+const screens = {
+    welcome: document.getElementById('welcomeScreen'),
+    age: document.getElementById('ageScreen'),
+    character: document.getElementById('characterScreen'),
+    quiz: document.getElementById('quizScreen'),
+    results: document.getElementById('resultsScreen')
+};
 
-const currentScoreEl = document.getElementById('currentScore');
-const difficultyLevelEl = document.getElementById('difficultyLevel');
-const questionNumEl = document.getElementById('questionNum');
-const questionTextEl = document.getElementById('questionText');
-const optionsContainer = document.getElementById('optionsContainer');
-const feedbackMessage = document.getElementById('feedbackMessage');
-const nextQuestionBtn = document.getElementById('nextQuestionBtn');
-const categoryBadgeEl = document.getElementById('categoryBadge');
-const streakBadgeEl = document.getElementById('streakBadge');
-const streakCountEl = document.getElementById('streakCount');
+const els = {
+    // Welcome
+    beginBtn: document.getElementById('beginBtn'),
 
-const finalScoreEl = document.getElementById('finalScore');
-const totalQuestionsEl = document.getElementById('totalQuestions');
-const finalDifficultyEl = document.getElementById('finalDifficulty');
-const playAgainBtn = document.getElementById('playAgainBtn');
+    // Age
+    ageCards: document.querySelectorAll('.age-card'),
+
+    // Character
+    characterGrid: document.getElementById('characterGrid'),
+    startWithCharacterBtn: document.getElementById('startWithCharacterBtn'),
+
+    // Quiz
+    progressSegments: document.getElementById('progressSegments'),
+    progressLabel: document.getElementById('progressLabel'),
+    currentScore: document.getElementById('currentScore'),
+    streakBadge: document.getElementById('streakBadge'),
+    streakCount: document.getElementById('streakCount'),
+    difficultyBadge: document.getElementById('difficultyBadge'),
+    categoryBadge: document.getElementById('categoryBadge'),
+    characterPanel: document.getElementById('characterPanel'),
+    quizCharacterAvatar: document.getElementById('quizCharacterAvatar'),
+    speechBubble: document.getElementById('speechBubble'),
+    speechText: document.getElementById('speechText'),
+    quizCard: document.getElementById('quizCard'),
+    questionContainer: document.getElementById('questionContainer'),
+    questionText: document.getElementById('questionText'),
+    optionsContainer: document.getElementById('optionsContainer'),
+    feedbackMessage: document.getElementById('feedbackMessage'),
+    nextQuestionBtn: document.getElementById('nextQuestionBtn'),
+
+    // Results
+    resultsCharacter: document.getElementById('resultsCharacter'),
+    resultsSpeechBubble: document.getElementById('resultsSpeechBubble'),
+    resultsSpeechText: document.getElementById('resultsSpeechText'),
+    scoreRingCircle: document.getElementById('scoreRingCircle'),
+    finalScoreNum: document.getElementById('finalScoreNum'),
+    statCorrect: document.getElementById('statCorrect'),
+    statDifficulty: document.getElementById('statDifficulty'),
+    statStreak: document.getElementById('statStreak'),
+    playAgainBtn: document.getElementById('playAgainBtn'),
+    changeCharacterBtn: document.getElementById('changeCharacterBtn'),
+
+    // Sound
+    soundToggle: document.getElementById('soundToggle'),
+
+    // Notification
+    notificationContainer: document.getElementById('notificationContainer')
+};
 
 // API Base URL
-const API_URL = 'http://localhost:3000/api';
+const API_URL = window.location.origin + '/api';
 
-// Event Listeners
-ageButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        ageButtons.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        gameState.ageGroup = btn.dataset.age;
-        startQuizBtn.style.display = 'block';
+// ============================================
+// Screen Transitions
+// ============================================
+
+function switchScreen(targetName) {
+    const current = screens[gameState.currentScreen];
+    const target = screens[targetName];
+
+    if (current === target) return;
+
+    // Simply hide current, show target
+    current.classList.remove('active');
+    target.classList.add('active');
+    gameState.currentScreen = targetName;
+}
+
+// ============================================
+// Sound System
+// ============================================
+
+els.soundToggle.addEventListener('click', () => {
+    SoundSystem.init();
+    const enabled = SoundSystem.toggle();
+    els.soundToggle.querySelector('.sound-on').style.display = enabled ? '' : 'none';
+    els.soundToggle.querySelector('.sound-off').style.display = enabled ? 'none' : '';
+});
+
+// Initialize sound on first interaction
+document.addEventListener('click', function initSound() {
+    SoundSystem.init();
+    document.removeEventListener('click', initSound);
+}, { once: true });
+
+// Restore sound icon state
+if (localStorage.getItem('stemquest_sound') === 'false') {
+    els.soundToggle.querySelector('.sound-on').style.display = 'none';
+    els.soundToggle.querySelector('.sound-off').style.display = '';
+}
+
+// ============================================
+// Welcome Screen
+// ============================================
+
+els.beginBtn.addEventListener('click', () => {
+    SoundSystem.click();
+    switchScreen('age');
+});
+
+// ============================================
+// Age Selection
+// ============================================
+
+els.ageCards.forEach(card => {
+    card.addEventListener('click', () => {
+        SoundSystem.click();
+        els.ageCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        gameState.ageGroup = card.dataset.age;
+
+        // Auto-advance to character screen after brief delay
+        setTimeout(() => switchScreen('character'), 300);
     });
 });
 
-startQuizBtn.addEventListener('click', startQuiz);
-nextQuestionBtn.addEventListener('click', loadNextQuestion);
-playAgainBtn.addEventListener('click', resetGame);
+// ============================================
+// Character Selection
+// ============================================
 
-// Generate unique session ID
+function initCharacterGrid() {
+    const grid = els.characterGrid;
+    grid.innerHTML = '';
+
+    Object.values(CHARACTERS).forEach(char => {
+        const card = document.createElement('button');
+        card.className = 'character-card stagger-child';
+        card.dataset.character = char.id;
+
+        card.innerHTML = `
+            <div class="char-avatar">${getCharacterSVG(char.id, 'happy')}</div>
+            <span class="char-name">${char.name}</span>
+            <span class="char-tagline">${char.tagline}</span>
+        `;
+
+        card.addEventListener('click', () => {
+            SoundSystem.click();
+            grid.querySelectorAll('.character-card').forEach(c => {
+                c.classList.remove('selected');
+                c.style.borderColor = '';
+            });
+            card.classList.add('selected');
+            card.style.borderColor = char.color;
+            card.style.boxShadow = `0 0 0 1px ${char.color}`;
+            grid.classList.add('has-selection');
+            gameState.selectedCharacter = char.id;
+            els.startWithCharacterBtn.disabled = false;
+        });
+
+        grid.appendChild(card);
+    });
+}
+
+initCharacterGrid();
+
+els.startWithCharacterBtn.addEventListener('click', () => {
+    SoundSystem.click();
+    startQuiz();
+});
+
+// ============================================
+// Quiz Flow
+// ============================================
+
 function generateSessionId() {
     return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 }
 
-// Start Quiz
 async function startQuiz() {
-    if (!gameState.ageGroup) {
-        alert('Please select your age group!');
-        return;
-    }
+    if (!gameState.ageGroup || !gameState.selectedCharacter) return;
 
     gameState.sessionId = generateSessionId();
+    gameState.currentScore = 0;
+    gameState.questionsAnswered = 0;
+    gameState.questionsCorrect = 0;
+    gameState.difficulty = 'easy';
+    gameState.maxDifficulty = 'easy';
+    gameState.attempt = 1;
+    gameState.correctStreak = 0;
+    gameState.winningStreak = 0;
+    gameState.bestStreak = 0;
+    gameState.answered = false;
+    gameState.questionResults = [];
 
     try {
-        // Create user session with "mixed" category
         const response = await fetch(`${API_URL}/user/create`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -99,19 +254,123 @@ async function startQuiz() {
             gameState.userId = data.userId;
             gameState.gameSessionId = data.gameSessionId;
 
-            // Switch to quiz screen
+            // Setup quiz UI
+            setupQuizUI();
             switchScreen('quiz');
+
+            // Show character greeting
+            setTimeout(() => {
+                setCharacterExpression('happy');
+                showCharacterSpeech('greeting', 5000);
+            }, 400);
+
             loadNextQuestion();
-        } else {
-            alert('Error starting quiz. Please try again.');
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('Error connecting to server. Make sure the server is running!');
+        console.error('Error starting quiz:', error);
     }
 }
 
-// Try to get a question from a specific category/difficulty
+function setupQuizUI() {
+    // Build progress segments
+    els.progressSegments.innerHTML = '';
+    for (let i = 0; i < gameState.totalQuestions; i++) {
+        const seg = document.createElement('div');
+        seg.className = 'progress-segment';
+        if (i === 0) seg.classList.add('current');
+        els.progressSegments.appendChild(seg);
+    }
+
+    // Reset UI
+    els.currentScore.textContent = '0';
+    els.difficultyBadge.textContent = 'Easy';
+    els.streakBadge.style.display = 'none';
+    els.nextQuestionBtn.style.display = 'none';
+
+    // Prep character avatar (panel hidden by default)
+    updateCharacterAvatar('happy');
+    els.characterPanel.classList.remove('pop-in');
+}
+
+// ============================================
+// Character System
+// ============================================
+
+function updateCharacterAvatar(expression) {
+    if (!gameState.selectedCharacter) return;
+    els.quizCharacterAvatar.innerHTML = getCharacterSVG(gameState.selectedCharacter, expression);
+}
+
+function setCharacterExpression(expression) {
+    updateCharacterAvatar(expression);
+}
+
+let speechTimeout = null;
+let panelTimeout = null;
+
+function showCharacterPopIn(type, duration = 3000) {
+    if (!gameState.selectedCharacter) return;
+
+    const msg = getCharacterMessage(gameState.selectedCharacter, type);
+    if (!msg) return;
+
+    clearTimeout(speechTimeout);
+    clearTimeout(panelTimeout);
+
+    // Update avatar and speech
+    const char = CHARACTERS[gameState.selectedCharacter];
+    if (char) {
+        document.getElementById('characterGuideBadge').textContent = char.name;
+    }
+    els.speechText.textContent = msg;
+
+    // Set accent border color
+    els.characterPanel.style.borderLeftColor = char.color;
+    els.characterPanel.style.borderLeftWidth = '4px';
+
+    // Pop in the whole panel
+    els.characterPanel.classList.add('pop-in');
+
+    // Bounce the avatar
+    els.quizCharacterAvatar.classList.remove('bounce');
+    void els.quizCharacterAvatar.offsetHeight;
+    els.quizCharacterAvatar.classList.add('bounce');
+
+    // Auto-hide after duration
+    panelTimeout = setTimeout(() => {
+        els.characterPanel.classList.remove('pop-in');
+    }, duration);
+}
+
+// Keep backward compat — these now delegate to popIn
+function showCharacterSpeech(type, duration = 3000) {
+    showCharacterPopIn(type, duration);
+}
+
+function showCharacterHint(category) {
+    const hintEl = document.getElementById('characterHint');
+    if (!hintEl || !gameState.selectedCharacter) return;
+
+    const char = CHARACTERS[gameState.selectedCharacter];
+    if (char && char.categoryHints && char.categoryHints[category]) {
+        hintEl.textContent = char.categoryHints[category];
+    } else {
+        hintEl.textContent = '';
+    }
+}
+
+// ============================================
+// Question Loading
+// ============================================
+
+const categoryNames = {
+    maths: 'Maths',
+    science: 'Science',
+    riddles: 'Riddles',
+    spelling: 'Spelling',
+    india: 'India'
+};
+
 async function fetchQuestion(category, difficulty) {
     const response = await fetch(`${API_URL}/question/get`, {
         method: 'POST',
@@ -126,7 +385,6 @@ async function fetchQuestion(category, difficulty) {
     return response.json();
 }
 
-// Try to generate new questions online
 async function fetchGeneratedQuestion(category, difficulty) {
     if (!navigator.onLine) return null;
     try {
@@ -146,17 +404,23 @@ async function fetchGeneratedQuestion(category, difficulty) {
     }
 }
 
-// Load Next Question - Mix categories
 async function loadNextQuestion() {
+    // Clear auto-advance timer
+    clearTimeout(gameState.autoAdvanceTimer);
+
     if (gameState.questionsAnswered >= gameState.totalQuestions) {
         completeQuiz();
         return;
     }
 
     gameState.attempt = 1;
+    gameState.answered = false;
+    els.nextQuestionBtn.style.display = 'none';
+
+    // Update progress
+    updateProgress();
 
     try {
-        // Shuffle categories to try
         const shuffled = [...gameState.allCategories].sort(() => Math.random() - 0.5);
 
         for (const category of shuffled) {
@@ -169,7 +433,6 @@ async function loadNextQuestion() {
                 return;
             }
 
-            // If exhausted, try online generation
             if (data.exhausted) {
                 const generated = await fetchGeneratedQuestion(category, gameState.difficulty);
                 if (generated) {
@@ -181,9 +444,9 @@ async function loadNextQuestion() {
             }
         }
 
-        // All categories exhausted at current difficulty - try other difficulties
-        const allDifficulties = ['easy', 'medium', 'hard'].filter(d => d !== gameState.difficulty);
-        for (const diff of allDifficulties) {
+        // Try other difficulties
+        const otherDiffs = ['easy', 'medium', 'hard'].filter(d => d !== gameState.difficulty);
+        for (const diff of otherDiffs) {
             for (const category of shuffled) {
                 const data = await fetchQuestion(category, diff);
                 if (data.success && data.question) {
@@ -195,64 +458,102 @@ async function loadNextQuestion() {
             }
         }
 
-        // Truly exhausted everything
         completeQuiz();
-
     } catch (error) {
-        console.error('Error:', error);
-        alert('Error loading question. Please try again.');
+        console.error('Error loading question:', error);
     }
 }
 
-// Display Question
 function displayQuestion() {
-    // Update question number
-    questionNumEl.textContent = gameState.questionsAnswered + 1;
+    // Update category badge
+    const cat = gameState.currentQuestion.category;
+    els.categoryBadge.textContent = categoryNames[cat] || cat;
 
-    // Display category badge
-    const categoryNames = {
-        maths: '📊 Maths',
-        science: '🔬 Science',
-        riddles: '🧩 Riddles',
-        spelling: '✏️ Spelling',
-        india: '🇮🇳 India Quiz'
-    };
-    categoryBadgeEl.textContent = categoryNames[gameState.currentQuestion.category] || '';
+    // Slide transition for question text
+    const container = els.questionContainer;
+    container.classList.add('slide-out');
 
-    // Display question
-    questionTextEl.textContent = gameState.currentQuestion.question;
+    setTimeout(() => {
+        // Update question text
+        els.questionText.textContent = gameState.currentQuestion.question;
 
-    // Clear previous options
-    optionsContainer.innerHTML = '';
-    feedbackMessage.style.display = 'none';
-    feedbackMessage.className = 'feedback-message';
-    nextQuestionBtn.style.display = 'none';
+        container.classList.remove('slide-out');
+        container.classList.add('slide-in');
 
-    // Create option buttons
+        setTimeout(() => container.classList.remove('slide-in'), 500);
+    }, 200);
+
+    // Clear hint
+    document.getElementById('characterHint').textContent = '';
+
+    // Clear and build options
+    els.optionsContainer.innerHTML = '';
+    els.feedbackMessage.style.display = 'none';
+    els.feedbackMessage.className = 'feedback-message';
+
+    const letters = ['A', 'B', 'C', 'D'];
+
     gameState.currentQuestion.options.forEach((option, index) => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
-        btn.textContent = option;
         btn.dataset.index = index;
+
+        btn.innerHTML = `
+            <span class="option-letter">${letters[index]}</span>
+            <span class="option-text">${option}</span>
+            <span class="option-shortcut">${index + 1}</span>
+        `;
+
         btn.addEventListener('click', () => handleAnswer(index));
-        optionsContainer.appendChild(btn);
+        els.optionsContainer.appendChild(btn);
     });
+
+    // Update progress label
+    els.progressLabel.textContent = `${gameState.questionsAnswered + 1} of ${gameState.totalQuestions}`;
 }
 
-// Handle Answer Selection
+// ============================================
+// Progress Bar
+// ============================================
+
+function updateProgress() {
+    const segments = els.progressSegments.children;
+    for (let i = 0; i < segments.length; i++) {
+        segments[i].className = 'progress-segment';
+        if (i < gameState.questionResults.length) {
+            segments[i].classList.add(gameState.questionResults[i] ? 'correct' : 'wrong');
+        } else if (i === gameState.questionResults.length) {
+            segments[i].classList.add('current');
+        }
+    }
+}
+
+// ============================================
+// Answer Handling
+// ============================================
+
 async function handleAnswer(selectedIndex) {
+    if (gameState.answered && gameState.attempt !== 2) return;
+
     const correctIndex = gameState.currentQuestion.correct;
     const isCorrect = selectedIndex === correctIndex;
 
-    // Disable all option buttons
     const optionButtons = document.querySelectorAll('.option-btn');
+
+    // Disable all buttons
     optionButtons.forEach(btn => btn.classList.add('disabled'));
 
-    // Highlight selected answer
+    // Highlight selected
     optionButtons[selectedIndex].classList.add(isCorrect ? 'correct' : 'incorrect');
 
+    // Play sound
+    if (isCorrect) {
+        SoundSystem.correct();
+    } else {
+        SoundSystem.wrong();
+    }
+
     try {
-        // Submit answer to backend
         const response = await fetch(`${API_URL}/answer/submit`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -271,87 +572,205 @@ async function handleAnswer(selectedIndex) {
         const data = await response.json();
 
         if (data.success) {
-            // Update score
             gameState.currentScore = data.totalScore;
-            currentScoreEl.textContent = gameState.currentScore;
+            animateScore(data.totalScore);
 
             if (isCorrect) {
-                // Correct answer - increment streaks
+                gameState.answered = true;
                 gameState.correctStreak++;
                 gameState.winningStreak++;
+                gameState.questionsCorrect++;
 
-                // Update streak badge
-                if (gameState.winningStreak > 0) {
-                    streakBadgeEl.style.display = 'block';
-                    streakCountEl.textContent = gameState.winningStreak;
+                if (gameState.winningStreak > gameState.bestStreak) {
+                    gameState.bestStreak = gameState.winningStreak;
                 }
 
-                // Check for 5-question winning streak - CONFETTI!
-                if (gameState.winningStreak === 5) {
+                // Update streak badge
+                if (gameState.winningStreak > 1) {
+                    els.streakBadge.style.display = '';
+                    els.streakCount.textContent = gameState.winningStreak;
+                }
+
+                // Streak milestones
+                if (gameState.winningStreak === 5 || (gameState.winningStreak > 5 && gameState.winningStreak % 5 === 0)) {
+                    // Big milestone: confetti + center notification only (no toast — avoid collision)
+                    SoundSystem.streak();
                     triggerConfetti();
-                    showStreakNotification('🎉 AMAZING! 5 in a row!');
-                } else if (gameState.winningStreak > 5 && gameState.winningStreak % 5 === 0) {
-                    triggerConfetti();
-                    showStreakNotification(`🔥 ${gameState.winningStreak} STREAK! Unstoppable!`);
+                    showNotification(
+                        gameState.winningStreak === 5
+                            ? 'AMAZING! 5 in a row!'
+                            : `${gameState.winningStreak} STREAK! Unstoppable!`,
+                        'streak'
+                    );
+                } else if (gameState.winningStreak === 3) {
+                    // Small milestone: character toast only
+                    setCharacterExpression('excited');
+                    showCharacterPopIn('streak3', 2500);
                 }
 
                 gameState.questionsAnswered++;
+                gameState.questionResults.push(true);
+                updateProgress();
 
-                feedbackMessage.className = 'feedback-message success';
-                feedbackMessage.textContent = gameState.attempt === 1
-                    ? `🎉 Excellent! You earned ${data.pointsEarned} points!`
-                    : `✓ Correct! You earned ${data.pointsEarned} point!`;
-                feedbackMessage.style.display = 'block';
+                // Feedback
+                els.feedbackMessage.className = 'feedback-message success';
+                els.feedbackMessage.textContent = gameState.attempt === 1
+                    ? `Excellent! +${data.pointsEarned} points`
+                    : `Correct! +${data.pointsEarned} point`;
+                els.feedbackMessage.style.display = 'block';
 
-                // Check if difficulty should increase
+                // Difficulty increase
                 if (gameState.correctStreak >= 3) {
                     increaseDifficulty();
                     gameState.correctStreak = 0;
                 }
 
-                // Show next question button
-                nextQuestionBtn.style.display = 'block';
+                // Auto-advance after 1.5s
+                els.nextQuestionBtn.style.display = 'flex';
+                gameState.autoAdvanceTimer = setTimeout(() => {
+                    loadNextQuestion();
+                }, 1500);
+
             } else {
-                // Wrong answer - reset winning streak
+                // Wrong answer
                 gameState.correctStreak = 0;
                 gameState.winningStreak = 0;
-                streakBadgeEl.style.display = 'none';
+                els.streakBadge.style.display = 'none';
 
                 if (gameState.attempt === 1) {
-                    // First attempt - give another try
                     gameState.attempt = 2;
 
-                    feedbackMessage.className = 'feedback-message retry';
-                    feedbackMessage.textContent = '❌ Not quite! Try again!';
-                    feedbackMessage.style.display = 'block';
+                    setCharacterExpression('thinking');
+                    showCharacterPopIn('retry', 2500);
 
-                    // Re-enable buttons for second attempt
+                    els.feedbackMessage.className = 'feedback-message retry';
+                    els.feedbackMessage.textContent = 'Not quite! Try again';
+                    els.feedbackMessage.style.display = 'block';
+
+                    // Re-enable remaining buttons
                     optionButtons.forEach(btn => {
                         if (btn.dataset.index !== selectedIndex.toString()) {
                             btn.classList.remove('disabled');
                         }
                     });
                 } else {
-                    // Second attempt - highlight correct answer and move on
+                    // Second attempt wrong
+                    gameState.answered = true;
                     gameState.questionsAnswered++;
+                    gameState.questionResults.push(false);
+                    updateProgress();
+
                     optionButtons[correctIndex].classList.add('correct');
 
-                    feedbackMessage.className = 'feedback-message error';
-                    feedbackMessage.textContent = `❌ The correct answer was: ${gameState.currentQuestion.options[correctIndex]}`;
-                    feedbackMessage.style.display = 'block';
+                    setCharacterExpression('sad');
+                    showCharacterPopIn('encouragement', 3000);
 
-                    // Show next question button
-                    nextQuestionBtn.style.display = 'block';
+                    els.feedbackMessage.className = 'feedback-message error';
+                    els.feedbackMessage.textContent = `The answer was: ${gameState.currentQuestion.options[correctIndex]}`;
+                    els.feedbackMessage.style.display = 'block';
+
+                    els.nextQuestionBtn.style.display = 'flex';
+
+                    // Reset expression after panel hides
+                    setTimeout(() => setCharacterExpression('neutral'), 3200);
                 }
             }
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('Error submitting answer. Please try again.');
+        console.error('Error submitting answer:', error);
     }
 }
 
-// Confetti Animation
+// ============================================
+// Score Animation
+// ============================================
+
+function animateScore(target) {
+    const el = els.currentScore;
+    const current = parseInt(el.textContent) || 0;
+    if (current === target) return;
+
+    const start = performance.now();
+    const duration = 300;
+
+    function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(current + (target - current) * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+}
+
+// ============================================
+// Difficulty
+// ============================================
+
+async function increaseDifficulty() {
+    let newDifficulty = gameState.difficulty;
+
+    if (gameState.difficulty === 'easy') {
+        newDifficulty = 'medium';
+    } else if (gameState.difficulty === 'medium') {
+        newDifficulty = 'hard';
+    }
+
+    if (newDifficulty !== gameState.difficulty) {
+        gameState.difficulty = newDifficulty;
+
+        // Track max difficulty
+        const levels = { easy: 0, medium: 1, hard: 2 };
+        if (levels[newDifficulty] > levels[gameState.maxDifficulty]) {
+            gameState.maxDifficulty = newDifficulty;
+        }
+
+        els.difficultyBadge.textContent = newDifficulty.charAt(0).toUpperCase() + newDifficulty.slice(1);
+
+        SoundSystem.levelUp();
+        showNotification(`Level up! ${els.difficultyBadge.textContent} mode`, 'difficulty');
+
+        try {
+            await fetch(`${API_URL}/difficulty/update`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sessionId: gameState.gameSessionId,
+                    difficulty: newDifficulty
+                })
+            });
+        } catch (error) {
+            console.error('Error updating difficulty:', error);
+        }
+    }
+}
+
+// ============================================
+// Notifications
+// ============================================
+
+function showNotification(message, type = 'difficulty') {
+    const el = document.createElement('div');
+    el.className = `notification ${type}`;
+    el.textContent = message;
+
+    if (type === 'streak') {
+        document.body.appendChild(el);
+    } else {
+        els.notificationContainer.appendChild(el);
+    }
+
+    setTimeout(() => {
+        el.classList.add('exit');
+        setTimeout(() => el.remove(), 200);
+    }, 2500);
+}
+
+// ============================================
+// Confetti
+// ============================================
+
 function triggerConfetti() {
     const canvas = document.getElementById('confettiCanvas');
     const ctx = canvas.getContext('2d');
@@ -359,15 +778,18 @@ function triggerConfetti() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    const char = CHARACTERS[gameState.selectedCharacter];
+    const charColor = char ? char.color : '#6C5CE7';
+
     const particles = [];
-    const particleCount = 150;
-    const colors = ['#7B68EE', '#FF6B9D', '#49CCF9', '#49E9A6', '#FFC800', '#FF9F40'];
+    const particleCount = 120;
+    const colors = ['#58CC02', '#1CB0F6', '#FF4B4B', '#FFC800', '#CE82FF', '#FF9600'];
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height - canvas.height,
-            r: Math.random() * 6 + 4,
+            r: Math.random() * 5 + 3,
             d: Math.random() * particleCount,
             color: colors[Math.floor(Math.random() * colors.length)],
             tilt: Math.floor(Math.random() * 10) - 10,
@@ -376,9 +798,8 @@ function triggerConfetti() {
         });
     }
 
-    let animationFrame;
     let frameCount = 0;
-    const maxFrames = 300;
+    const maxFrames = 240;
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -397,222 +818,174 @@ function triggerConfetti() {
             p.tilt = Math.sin(p.tiltAngle - index / 3) * 15;
 
             if (p.y > canvas.height) {
-                particles[index] = {
-                    ...p,
-                    x: Math.random() * canvas.width,
-                    y: -20
-                };
+                particles[index] = { ...p, x: Math.random() * canvas.width, y: -20 };
             }
         });
 
         frameCount++;
         if (frameCount < maxFrames) {
-            animationFrame = requestAnimationFrame(draw);
+            requestAnimationFrame(draw);
         } else {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            cancelAnimationFrame(animationFrame);
         }
     }
 
     draw();
 }
 
-// Increase Difficulty
-async function increaseDifficulty() {
-    let newDifficulty = gameState.difficulty;
-
-    if (gameState.difficulty === 'easy') {
-        newDifficulty = 'medium';
-        difficultyLevelEl.textContent = 'Medium';
-        showDifficultyNotification('🎯 Difficulty increased to Medium!');
-    } else if (gameState.difficulty === 'medium') {
-        newDifficulty = 'hard';
-        difficultyLevelEl.textContent = 'Hard';
-        showDifficultyNotification('🔥 Difficulty increased to Hard!');
-    }
-
-    if (newDifficulty !== gameState.difficulty) {
-        gameState.difficulty = newDifficulty;
-
-        try {
-            await fetch(`${API_URL}/difficulty/update`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    sessionId: gameState.gameSessionId,
-                    difficulty: newDifficulty
-                })
-            });
-        } catch (error) {
-            console.error('Error updating difficulty:', error);
-        }
-    }
-}
-
-// Show Difficulty Notification
-function showDifficultyNotification(message) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #49E9A6, #49CCF9);
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 700;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        animation: slideInRight 0.3s ease;
-        font-size: 0.9375rem;
-    `;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
-// Show Streak Notification
-function showStreakNotification(message) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #FF6B6B, #FF9F40);
-        color: white;
-        padding: 2rem 3rem;
-        border-radius: 12px;
-        font-weight: 800;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        animation: bounceIn 0.5s ease;
-        font-size: 1.75rem;
-        text-align: center;
-    `;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.style.animation = 'bounceOut 0.5s ease';
-        setTimeout(() => notification.remove(), 500);
-    }, 2500);
-}
-
+// ============================================
 // Complete Quiz
+// ============================================
+
 async function completeQuiz() {
     try {
         await fetch(`${API_URL}/session/complete`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                sessionId: gameState.gameSessionId
-            })
+            body: JSON.stringify({ sessionId: gameState.gameSessionId })
         });
-
-        // Show results
-        finalScoreEl.textContent = gameState.currentScore;
-        totalQuestionsEl.textContent = gameState.questionsAnswered;
-        finalDifficultyEl.textContent = gameState.difficulty.charAt(0).toUpperCase() + gameState.difficulty.slice(1);
-
-        switchScreen('results');
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error completing session:', error);
     }
+
+    SoundSystem.complete();
+
+    // Setup results screen
+    setupResultsScreen();
+    switchScreen('results');
 }
 
-// Reset Game
-function resetGame() {
-    // Reset game state
+function setupResultsScreen() {
+    // Character celebration
+    if (gameState.selectedCharacter) {
+        els.resultsCharacter.innerHTML = getCharacterSVG(gameState.selectedCharacter, 'excited');
+        els.resultsSpeechText.textContent = getCharacterMessage(gameState.selectedCharacter, 'complete');
+        els.resultsSpeechBubble.classList.add('visible');
+    }
+
+    // Animate score ring
+    const maxScore = gameState.totalQuestions * 2;
+    const percentage = gameState.currentScore / maxScore;
+    const circumference = 2 * Math.PI * 52; // r=52
+    const offset = circumference * (1 - percentage);
+
+    setTimeout(() => {
+        els.scoreRingCircle.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.22, 1, 0.36, 1)';
+        els.scoreRingCircle.style.strokeDashoffset = offset;
+    }, 300);
+
+    // Animate score number
+    animateNumber(els.finalScoreNum, 0, gameState.currentScore, 1500, 300);
+
+    // Stats
+    els.statCorrect.textContent = `${gameState.questionsCorrect}/${gameState.questionsAnswered}`;
+    els.statDifficulty.textContent = gameState.maxDifficulty.charAt(0).toUpperCase() + gameState.maxDifficulty.slice(1);
+    els.statStreak.textContent = gameState.bestStreak;
+}
+
+function animateNumber(el, from, to, duration, delay = 0) {
+    setTimeout(() => {
+        const start = performance.now();
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(from + (to - from) * eased);
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }, delay);
+}
+
+// ============================================
+// Reset / Play Again
+// ============================================
+
+els.playAgainBtn.addEventListener('click', () => {
+    SoundSystem.click();
+    resetQuizState();
+
+    // Reset score ring
+    els.scoreRingCircle.style.transition = 'none';
+    els.scoreRingCircle.style.strokeDashoffset = 327;
+
+    startQuiz();
+});
+
+els.changeCharacterBtn.addEventListener('click', () => {
+    SoundSystem.click();
+    resetQuizState();
+
+    // Reset score ring
+    els.scoreRingCircle.style.transition = 'none';
+    els.scoreRingCircle.style.strokeDashoffset = 327;
+
+    // Reset character selection
+    gameState.selectedCharacter = null;
+    els.startWithCharacterBtn.disabled = true;
+    els.characterGrid.querySelectorAll('.character-card').forEach(c => {
+        c.classList.remove('selected');
+        c.style.borderColor = '';
+        c.style.boxShadow = '';
+    });
+    els.characterGrid.classList.remove('has-selection');
+
+    switchScreen('character');
+});
+
+function resetQuizState() {
+    clearTimeout(gameState.autoAdvanceTimer);
     gameState.sessionId = null;
     gameState.userId = null;
     gameState.gameSessionId = null;
-    gameState.ageGroup = null;
     gameState.currentQuestion = null;
     gameState.currentScore = 0;
     gameState.questionsAnswered = 0;
+    gameState.questionsCorrect = 0;
     gameState.difficulty = 'easy';
+    gameState.maxDifficulty = 'easy';
     gameState.attempt = 1;
     gameState.correctStreak = 0;
     gameState.winningStreak = 0;
-
-    // Reset UI
-    ageButtons.forEach(b => b.classList.remove('selected'));
-    startQuizBtn.style.display = 'none';
-    currentScoreEl.textContent = '0';
-    difficultyLevelEl.textContent = 'Easy';
-    streakBadgeEl.style.display = 'none';
-
-    switchScreen('welcome');
+    gameState.bestStreak = 0;
+    gameState.answered = false;
+    gameState.questionResults = [];
 }
 
-// Switch Screen
-function switchScreen(screen) {
-    welcomeScreen.classList.remove('active');
-    quizScreen.classList.remove('active');
-    resultsScreen.classList.remove('active');
+// ============================================
+// Keyboard Shortcuts
+// ============================================
 
-    if (screen === 'welcome') {
-        welcomeScreen.classList.add('active');
-    } else if (screen === 'quiz') {
-        quizScreen.classList.add('active');
-    } else if (screen === 'results') {
-        resultsScreen.classList.add('active');
-    }
-}
+document.addEventListener('keydown', (e) => {
+    // Only in quiz screen
+    if (gameState.currentScreen !== 'quiz') return;
 
-// Add CSS animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
+    const keyMap = { '1': 0, '2': 1, '3': 2, '4': 3, 'a': 0, 'b': 1, 'c': 2, 'd': 3 };
+    const key = e.key.toLowerCase();
+
+    if (keyMap[key] !== undefined) {
+        const optionButtons = document.querySelectorAll('.option-btn');
+        const btn = optionButtons[keyMap[key]];
+
+        if (btn && !btn.classList.contains('disabled') && !btn.classList.contains('correct') && !btn.classList.contains('incorrect')) {
+            e.preventDefault();
+            handleAnswer(keyMap[key]);
         }
     }
 
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
+    if ((e.key === 'Enter' || e.key === ' ') && gameState.answered) {
+        e.preventDefault();
+        clearTimeout(gameState.autoAdvanceTimer);
+        loadNextQuestion();
     }
+});
 
-    @keyframes bounceIn {
-        0% {
-            transform: translate(-50%, -50%) scale(0.3);
-            opacity: 0;
-        }
-        50% {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-        100% {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-    }
+// ============================================
+// Next Question Button
+// ============================================
 
-    @keyframes bounceOut {
-        0% {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-        100% {
-            transform: translate(-50%, -50%) scale(0.3);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+els.nextQuestionBtn.addEventListener('click', () => {
+    clearTimeout(gameState.autoAdvanceTimer);
+    SoundSystem.click();
+    loadNextQuestion();
+});

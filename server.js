@@ -286,28 +286,35 @@ app.post('/api/question/generate', async (req, res) => {
         };
 
         const existingTexts = (questionBank[category]?.[difficulty] || [])
-            .slice(-20)
+            .slice(-30)
             .map(q => q.question);
 
         const completion = await client.chat.completions.create({
             model: 'gpt-4o-mini',
-            max_tokens: 4000,
+            max_tokens: 8000,
             messages: [{
                 role: 'user',
                 content: `Generate 10 unique multiple-choice quiz questions for children about ${categoryDescriptions[category]}, at ${difficultyDescriptions[difficulty]} level.
 
-Return ONLY a JSON array (no markdown, no explanation) with objects having these fields:
+Return ONLY a valid JSON array (no markdown fences, no explanation) with objects having these fields:
 - "question": string (the question text)
 - "options": array of exactly 4 strings (answer choices)
-- "correct": number (0-based index of the correct answer)
+- "correct": number (0-based index of the correct answer, 0 to 3)
 
-Requirements:
-- Questions must be factually accurate
+Critical requirements:
+- Every question must be factually accurate and verifiable
 - All 4 options must be plausible but only one correct
-- Questions must be age-appropriate
-- UNIQUENESS IS CRITICAL: Each question must test a DIFFERENT fact, concept, or skill. Do NOT rephrase existing questions, use the same template with swapped values, or ask the same concept with different numbers.
-- Cover DIVERSE topics within the category.
-- Do NOT duplicate or closely resemble any of these existing questions: ${JSON.stringify(existingTexts)}`
+- Questions must be age-appropriate for the difficulty level
+- UNIQUENESS IS CRITICAL: Each question must test a DIFFERENT fact, concept, or skill. Do NOT:
+  - Ask the same concept with different numbers (e.g., "What is 3+4?" and "What is 5+6?" are too similar)
+  - Rephrase an existing question (e.g., "What planet is largest?" vs "Which is the biggest planet?")
+  - Ask about the same narrow topic repeatedly (e.g., multiple questions about the capital of India)
+  - Use the same question template with swapped values
+- Cover DIVERSE topics within the category. Each question should feel fresh and different.
+- Here are recent existing questions to AVOID resembling:
+${JSON.stringify(existingTexts)}
+- For spelling questions: frame as "How do you spell..." with exactly one correct spelling and three common misspellings
+- Vary the position of the correct answer (don't always put it at the same index)`
             }]
         });
 

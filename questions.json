@@ -20891,6 +20891,1117 @@
         ],
         "correct": 0,
         "id": "m_m_899"
+      },
+      {
+        "question": "What is 10% of 150?",
+        "options": [
+          "5",
+          "10",
+          "15",
+          "20"
+        ],
+        "correct": 2,
+        "id": "m_m_900"
+      },
+      {
+        "question": "If a rectangle has a length of 8 cm and a width of 5 cm, what is its perimeter?",
+        "options": [
+          "20 cm",
+          "30 cm",
+          "26 cm",
+          "40 cm"
+        ],
+        "correct": 0,
+        "id": "m_m_901"
+      },
+      {
+        "question": "If you have 12 oranges and you eat 3, what fraction of the oranges do you have left?",
+        "options": [
+          "1/4",
+          "3/4",
+          "1/3",
+          "2/3"
+        ],
+        "correct": 3,
+        "id": "m_m_902"
+      },
+      {
+        "question": "If you have a total of 60 stickers and 25 are stars, what percent are not stars?",
+        "options": [
+          "58%",
+          "42%",
+          "25%",
+          "38%"
+        ],
+        "correct": 1,
+        "id": "m_m_903"
+      },
+      {
+        "question": "If 3/4 of a cake is eaten, what fraction of the cake is left?",
+        "options": [
+          "1/4",
+          "2/4",
+          "3/4",
+          "3/8"
+        ],
+        "correct": 0,
+        "id": "m_m_904"
+      },
+      {
+        "question": "What number comes next in this pattern: 2, 5, 8, 11, __?",
+        "options": [
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "correct": 1,
+        "id": "m_m_905"
+      },
+      {
+        "question": "If you divide 48 by 6, what do you get?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correct": 2,
+        "id": "m_m_906"
+      },
+      {
+        "question": "How do you spell the number that is one more than 20?",
+        "options": [
+          "twenty-one",
+          "twentywon",
+          "twentyone",
+          "twentone"
+        ],
+        "correct": 0,
+        "id": "m_m_907"
+      },
+      {
+        "question": "If a triangle has two equal sides of 5 cm, what is the minimum length of the third side for it to still be a triangle?",
+        "options": [
+          "1 cm",
+          "5 cm",
+          "6 cm",
+          "9 cm"
+        ],
+        "correct": 2,
+        "id": "m_m_908"
+      },
+      {
+        "question": "In a classroom of 30 students, if 50% of them are girls, how many are boys?",
+        "options": [
+          "15",
+          "10",
+          "20",
+          "12"
+        ],
+        "correct": 2,
+        "id": "m_m_909"
+      },
+      {
+        "question": "What is the value of x if 2x + 4 = 12?",
+        "options": [
+          "4",
+          "3",
+          "2",
+          "6"
+        ],
+        "correct": 0,
+        "id": "m_m_910"
+      },
+      {
+        "question": "What is 90 divided by 10?",
+        "options": [
+          "8",
+          "7",
+          "9",
+          "10"
+        ],
+        "correct": 2,
+        "id": "m_m_911"
+      },
+      {
+        "question": "If you have a total of 5/6 of a pizza left and you eat 1/2 of that, how much pizza do you have left?",
+        "options": [
+          "1/3",
+          "1/4",
+          "1/6",
+          "1/2"
+        ],
+        "correct": 0,
+        "id": "m_m_912"
+      },
+      {
+        "question": "How many sides does a pentagon have?",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "correct": 1,
+        "id": "m_m_913"
+      },
+      {
+        "question": "If 24 is 80% of a number, what is the number?",
+        "options": [
+          "30",
+          "40",
+          "24",
+          "28"
+        ],
+        "correct": 0,
+        "id": "m_m_914"
+      },
+      {
+        "question": "If you have 18 apples and give away 6, how many do you have left?",
+        "options": [
+          "12",
+          "14",
+          "6",
+          "10"
+        ],
+        "correct": 0,
+        "id": "m_m_915"
+      },
+      {
+        "question": "What is 5% of 200?",
+        "options": [
+          "10",
+          "20",
+          "15",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_m_916"
+      },
+      {
+        "question": "If 2x = 16, what is the value of x?",
+        "options": [
+          "6",
+          "8",
+          "4",
+          "10"
+        ],
+        "correct": 1,
+        "id": "m_m_917"
+      },
+      {
+        "question": "Which number is a prime number: 4, 9, 11, or 15?",
+        "options": [
+          "4",
+          "9",
+          "11",
+          "15"
+        ],
+        "correct": 2,
+        "id": "m_m_918"
+      },
+      {
+        "question": "What is the next number in this sequence: 3, 6, 9, 12, __?",
+        "options": [
+          "10",
+          "11",
+          "15",
+          "13"
+        ],
+        "correct": 2,
+        "id": "m_m_919"
+      },
+      {
+        "question": "If a triangle has angles of 60° and 70°, what is the measure of the third angle?",
+        "options": [
+          "50°",
+          "40°",
+          "30°",
+          "20°"
+        ],
+        "correct": 1,
+        "id": "m_m_920"
+      },
+      {
+        "question": "How do you spell the number that comes after 15?",
+        "options": [
+          "Sixteen",
+          "Sexten",
+          "Sexten",
+          "Sizteen"
+        ],
+        "correct": 0,
+        "id": "m_m_921"
+      },
+      {
+        "question": "Which shape has exactly three sides?",
+        "options": [
+          "Square",
+          "Triangle",
+          "Pentagon",
+          "Hexagon"
+        ],
+        "correct": 1,
+        "id": "m_m_922"
+      },
+      {
+        "question": "If you have 50 candies and eat 20, what percentage of candies do you have left?",
+        "options": [
+          "40%",
+          "60%",
+          "20%",
+          "80%"
+        ],
+        "correct": 1,
+        "id": "m_m_923"
+      },
+      {
+        "question": "If a book has 100 pages and you read 25, how many pages do you have left to read?",
+        "options": [
+          "75",
+          "85",
+          "70",
+          "80"
+        ],
+        "correct": 0,
+        "id": "m_m_924"
+      },
+      {
+        "question": "What is the value of 3/4 + 1/4?",
+        "options": [
+          "1",
+          "3/2",
+          "2",
+          "1/2"
+        ],
+        "correct": 0,
+        "id": "m_m_925"
+      },
+      {
+        "question": "If a number increases from 40 to 50, what is the percentage increase?",
+        "options": [
+          "20%",
+          "25%",
+          "30%",
+          "15%"
+        ],
+        "correct": 1,
+        "id": "m_m_926"
+      },
+      {
+        "question": "What is the area of a rectangle with a length of 10 cm and a width of 3 cm?",
+        "options": [
+          "30 cm²",
+          "40 cm²",
+          "20 cm²",
+          "33 cm²"
+        ],
+        "correct": 0,
+        "id": "m_m_927"
+      },
+      {
+        "question": "If you have a bag of 60 marbles and 25% are red, how many red marbles do you have?",
+        "options": [
+          "15",
+          "25",
+          "10",
+          "20"
+        ],
+        "correct": 0,
+        "id": "m_m_928"
+      },
+      {
+        "question": "How do you spell the word for the value halfway between two numbers?",
+        "options": [
+          "median",
+          "mediam",
+          "medium",
+          "medien"
+        ],
+        "correct": 0,
+        "id": "m_m_929"
+      },
+      {
+        "question": "What number is missing in the sequence: 7, 14, ___, 28?",
+        "options": [
+          "21",
+          "24",
+          "18",
+          "20"
+        ],
+        "correct": 0,
+        "id": "m_m_930"
+      },
+      {
+        "question": "If you have 3/5 of a cake and you eat 1/5 of it, how much cake is left?",
+        "options": [
+          "2/5",
+          "4/5",
+          "3/5",
+          "1/5"
+        ],
+        "correct": 0,
+        "id": "m_m_931"
+      },
+      {
+        "question": "What is 12 multiplied by 8?",
+        "options": [
+          "96",
+          "84",
+          "88",
+          "78"
+        ],
+        "correct": 0,
+        "id": "m_m_932"
+      },
+      {
+        "question": "If a triangle has sides of 6 cm and 8 cm, what is the maximum length of the third side?",
+        "options": [
+          "13 cm",
+          "14 cm",
+          "15 cm",
+          "16 cm"
+        ],
+        "correct": 0,
+        "id": "m_m_933"
+      },
+      {
+        "question": "How do you spell the number that is seven more than fifteen?",
+        "options": [
+          "twenty-two",
+          "twenty-1",
+          "twenty-two",
+          "twenty-two"
+        ],
+        "correct": 0,
+        "id": "m_m_934"
+      },
+      {
+        "question": "If you have a total of 50 stickers and give away 40%, how many stickers do you have left?",
+        "options": [
+          "30",
+          "20",
+          "25",
+          "10"
+        ],
+        "correct": 1,
+        "id": "m_m_935"
+      },
+      {
+        "question": "If Emma has 5x + 10 and x = 2, what is the total value?",
+        "options": [
+          "20",
+          "30",
+          "25",
+          "15"
+        ],
+        "correct": 0,
+        "id": "m_m_936"
+      },
+      {
+        "question": "What is the perimeter of a square with sides of 4 cm?",
+        "options": [
+          "12 cm",
+          "16 cm",
+          "20 cm",
+          "14 cm"
+        ],
+        "correct": 1,
+        "id": "m_m_937"
+      },
+      {
+        "question": "If you have the fraction 1/2 and it is increased by 1/4, what is the new fraction?",
+        "options": [
+          "3/4",
+          "5/4",
+          "1/4",
+          "2/4"
+        ],
+        "correct": 0,
+        "id": "m_m_938"
+      },
+      {
+        "question": "If there are 40 students in a class and 60% are girls, how many boys are there?",
+        "options": [
+          "16",
+          "24",
+          "20",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_m_939"
+      },
+      {
+        "question": "What is 25 + 18?",
+        "options": [
+          "43",
+          "41",
+          "45",
+          "42"
+        ],
+        "correct": 0,
+        "id": "m_m_940"
+      },
+      {
+        "question": "If a pizza is cut into 8 slices and you eat 3 slices, what fraction of the pizza is left?",
+        "options": [
+          "5/8",
+          "3/8",
+          "4/8",
+          "1/8"
+        ],
+        "correct": 0,
+        "id": "m_m_941"
+      },
+      {
+        "question": "How do you spell the number that is six less than twenty?",
+        "options": [
+          "fourteen",
+          "fourtine",
+          "forteen",
+          "forteen"
+        ],
+        "correct": 0,
+        "id": "m_m_942"
+      },
+      {
+        "question": "What is the value of x in the equation 3x + 9 = 30?",
+        "options": [
+          "5",
+          "7",
+          "4",
+          "6"
+        ],
+        "correct": 1,
+        "id": "m_m_943"
+      },
+      {
+        "question": "What is double 24?",
+        "options": [
+          "48",
+          "36",
+          "42",
+          "54"
+        ],
+        "correct": 0,
+        "id": "m_m_944"
+      },
+      {
+        "question": "What is the sum of 47 and 36?",
+        "options": [
+          "83",
+          "93",
+          "73",
+          "76"
+        ],
+        "correct": 0,
+        "id": "m_m_945"
+      },
+      {
+        "question": "If a rectangle has a length of 5 cm and a width of 10 cm, what is its area?",
+        "options": [
+          "50 cm²",
+          "15 cm²",
+          "30 cm²",
+          "20 cm²"
+        ],
+        "correct": 0,
+        "id": "m_m_946"
+      },
+      {
+        "question": "Which number is the least common multiple (LCM) of 4 and 5?",
+        "options": [
+          "20",
+          "15",
+          "10",
+          "25"
+        ],
+        "correct": 0,
+        "id": "m_m_947"
+      },
+      {
+        "question": "How do you spell the fraction that represents one-quarter?",
+        "options": [
+          "Foreth",
+          "Quater",
+          "Quarters",
+          "Quarter"
+        ],
+        "correct": 3,
+        "id": "m_m_948"
+      },
+      {
+        "question": "What is the perimeter of a rectangle with a length of 6 cm and a width of 4 cm?",
+        "options": [
+          "20 cm",
+          "24 cm",
+          "16 cm",
+          "10 cm"
+        ],
+        "correct": 0,
+        "id": "m_m_949"
+      },
+      {
+        "question": "What is the next number in this pattern: 2, 4, 8, 16, __?",
+        "options": [
+          "24",
+          "32",
+          "20",
+          "30"
+        ],
+        "correct": 1,
+        "id": "m_m_950"
+      },
+      {
+        "question": "If you have 30 candies and eat 10%, how many candies do you have left?",
+        "options": [
+          "27",
+          "28",
+          "25",
+          "29"
+        ],
+        "correct": 0,
+        "id": "m_m_951"
+      },
+      {
+        "question": "If a triangle has angles of 50° and 90°, what is the measure of the third angle?",
+        "options": [
+          "30°",
+          "40°",
+          "60°",
+          "70°"
+        ],
+        "correct": 3,
+        "id": "m_m_952"
+      },
+      {
+        "question": "How do you spell the number that comes before eleven?",
+        "options": [
+          "Ten",
+          "Nineteen",
+          "Twen",
+          "Eleven"
+        ],
+        "correct": 0,
+        "id": "m_m_953"
+      },
+      {
+        "question": "What is the result of 15 minus 7?",
+        "options": [
+          "8",
+          "6",
+          "7",
+          "9"
+        ],
+        "correct": 0,
+        "id": "m_m_954"
+      },
+      {
+        "question": "If you divide 45 by 9, what do you get?",
+        "options": [
+          "6",
+          "5",
+          "4",
+          "7"
+        ],
+        "correct": 0,
+        "id": "m_m_955"
+      },
+      {
+        "question": "If a pizza is cut into 10 slices and you eat 2 slices, how many slices are left?",
+        "options": [
+          "8",
+          "7",
+          "6",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_m_956"
+      },
+      {
+        "question": "What is 7 multiplied by 6?",
+        "options": [
+          "42",
+          "36",
+          "48",
+          "40"
+        ],
+        "correct": 0,
+        "id": "m_m_957"
+      },
+      {
+        "question": "Which number is an odd number: 2, 4, 7, or 10?",
+        "options": [
+          "2",
+          "4",
+          "7",
+          "10"
+        ],
+        "correct": 2,
+        "id": "m_m_958"
+      },
+      {
+        "question": "If you have 10 marbles and you give away 4, what fraction of the marbles do you have left?",
+        "options": [
+          "3/10",
+          "6/10",
+          "1/2",
+          "5/10"
+        ],
+        "correct": 1,
+        "id": "m_m_959"
+      },
+      {
+        "question": "How do you spell the number that is five more than thirty?",
+        "options": [
+          "Thirty-four",
+          "Thirty-three",
+          "Thirty-five",
+          "Thirty-two"
+        ],
+        "correct": 2,
+        "id": "m_m_960"
+      },
+      {
+        "question": "If a book has 200 pages and you read 50, what percentage of the book have you read?",
+        "options": [
+          "20%",
+          "30%",
+          "25%",
+          "15%"
+        ],
+        "correct": 2,
+        "id": "m_m_961"
+      },
+      {
+        "question": "How do you spell the number that is three less than ten?",
+        "options": [
+          "seven",
+          "siven",
+          "seveen",
+          "sevun"
+        ],
+        "correct": 0,
+        "id": "m_m_962"
+      },
+      {
+        "question": "If you have a total of 80 marbles and give away 25%, how many marbles do you have left?",
+        "options": [
+          "60",
+          "55",
+          "75",
+          "70"
+        ],
+        "correct": 0,
+        "id": "m_m_963"
+      },
+      {
+        "question": "What is the perimeter of a rectangle with a length of 8 cm and a width of 3 cm?",
+        "options": [
+          "22 cm",
+          "26 cm",
+          "24 cm",
+          "20 cm"
+        ],
+        "correct": 0,
+        "id": "m_m_964"
+      },
+      {
+        "question": "If you add 3/4 and 1/2, what is the resulting fraction?",
+        "options": [
+          "5/4",
+          "7/4",
+          "9/4",
+          "3/4"
+        ],
+        "correct": 1,
+        "id": "m_m_965"
+      },
+      {
+        "question": "What fraction of an hour is 15 minutes?",
+        "options": [
+          "1/4",
+          "1/2",
+          "1/5",
+          "1/3"
+        ],
+        "correct": 0,
+        "id": "m_m_966"
+      },
+      {
+        "question": "How do you spell the number that is four less than twelve?",
+        "options": [
+          "eight",
+          "eighht",
+          "eigt",
+          "ayght"
+        ],
+        "correct": 0,
+        "id": "m_m_967"
+      },
+      {
+        "question": "What is the value of x if 2x + 6 = 18?",
+        "options": [
+          "12",
+          "9",
+          "6",
+          "3"
+        ],
+        "correct": 2,
+        "id": "m_m_968"
+      },
+      {
+        "question": "What is the next number in this pattern: 1, 3, 5, 7, __?",
+        "options": [
+          "9",
+          "10",
+          "12",
+          "11"
+        ],
+        "correct": 0,
+        "id": "m_m_969"
+      },
+      {
+        "question": "If a pie is divided into 12 slices and you eat 4 slices, what fraction of the pie is left?",
+        "options": [
+          "2/3",
+          "1/4",
+          "1/3",
+          "1/2"
+        ],
+        "correct": 0,
+        "id": "m_m_970"
+      },
+      {
+        "question": "If a triangle has one angle of 40° and another of 100°, what is the measure of the third angle?",
+        "options": [
+          "40°",
+          "60°",
+          "80°",
+          "100°"
+        ],
+        "correct": 1,
+        "id": "m_m_971"
+      },
+      {
+        "question": "How do you spell the fraction that represents one-third?",
+        "options": [
+          "one-thrid",
+          "one-third",
+          "one-thirdd",
+          "one-thurd"
+        ],
+        "correct": 1,
+        "id": "m_m_972"
+      },
+      {
+        "question": "If you have $50 and spend 30% of it, how much do you have left?",
+        "options": [
+          "40",
+          "35",
+          "30",
+          "45"
+        ],
+        "correct": 1,
+        "id": "m_m_973"
+      },
+      {
+        "question": "What is the value of x in the equation 4x = 32?",
+        "options": [
+          "6",
+          "10",
+          "12",
+          "8"
+        ],
+        "correct": 3,
+        "id": "m_m_974"
+      },
+      {
+        "question": "How do you spell the number that is two more than twenty?",
+        "options": [
+          "twenty-two",
+          "twenty-twoo",
+          "twentytwo",
+          "twenty 2"
+        ],
+        "correct": 0,
+        "id": "m_m_975"
+      },
+      {
+        "question": "What is the result of 100 - 27?",
+        "options": [
+          "73",
+          "72",
+          "76",
+          "74"
+        ],
+        "correct": 0,
+        "id": "m_m_976"
+      },
+      {
+        "question": "What is the sum of 24 and 38?",
+        "options": [
+          "50",
+          "62",
+          "72",
+          "60"
+        ],
+        "correct": 1,
+        "id": "m_m_977"
+      },
+      {
+        "question": "How do you spell the fraction that represents one-half?",
+        "options": [
+          "one-halv",
+          "one-halfe",
+          "one-half",
+          "one-haf"
+        ],
+        "correct": 2,
+        "id": "m_m_978"
+      },
+      {
+        "question": "Which number is a prime number: 9, 11, 15, or 21?",
+        "options": [
+          "9",
+          "11",
+          "15",
+          "21"
+        ],
+        "correct": 1,
+        "id": "m_m_979"
+      },
+      {
+        "question": "If you multiply 9 by 3, what do you get?",
+        "options": [
+          "27",
+          "36",
+          "18",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_m_980"
+      },
+      {
+        "question": "How do you spell the fraction that represents one-sixth?",
+        "options": [
+          "one-sixth",
+          "one-sixt",
+          "one-sixthy",
+          "one-siks"
+        ],
+        "correct": 0,
+        "id": "m_m_981"
+      },
+      {
+        "question": "What is the result of 23 plus 15?",
+        "options": [
+          "38",
+          "28",
+          "33",
+          "38"
+        ],
+        "correct": 0,
+        "id": "m_m_982"
+      },
+      {
+        "question": "If you have 50 apples and give away 20%, how many apples do you have left?",
+        "options": [
+          "40",
+          "30",
+          "20",
+          "35"
+        ],
+        "correct": 0,
+        "id": "m_m_983"
+      },
+      {
+        "question": "If x - 5 = 10, what is the value of x?",
+        "options": [
+          "5",
+          "10",
+          "15",
+          "20"
+        ],
+        "correct": 2,
+        "id": "m_m_984"
+      },
+      {
+        "question": "How do you spell the number that is three less than eleven?",
+        "options": [
+          "eight",
+          "eigth",
+          "nigh",
+          "nien"
+        ],
+        "correct": 0,
+        "id": "m_m_985"
+      },
+      {
+        "question": "What is the perimeter of a square with sides of 6 cm?",
+        "options": [
+          "24 cm",
+          "12 cm",
+          "36 cm",
+          "18 cm"
+        ],
+        "correct": 0,
+        "id": "m_m_986"
+      },
+      {
+        "question": "If a train travels 60 kilometers in 1 hour, how far does it travel in 3 hours?",
+        "options": [
+          "120 kilometers",
+          "180 kilometers",
+          "150 kilometers",
+          "240 kilometers"
+        ],
+        "correct": 1,
+        "id": "m_m_987"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 2 and 3?",
+        "options": [
+          "5",
+          "6",
+          "4",
+          "8"
+        ],
+        "correct": 1,
+        "id": "m_m_988"
+      },
+      {
+        "question": "How do you spell the fraction that represents one-fifth?",
+        "options": [
+          "one-fift",
+          "one-fifth",
+          "one-five",
+          "one-fiv"
+        ],
+        "correct": 1,
+        "id": "m_m_989"
+      },
+      {
+        "question": "If you subtract 29 from 100, what do you get?",
+        "options": [
+          "71",
+          "79",
+          "68",
+          "70"
+        ],
+        "correct": 1,
+        "id": "m_m_990"
+      },
+      {
+        "question": "If you have a total of 100 stickers and give away 25, how many do you have left?",
+        "options": [
+          "80",
+          "75",
+          "70",
+          "85"
+        ],
+        "correct": 1,
+        "id": "m_m_991"
+      },
+      {
+        "question": "What is the value of x if x/3 = 9?",
+        "options": [
+          "12",
+          "27",
+          "18",
+          "15"
+        ],
+        "correct": 2,
+        "id": "m_m_992"
+      },
+      {
+        "question": "Which number is an even number: 13, 16, 19, or 21?",
+        "options": [
+          "13",
+          "19",
+          "21",
+          "16"
+        ],
+        "correct": 3,
+        "id": "m_m_993"
+      },
+      {
+        "question": "If you subtract 12 from 45, what is the result?",
+        "options": [
+          "33",
+          "37",
+          "28",
+          "25"
+        ],
+        "correct": 0,
+        "id": "m_m_994"
+      },
+      {
+        "question": "How do you spell the number that is six more than fourteen?",
+        "options": [
+          "Twenty",
+          "Tweny",
+          "Twentee",
+          "Twentey"
+        ],
+        "correct": 0,
+        "id": "m_m_995"
+      },
+      {
+        "question": "If you have 100 candies and you give away 10%, how many do you have left?",
+        "options": [
+          "90",
+          "85",
+          "100",
+          "95"
+        ],
+        "correct": 0,
+        "id": "m_m_996"
+      },
+      {
+        "question": "If a triangle has one angle of 50° and another angle of 60°, what is the measure of the third angle?",
+        "options": [
+          "70°",
+          "80°",
+          "40°",
+          "50°"
+        ],
+        "correct": 0,
+        "id": "m_m_997"
+      },
+      {
+        "question": "What is 3/4 of 80?",
+        "options": [
+          "60",
+          "75",
+          "70",
+          "50"
+        ],
+        "correct": 2,
+        "id": "m_m_998"
+      },
+      {
+        "question": "If you have a rectangle with a length of 10 cm and a width of 5 cm, what is its area?",
+        "options": [
+          "15 cm²",
+          "50 cm²",
+          "30 cm²",
+          "25 cm²"
+        ],
+        "correct": 1,
+        "id": "m_m_999"
+      },
+      {
+        "question": "How do you spell the fraction that represents one-fourth?",
+        "options": [
+          "one-forth",
+          "one-fourth",
+          "won-fourth",
+          "one-fourthh"
+        ],
+        "correct": 1,
+        "id": "m_m_1000"
       }
     ],
     "hard": [
@@ -20948,6 +22059,4758 @@
           "235"
         ],
         "correct": 2
+      },
+      {
+        "question": "What is 3/4 of 56?",
+        "options": [
+          "42",
+          "38",
+          "48",
+          "44"
+        ],
+        "correct": 0,
+        "id": "m_h_6"
+      },
+      {
+        "question": "If a triangle has angles measuring 35° and 75°, what is the measure of the third angle?",
+        "options": [
+          "70°",
+          "80°",
+          "60°",
+          "90°"
+        ],
+        "correct": 1,
+        "id": "m_h_7"
+      },
+      {
+        "question": "How do you spell the mathematical term for 'the distance around a circle'?",
+        "options": [
+          "circumfrence",
+          "circumferance",
+          "circumference",
+          "circumfrance"
+        ],
+        "correct": 2,
+        "id": "m_h_8"
+      },
+      {
+        "question": "What is the value of 8x - 5 when x = 3?",
+        "options": [
+          "19",
+          "24",
+          "14",
+          "22"
+        ],
+        "correct": 1,
+        "id": "m_h_9"
+      },
+      {
+        "question": "If you reduce the fraction 36/48 to its simplest form, what do you get?",
+        "options": [
+          "2/3",
+          "3/4",
+          "3/5",
+          "4/5"
+        ],
+        "correct": 1,
+        "id": "m_h_10"
+      },
+      {
+        "question": "What percentage of 150 is 45?",
+        "options": [
+          "20%",
+          "25%",
+          "30%",
+          "35%"
+        ],
+        "correct": 1,
+        "id": "m_h_11"
+      },
+      {
+        "question": "How many edges does a cube have?",
+        "options": [
+          "6",
+          "8",
+          "12",
+          "10"
+        ],
+        "correct": 2,
+        "id": "m_h_12"
+      },
+      {
+        "question": "What is the greatest common divisor (GCD) of 48 and 18?",
+        "options": [
+          "6",
+          "12",
+          "24",
+          "18"
+        ],
+        "correct": 0,
+        "id": "m_h_13"
+      },
+      {
+        "question": "An angle is said to be obtuse if it measures:",
+        "options": [
+          "Less than 90°",
+          "Exactly 90°",
+          "More than 180°",
+          "Between 90° and 180°"
+        ],
+        "correct": 3,
+        "id": "m_h_14"
+      },
+      {
+        "question": "If 5x = 45, what is the value of x?",
+        "options": [
+          "8",
+          "9",
+          "7",
+          "6"
+        ],
+        "correct": 1,
+        "id": "m_h_15"
+      },
+      {
+        "question": "How do you spell the term for 'a number that is not a whole number'?",
+        "options": [
+          "decimal",
+          "decimel",
+          "decimall",
+          "dessimal"
+        ],
+        "correct": 0,
+        "id": "m_h_16"
+      },
+      {
+        "question": "What is the area of a circle with a radius of 7 cm? (Use π ≈ 3.14)",
+        "options": [
+          "153.86 cm²",
+          "143.86 cm²",
+          "154.80 cm²",
+          "136.52 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_17"
+      },
+      {
+        "question": "What is 9 squared plus 4 squared?",
+        "options": [
+          "97",
+          "85",
+          "81",
+          "90"
+        ],
+        "correct": 1,
+        "id": "m_h_18"
+      },
+      {
+        "question": "If a rectangle has a perimeter of 30 cm and a length of 10 cm, what is its width?",
+        "options": [
+          "5 cm",
+          "10 cm",
+          "7.5 cm",
+          "12.5 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_19"
+      },
+      {
+        "question": "What is the sum of the first five prime numbers?",
+        "options": [
+          "28",
+          "26",
+          "24",
+          "30"
+        ],
+        "correct": 1,
+        "id": "m_h_20"
+      },
+      {
+        "question": "If a car travels 240 km in 3 hours, what is its average speed?",
+        "options": [
+          "70 km/h",
+          "60 km/h",
+          "75 km/h",
+          "80 km/h"
+        ],
+        "correct": 1,
+        "id": "m_h_21"
+      },
+      {
+        "question": "What is the value of 12% of 250?",
+        "options": [
+          "27",
+          "30",
+          "34",
+          "40"
+        ],
+        "correct": 1,
+        "id": "m_h_22"
+      },
+      {
+        "question": "How do you spell the term for 'the probability event never occurs'?",
+        "options": [
+          "impossibel",
+          "impossible",
+          "imposible",
+          "imposiblee"
+        ],
+        "correct": 1,
+        "id": "m_h_23"
+      },
+      {
+        "question": "How many degrees are in the sum of the angles of a triangle?",
+        "options": [
+          "180°",
+          "360°",
+          "90°",
+          "270°"
+        ],
+        "correct": 0,
+        "id": "m_h_24"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 6 and 8?",
+        "options": [
+          "24",
+          "30",
+          "18",
+          "48"
+        ],
+        "correct": 0,
+        "id": "m_h_25"
+      },
+      {
+        "question": "How do you spell the term for 'a number that is divisible by only 1 and itself'?",
+        "options": [
+          "prime",
+          "preime",
+          "prieme",
+          "prym"
+        ],
+        "correct": 0,
+        "id": "m_h_26"
+      },
+      {
+        "question": "What is the value of 5(3x + 2) when x = 2?",
+        "options": [
+          "55",
+          "50",
+          "25",
+          "35"
+        ],
+        "correct": 1,
+        "id": "m_h_27"
+      },
+      {
+        "question": "If a triangle has sides of lengths 7 cm, 24 cm, and 25 cm, what type of triangle is it?",
+        "options": [
+          "Equilateral",
+          "Isosceles",
+          "Scalene",
+          "Right"
+        ],
+        "correct": 3,
+        "id": "m_h_28"
+      },
+      {
+        "question": "Convert 3/5 into a percentage.",
+        "options": [
+          "50%",
+          "60%",
+          "70%",
+          "80%"
+        ],
+        "correct": 1,
+        "id": "m_h_29"
+      },
+      {
+        "question": "How do you spell the term that describes a number's distance from zero on a number line?",
+        "options": [
+          "absolute",
+          "absolut",
+          "absoloot",
+          "absulute"
+        ],
+        "correct": 0,
+        "id": "m_h_30"
+      },
+      {
+        "question": "If a rectangle's length is tripled and width is doubled, how does the area change?",
+        "options": [
+          "It doubles",
+          "It triples",
+          "It increases by a factor of 6",
+          "It stays the same"
+        ],
+        "correct": 2,
+        "id": "m_h_31"
+      },
+      {
+        "question": "What is the value of x in the equation 2x + 5 = 19?",
+        "options": [
+          "12",
+          "7",
+          "14",
+          "6"
+        ],
+        "correct": 1,
+        "id": "m_h_32"
+      },
+      {
+        "question": "What is 18% of 200?",
+        "options": [
+          "36",
+          "30",
+          "24",
+          "38"
+        ],
+        "correct": 0,
+        "id": "m_h_33"
+      },
+      {
+        "question": "How do you spell the term that means 'a portion of a whole'?",
+        "options": [
+          "fraction",
+          "fractoin",
+          "fration",
+          "frakshun"
+        ],
+        "correct": 0,
+        "id": "m_h_34"
+      },
+      {
+        "question": "What is the perimeter of a square with a side length of 5 cm?",
+        "options": [
+          "15 cm",
+          "20 cm",
+          "25 cm",
+          "10 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_35"
+      },
+      {
+        "question": "If 4x - 7 = 5, what is x?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_36"
+      },
+      {
+        "question": "Which fraction is larger: 2/3 or 3/4?",
+        "options": [
+          "2/3",
+          "3/4",
+          "They are equal",
+          "Not enough information"
+        ],
+        "correct": 1,
+        "id": "m_h_37"
+      },
+      {
+        "question": "What is the area of a triangle with a base of 10 m and a height of 5 m?",
+        "options": [
+          "25 m²",
+          "50 m²",
+          "15 m²",
+          "30 m²"
+        ],
+        "correct": 0,
+        "id": "m_h_38"
+      },
+      {
+        "question": "What is the next number in the sequence 2, 4, 8, 16, ...?",
+        "options": [
+          "30",
+          "24",
+          "20",
+          "32"
+        ],
+        "correct": 3,
+        "id": "m_h_39"
+      },
+      {
+        "question": "If 3 is 25% of a number, what is the number?",
+        "options": [
+          "12",
+          "15",
+          "9",
+          "6"
+        ],
+        "correct": 0,
+        "id": "m_h_40"
+      },
+      {
+        "question": "How do you spell the term for 'the longest side of a right triangle'?",
+        "options": [
+          "hypotenuse",
+          "hypotenus",
+          "hipotenuse",
+          "hypotenuese"
+        ],
+        "correct": 0,
+        "id": "m_h_41"
+      },
+      {
+        "question": "A number is decreased by 10 and the result is 15. What is the number?",
+        "options": [
+          "20",
+          "25",
+          "15",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_42"
+      },
+      {
+        "question": "What is the volume of a cube with a side length of 3 cm?",
+        "options": [
+          "9 cm³",
+          "27 cm³",
+          "18 cm³",
+          "36 cm³"
+        ],
+        "correct": 1,
+        "id": "m_h_43"
+      },
+      {
+        "question": "What is the greatest common factor (GCF) of 36 and 48?",
+        "options": [
+          "12",
+          "18",
+          "6",
+          "24"
+        ],
+        "correct": 0,
+        "id": "m_h_44"
+      },
+      {
+        "question": "If a circle has a diameter of 10 cm, what is its circumference? (Use π ≈ 3.14)",
+        "options": [
+          "31.4 cm",
+          "20 cm",
+          "15.7 cm",
+          "25.4 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_45"
+      },
+      {
+        "question": "What is 40% of 150?",
+        "options": [
+          "60",
+          "50",
+          "70",
+          "75"
+        ],
+        "correct": 2,
+        "id": "m_h_46"
+      },
+      {
+        "question": "What is the missing number in the equation 5 + ___ = 12?",
+        "options": [
+          "6",
+          "9",
+          "7",
+          "5"
+        ],
+        "correct": 2,
+        "id": "m_h_47"
+      },
+      {
+        "question": "How do you spell the term for 'the result of multiplying a number by itself'? ",
+        "options": [
+          "Squere",
+          "Squaer",
+          "Square",
+          "Squer"
+        ],
+        "correct": 2,
+        "id": "m_h_48"
+      },
+      {
+        "question": "If a triangle has angles measuring 50° and 60°, what is the measure of the third angle?",
+        "options": [
+          "70°",
+          "80°",
+          "60°",
+          "90°"
+        ],
+        "correct": 0,
+        "id": "m_h_49"
+      },
+      {
+        "question": "What is the value of x in the equation 3(x - 5) = 12?",
+        "options": [
+          "9",
+          "10",
+          "12",
+          "8"
+        ],
+        "correct": 0,
+        "id": "m_h_50"
+      },
+      {
+        "question": "What is 2/3 of 21?",
+        "options": [
+          "10",
+          "14",
+          "16",
+          "12"
+        ],
+        "correct": 1,
+        "id": "m_h_51"
+      },
+      {
+        "question": "How do you spell the term that describes 'the middle number in a data set'? ",
+        "options": [
+          "Medien",
+          "Mediun",
+          "Median",
+          "Medean"
+        ],
+        "correct": 2,
+        "id": "m_h_52"
+      },
+      {
+        "question": "What is the area of a rectangle with a length of 12 cm and a width of 5 cm?",
+        "options": [
+          "60 cm²",
+          "55 cm²",
+          "70 cm²",
+          "50 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_53"
+      },
+      {
+        "question": "A number multiplied by itself is called what?",
+        "options": [
+          "Product",
+          "Squared",
+          "Cubed",
+          "Factor"
+        ],
+        "correct": 1,
+        "id": "m_h_54"
+      },
+      {
+        "question": "If 25% of a number is 50, what is the number?",
+        "options": [
+          "150",
+          "200",
+          "250",
+          "300"
+        ],
+        "correct": 1,
+        "id": "m_h_55"
+      },
+      {
+        "question": "How do you spell the term for 'the whole number part of a mixed number'? ",
+        "options": [
+          "Whole",
+          "Hole",
+          "Whol",
+          "Hawl"
+        ],
+        "correct": 0,
+        "id": "m_h_56"
+      },
+      {
+        "question": "If a train travels at 60 km/h for 2.5 hours, how far does it travel?",
+        "options": [
+          "120 km",
+          "150 km",
+          "180 km",
+          "160 km"
+        ],
+        "correct": 1,
+        "id": "m_h_57"
+      },
+      {
+        "question": "Which of the following fractions is equivalent to 3/4?",
+        "options": [
+          "9/12",
+          "6/8",
+          "12/16",
+          "All of the above"
+        ],
+        "correct": 3,
+        "id": "m_h_58"
+      },
+      {
+        "question": "What is the value of 7 × 8 - 9?",
+        "options": [
+          "55",
+          "65",
+          "38",
+          "32"
+        ],
+        "correct": 0,
+        "id": "m_h_59"
+      },
+      {
+        "question": "If you divide 42 by 6, what is the result?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correct": 1,
+        "id": "m_h_60"
+      },
+      {
+        "question": "What is 15% of 320?",
+        "options": [
+          "40",
+          "42",
+          "48",
+          "52"
+        ],
+        "correct": 0,
+        "id": "m_h_61"
+      },
+      {
+        "question": "How do you spell the term for 'the number that appears most frequently in a data set'? ",
+        "options": [
+          "Mode",
+          "Moad",
+          "Mod",
+          "Moude"
+        ],
+        "correct": 0,
+        "id": "m_h_62"
+      },
+      {
+        "question": "What is the sum of the angles in a quadrilateral?",
+        "options": [
+          "360°",
+          "180°",
+          "400°",
+          "300°"
+        ],
+        "correct": 0,
+        "id": "m_h_63"
+      },
+      {
+        "question": "If a product of two numbers is 48 and one of the numbers is 6, what is the other number?",
+        "options": [
+          "8",
+          "12",
+          "6",
+          "4"
+        ],
+        "correct": 0,
+        "id": "m_h_64"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 4 and 5?",
+        "options": [
+          "20",
+          "15",
+          "10",
+          "25"
+        ],
+        "correct": 0,
+        "id": "m_h_65"
+      },
+      {
+        "question": "How do you spell the term for 'the distance around a circle'?",
+        "options": [
+          "circumfrence",
+          "circumfrunce",
+          "circumference",
+          "circumfreance"
+        ],
+        "correct": 2,
+        "id": "m_h_66"
+      },
+      {
+        "question": "If 60% of a number is 48, what is the number?",
+        "options": [
+          "80",
+          "72",
+          "90",
+          "95"
+        ],
+        "correct": 0,
+        "id": "m_h_67"
+      },
+      {
+        "question": "Which of the following fractions is less than 1/2?",
+        "options": [
+          "1/3",
+          "5/9",
+          "2/5",
+          "3/8"
+        ],
+        "correct": 0,
+        "id": "m_h_68"
+      },
+      {
+        "question": "How do you spell the term that means 'the bottom side of a triangle'?",
+        "options": [
+          "base",
+          "bace",
+          "bass",
+          "beis"
+        ],
+        "correct": 0,
+        "id": "m_h_69"
+      },
+      {
+        "question": "If a rectangle has a length of 15 m and a width of 10 m, what is its area?",
+        "options": [
+          "150 m²",
+          "120 m²",
+          "130 m²",
+          "100 m²"
+        ],
+        "correct": 0,
+        "id": "m_h_70"
+      },
+      {
+        "question": "What is the missing number in the equation 2x + 3 = 15?",
+        "options": [
+          "6",
+          "8",
+          "12",
+          "4"
+        ],
+        "correct": 1,
+        "id": "m_h_71"
+      },
+      {
+        "question": "What is the value of 9^2 - 7 × 3?",
+        "options": [
+          "60",
+          "58",
+          "72",
+          "54"
+        ],
+        "correct": 1,
+        "id": "m_h_72"
+      },
+      {
+        "question": "What percentage is 25 out of 200?",
+        "options": [
+          "10%",
+          "15%",
+          "20%",
+          "12%"
+        ],
+        "correct": 2,
+        "id": "m_h_73"
+      },
+      {
+        "question": "What is the measure of each angle in a regular hexagon?",
+        "options": [
+          "120°",
+          "90°",
+          "108°",
+          "80°"
+        ],
+        "correct": 2,
+        "id": "m_h_74"
+      },
+      {
+        "question": "If 3/4 of a pizza is left and you eat 1/2 of what's left, how much of the pizza do you have?",
+        "options": [
+          "1/4",
+          "1/2",
+          "3/8",
+          "3/4"
+        ],
+        "correct": 2,
+        "id": "m_h_75"
+      },
+      {
+        "question": "What is the volume of a rectangular prism with dimensions 4 cm, 5 cm, and 3 cm?",
+        "options": [
+          "60 cm³",
+          "30 cm³",
+          "20 cm³",
+          "45 cm³"
+        ],
+        "correct": 1,
+        "id": "m_h_76"
+      },
+      {
+        "question": "How do you spell the term for 'the ability to divide one number by another without a remainder'?",
+        "options": [
+          "divisible",
+          "divisble",
+          "devisible",
+          "divisblee"
+        ],
+        "correct": 0,
+        "id": "m_h_77"
+      },
+      {
+        "question": "What is the mean of the numbers 10, 20, 30, and 40?",
+        "options": [
+          "25",
+          "30",
+          "35",
+          "20"
+        ],
+        "correct": 1,
+        "id": "m_h_78"
+      },
+      {
+        "question": "If you flip a fair coin 4 times, what is the probability of getting exactly one head?",
+        "options": [
+          "1/16",
+          "1/8",
+          "1/4",
+          "1/2"
+        ],
+        "correct": 2,
+        "id": "m_h_79"
+      },
+      {
+        "question": "If a number is divided by 5 and then multiplied by 2, the result is 20. What is the number?",
+        "options": [
+          "50",
+          "40",
+          "30",
+          "60"
+        ],
+        "correct": 0,
+        "id": "m_h_80"
+      },
+      {
+        "question": "What is 7/8 of 64?",
+        "options": [
+          "44",
+          "56",
+          "48",
+          "32"
+        ],
+        "correct": 1,
+        "id": "m_h_81"
+      },
+      {
+        "question": "If 2x - 5 = 15, what is the value of x?",
+        "options": [
+          "10",
+          "8",
+          "7.5",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_82"
+      },
+      {
+        "question": "How do you spell the term that describes 'the longest side of a right triangle'?",
+        "options": [
+          "hypotnuse",
+          "hipotenuse",
+          "hypotenuse",
+          "hyptenuse"
+        ],
+        "correct": 2,
+        "id": "m_h_83"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "36",
+          "34",
+          "40",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_h_84"
+      },
+      {
+        "question": "What is the area of a triangle with a base of 10 cm and a height of 12 cm?",
+        "options": [
+          "60 cm²",
+          "70 cm²",
+          "50 cm²",
+          "40 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_85"
+      },
+      {
+        "question": "If a car traveled 120 km in 2 hours, what was its average speed?",
+        "options": [
+          "60 km/h",
+          "50 km/h",
+          "70 km/h",
+          "80 km/h"
+        ],
+        "correct": 0,
+        "id": "m_h_86"
+      },
+      {
+        "question": "How do you spell the term for 'a part of a whole expressed in terms of 100'?",
+        "options": [
+          "persent",
+          "percen",
+          "percent",
+          "percint"
+        ],
+        "correct": 2,
+        "id": "m_h_87"
+      },
+      {
+        "question": "If a rectangle has a perimeter of 50 cm and a length of 15 cm, what is its width?",
+        "options": [
+          "10 cm",
+          "12.5 cm",
+          "15 cm",
+          "20 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_88"
+      },
+      {
+        "question": "What is 2 raised to the power of 5?",
+        "options": [
+          "16",
+          "18",
+          "32",
+          "24"
+        ],
+        "correct": 2,
+        "id": "m_h_89"
+      },
+      {
+        "question": "If 3/5 of a number is 27, what is the number?",
+        "options": [
+          "45",
+          "54",
+          "60",
+          "25"
+        ],
+        "correct": 0,
+        "id": "m_h_90"
+      },
+      {
+        "question": "How do you spell the term for 'the value that appears most often in a data set'?",
+        "options": [
+          "mode",
+          "mod",
+          "moode",
+          "modee"
+        ],
+        "correct": 0,
+        "id": "m_h_91"
+      },
+      {
+        "question": "What is the volume of a cylinder with a radius of 3 cm and a height of 10 cm? (Use π ≈ 3.14)",
+        "options": [
+          "94.2 cm³",
+          "28.26 cm³",
+          "56.52 cm³",
+          "45.12 cm³"
+        ],
+        "correct": 0,
+        "id": "m_h_92"
+      },
+      {
+        "question": "Which of the following numbers is a prime number?",
+        "options": [
+          "21",
+          "25",
+          "17",
+          "27"
+        ],
+        "correct": 2,
+        "id": "m_h_93"
+      },
+      {
+        "question": "How do you spell the term for 'the distance from the center to the edge of a circle'?",
+        "options": [
+          "radius",
+          "raddius",
+          "radious",
+          "raius"
+        ],
+        "correct": 0,
+        "id": "m_h_94"
+      },
+      {
+        "question": "What is the perimeter of a square with a side length of 7 cm?",
+        "options": [
+          "28 cm",
+          "30 cm",
+          "24 cm",
+          "26 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_95"
+      },
+      {
+        "question": "If 40% of a number equals 80, what is the number?",
+        "options": [
+          "200",
+          "300",
+          "150",
+          "250"
+        ],
+        "correct": 0,
+        "id": "m_h_96"
+      },
+      {
+        "question": "What is the difference between 125 and 68?",
+        "options": [
+          "57",
+          "60",
+          "63",
+          "55"
+        ],
+        "correct": 1,
+        "id": "m_h_97"
+      },
+      {
+        "question": "How do you spell the term for 'two numbers whose product is unity'?",
+        "options": [
+          "reciprocals",
+          "reciprocal",
+          "recipricols",
+          "receprocal"
+        ],
+        "correct": 0,
+        "id": "m_h_98"
+      },
+      {
+        "question": "How do you spell the term for 'a mathematical statement that two expressions are equal'? ",
+        "options": [
+          "equashun",
+          "equation",
+          "equayshun",
+          "equashun"
+        ],
+        "correct": 1,
+        "id": "m_h_99"
+      },
+      {
+        "question": "What is the smallest prime factor of 91?",
+        "options": [
+          "2",
+          "3",
+          "5",
+          "7"
+        ],
+        "correct": 3,
+        "id": "m_h_100"
+      },
+      {
+        "question": "If x + 4 = 10, what is the value of x?",
+        "options": [
+          "4",
+          "6",
+          "7",
+          "8"
+        ],
+        "correct": 1,
+        "id": "m_h_101"
+      },
+      {
+        "question": "What is the greatest common factor of 24 and 36?",
+        "options": [
+          "6",
+          "8",
+          "12",
+          "18"
+        ],
+        "correct": 2,
+        "id": "m_h_102"
+      },
+      {
+        "question": "How do you spell the term for 'a number that can only be divided by 1 and itself'? ",
+        "options": [
+          "prim",
+          "prime",
+          "preim",
+          "prym"
+        ],
+        "correct": 1,
+        "id": "m_h_103"
+      },
+      {
+        "question": "What is 60% of 150?",
+        "options": [
+          "75",
+          "80",
+          "85",
+          "90"
+        ],
+        "correct": 0,
+        "id": "m_h_104"
+      },
+      {
+        "question": "How many degrees are there in the sum of the angles of a pentagon?",
+        "options": [
+          "540",
+          "720",
+          "360",
+          "180"
+        ],
+        "correct": 0,
+        "id": "m_h_105"
+      },
+      {
+        "question": "If a number is tripled and then decreased by 2, the result is 10. What is the number?",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 2,
+        "id": "m_h_106"
+      },
+      {
+        "question": "What is the area of a trapezoid with bases of 5 cm and 7 cm and a height of 4 cm?",
+        "options": [
+          "24",
+          "30",
+          "20",
+          "50"
+        ],
+        "correct": 0,
+        "id": "m_h_107"
+      },
+      {
+        "question": "If you have 2/3 of a candy bar and you give away 1/6 of it, how much do you have left?",
+        "options": [
+          "1/2",
+          "1/3",
+          "1/4",
+          "1/6"
+        ],
+        "correct": 0,
+        "id": "m_h_108"
+      },
+      {
+        "question": "What is the value of (3^2 + 4^2)?",
+        "options": [
+          "25",
+          "16",
+          "20",
+          "12"
+        ],
+        "correct": 0,
+        "id": "m_h_109"
+      },
+      {
+        "question": "If a rectangle has an area of 36 cm² and a length of 6 cm, what is its width?",
+        "options": [
+          "4",
+          "6",
+          "3",
+          "2"
+        ],
+        "correct": 0,
+        "id": "m_h_110"
+      },
+      {
+        "question": "What is 8! (8 factorial)?",
+        "options": [
+          "40320",
+          "362880",
+          "2880",
+          "10080"
+        ],
+        "correct": 0,
+        "id": "m_h_111"
+      },
+      {
+        "question": "How do you spell the term that describes 'the likelihood of an event occurring'? ",
+        "options": [
+          "probabilitee",
+          "probaliteh",
+          "probability",
+          "probablity"
+        ],
+        "correct": 2,
+        "id": "m_h_112"
+      },
+      {
+        "question": "What is the sum of the interior angles of a hexagon?",
+        "options": [
+          "720 degrees",
+          "900 degrees",
+          "1080 degrees",
+          "1200 degrees"
+        ],
+        "correct": 2,
+        "id": "m_h_113"
+      },
+      {
+        "question": "Which of the following is equivalent to 0.75?",
+        "options": [
+          "1/4",
+          "3/8",
+          "2/3",
+          "3/4"
+        ],
+        "correct": 3,
+        "id": "m_h_114"
+      },
+      {
+        "question": "If 8 is multiplied by x and the result is 64, what is x?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correct": 2,
+        "id": "m_h_115"
+      },
+      {
+        "question": "If the ratio of cats to dogs is 3:2 and there are 12 cats, how many dogs are there?",
+        "options": [
+          "8",
+          "6",
+          "4",
+          "10"
+        ],
+        "correct": 1,
+        "id": "m_h_116"
+      },
+      {
+        "question": "What is the value of x in the equation 5x - 7 = 18?",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 1,
+        "id": "m_h_117"
+      },
+      {
+        "question": "How do you spell the term for 'the bottom number in a fraction'?",
+        "options": [
+          "denominer",
+          "denominator",
+          "denominoter",
+          "denomitor"
+        ],
+        "correct": 1,
+        "id": "m_h_118"
+      },
+      {
+        "question": "If 45% of a number is 54, what is the number?",
+        "options": [
+          "120",
+          "108",
+          "90",
+          "75"
+        ],
+        "correct": 2,
+        "id": "m_h_119"
+      },
+      {
+        "question": "What is the area of a triangle with a base of 10 cm and a height of 6 cm?",
+        "options": [
+          "30 cm²",
+          "20 cm²",
+          "60 cm²",
+          "50 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_120"
+      },
+      {
+        "question": "How do you spell the term that describes 'the average of a set of numbers'?",
+        "options": [
+          "mediane",
+          "median",
+          "medien",
+          "medean"
+        ],
+        "correct": 1,
+        "id": "m_h_121"
+      },
+      {
+        "question": "If the length of a rectangle is doubled and the width is halved, how does the area change?",
+        "options": [
+          "Remains the same",
+          "Doubles",
+          "Halves",
+          "Increases four times"
+        ],
+        "correct": 3,
+        "id": "m_h_122"
+      },
+      {
+        "question": "What is 15% of 200?",
+        "options": [
+          "25",
+          "30",
+          "35",
+          "40"
+        ],
+        "correct": 1,
+        "id": "m_h_123"
+      },
+      {
+        "question": "If x/4 = 12, what is the value of x?",
+        "options": [
+          "24",
+          "48",
+          "36",
+          "60"
+        ],
+        "correct": 0,
+        "id": "m_h_124"
+      },
+      {
+        "question": "How do you spell the term for 'a polygon with eight sides'?",
+        "options": [
+          "octagon",
+          "octagone",
+          "octgon",
+          "octgan"
+        ],
+        "correct": 0,
+        "id": "m_h_125"
+      },
+      {
+        "question": "If a square has an area of 100 cm², what is the length of one side?",
+        "options": [
+          "8 cm",
+          "10 cm",
+          "12 cm",
+          "14 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_126"
+      },
+      {
+        "question": "How do you spell the term for 'a number that cannot be divided evenly by any number other than itself and one'?",
+        "options": [
+          "prim",
+          "prime",
+          "prem",
+          "pryme"
+        ],
+        "correct": 1,
+        "id": "m_h_127"
+      },
+      {
+        "question": "What is 3/4 + 2/8?",
+        "options": [
+          "5/8",
+          "7/8",
+          "1",
+          "1/2"
+        ],
+        "correct": 1,
+        "id": "m_h_128"
+      },
+      {
+        "question": "What is the volume of a cube with a side length of 4 cm?",
+        "options": [
+          "16 cm³",
+          "32 cm³",
+          "64 cm³",
+          "48 cm³"
+        ],
+        "correct": 2,
+        "id": "m_h_129"
+      },
+      {
+        "question": "If you subtract 25 from a number and the result is 45, what is the number?",
+        "options": [
+          "60",
+          "70",
+          "55",
+          "50"
+        ],
+        "correct": 0,
+        "id": "m_h_130"
+      },
+      {
+        "question": "How do you spell the term that represents a fraction where the numerator is greater than the denominator?",
+        "options": [
+          "improper",
+          "improber",
+          "improppper",
+          "impropp"
+        ],
+        "correct": 0,
+        "id": "m_h_131"
+      },
+      {
+        "question": "If 3x + 6 = 21, what is the value of x?",
+        "options": [
+          "1",
+          "3",
+          "5",
+          "7"
+        ],
+        "correct": 2,
+        "id": "m_h_132"
+      },
+      {
+        "question": "How do you spell the term for 'the center of a circle'?",
+        "options": [
+          "centar",
+          "centra",
+          "center",
+          "centor"
+        ],
+        "correct": 2,
+        "id": "m_h_133"
+      },
+      {
+        "question": "What is the sum of the first 5 prime numbers?",
+        "options": [
+          "28",
+          "22",
+          "26",
+          "30"
+        ],
+        "correct": 1,
+        "id": "m_h_134"
+      },
+      {
+        "question": "What is the least common multiple of 12 and 15?",
+        "options": [
+          "30",
+          "60",
+          "45",
+          "75"
+        ],
+        "correct": 1,
+        "id": "m_h_135"
+      },
+      {
+        "question": "If you have an angle measuring 35 degrees, what is its supplement?",
+        "options": [
+          "145 degrees",
+          "125 degrees",
+          "155 degrees",
+          "175 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_136"
+      },
+      {
+        "question": "Which of the following fractions is equivalent to 2/5?",
+        "options": [
+          "4/10",
+          "6/15",
+          "8/20",
+          "10/25"
+        ],
+        "correct": 0,
+        "id": "m_h_137"
+      },
+      {
+        "question": "How do you spell the term that describes 'the ratio of the amount of a part to the total'?",
+        "options": [
+          "Proporiton",
+          "Propotion",
+          "Proportion",
+          "Proprtion"
+        ],
+        "correct": 2,
+        "id": "m_h_138"
+      },
+      {
+        "question": "What percentage is 45 out of 360?",
+        "options": [
+          "15%",
+          "12.5%",
+          "10%",
+          "14%"
+        ],
+        "correct": 0,
+        "id": "m_h_139"
+      },
+      {
+        "question": "In the equation 2x + 3 = 11, what is the value of x?",
+        "options": [
+          "4",
+          "6",
+          "3",
+          "2"
+        ],
+        "correct": 0,
+        "id": "m_h_140"
+      },
+      {
+        "question": "What is the perimeter of a rectangle with a length of 10 cm and a width of 6 cm?",
+        "options": [
+          "32 cm",
+          "30 cm",
+          "40 cm",
+          "24 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_141"
+      },
+      {
+        "question": "If a circle has a radius of 5 cm, what is its circumference? (Use π ≈ 3.14)",
+        "options": [
+          "31.4 cm",
+          "15.7 cm",
+          "25 cm",
+          "50 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_142"
+      },
+      {
+        "question": "If you divide a number by 2 and add 10, the result is 18. What is the number?",
+        "options": [
+          "16",
+          "14",
+          "12",
+          "20"
+        ],
+        "correct": 0,
+        "id": "m_h_143"
+      },
+      {
+        "question": "How do you spell the term for 'a parallelogram with right angles'?",
+        "options": [
+          "Rectangal",
+          "Rectngle",
+          "Rectangle",
+          "Rectangule"
+        ],
+        "correct": 2,
+        "id": "m_h_144"
+      },
+      {
+        "question": "What is 3/5 of 200?",
+        "options": [
+          "120",
+          "100",
+          "80",
+          "60"
+        ],
+        "correct": 0,
+        "id": "m_h_145"
+      },
+      {
+        "question": "What is the area of a circle with a diameter of 10 cm? (Use π ≈ 3.14)",
+        "options": [
+          "78.5 cm²",
+          "31.4 cm²",
+          "50 cm²",
+          "100 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_146"
+      },
+      {
+        "question": "If a number is decreased by 9 and the result is 15, what is the number?",
+        "options": [
+          "22",
+          "24",
+          "30",
+          "15"
+        ],
+        "correct": 0,
+        "id": "m_h_147"
+      },
+      {
+        "question": "What is the greatest common divisor of 8 and 12?",
+        "options": [
+          "2",
+          "4",
+          "6",
+          "8"
+        ],
+        "correct": 1,
+        "id": "m_h_148"
+      },
+      {
+        "question": "In a box of chocolates, 30% are dark chocolate. If there are 60 chocolates, how many are dark chocolate?",
+        "options": [
+          "12",
+          "18",
+          "20",
+          "30"
+        ],
+        "correct": 1,
+        "id": "m_h_149"
+      },
+      {
+        "question": "How do you spell the term for 'the corner where two sides meet in a polygon'?",
+        "options": [
+          "Vrettex",
+          "Vortex",
+          "Vertex",
+          "Vertax"
+        ],
+        "correct": 2,
+        "id": "m_h_150"
+      },
+      {
+        "question": "What is the value of the expression 5(4 + 3) - 8?",
+        "options": [
+          "25",
+          "27",
+          "29",
+          "31"
+        ],
+        "correct": 1,
+        "id": "m_h_151"
+      },
+      {
+        "question": "What is the value of 5/6 - 1/3?",
+        "options": [
+          "1/2",
+          "1/3",
+          "1/4",
+          "1/6"
+        ],
+        "correct": 0,
+        "id": "m_h_152"
+      },
+      {
+        "question": "In a triangle, if one angle is 90 degrees and another is 45 degrees, what is the measure of the third angle?",
+        "options": [
+          "45 degrees",
+          "30 degrees",
+          "60 degrees",
+          "90 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_153"
+      },
+      {
+        "question": "What is the result of (3x + 7) - (2x - 5) when x = 4?",
+        "options": [
+          "24",
+          "26",
+          "18",
+          "20"
+        ],
+        "correct": 1,
+        "id": "m_h_154"
+      },
+      {
+        "question": "If a number is multiplied by 0.25 and the result is 15, what is the number?",
+        "options": [
+          "60",
+          "75",
+          "70",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_h_155"
+      },
+      {
+        "question": "What is the area of a triangle with a base of 10 cm and a height of 5 cm?",
+        "options": [
+          "25 cm²",
+          "30 cm²",
+          "50 cm²",
+          "15 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_156"
+      },
+      {
+        "question": "How do you spell the term for 'an angle greater than 90 degrees'?",
+        "options": [
+          "obtuse",
+          "obtusee",
+          "obtuce",
+          "obtusee"
+        ],
+        "correct": 0,
+        "id": "m_h_157"
+      },
+      {
+        "question": "If you multiply a number by 9 and then subtract 3, the result is 24. What is the number?",
+        "options": [
+          "3",
+          "6",
+          "9",
+          "2"
+        ],
+        "correct": 1,
+        "id": "m_h_158"
+      },
+      {
+        "question": "What is the least common multiple of 6 and 8?",
+        "options": [
+          "24",
+          "12",
+          "48",
+          "36"
+        ],
+        "correct": 0,
+        "id": "m_h_159"
+      },
+      {
+        "question": "If a student scored 18 out of 20 on a test, what percentage did they score?",
+        "options": [
+          "90%",
+          "80%",
+          "95%",
+          "85%"
+        ],
+        "correct": 0,
+        "id": "m_h_160"
+      },
+      {
+        "question": "How do you spell the term for 'the middle number in a sorted list'? ",
+        "options": [
+          "median",
+          "meadian",
+          "medean",
+          "medain"
+        ],
+        "correct": 0,
+        "id": "m_h_161"
+      },
+      {
+        "question": "What is the sum of 3/4 and 5/8?",
+        "options": [
+          "11/8",
+          "7/8",
+          "4/8",
+          "13/8"
+        ],
+        "correct": 0,
+        "id": "m_h_162"
+      },
+      {
+        "question": "If the ratio of cats to dogs is 2:3 and there are 15 dogs, how many cats are there?",
+        "options": [
+          "10",
+          "8",
+          "5",
+          "12"
+        ],
+        "correct": 0,
+        "id": "m_h_163"
+      },
+      {
+        "question": "What is the value of the expression 2(3x - 4) = 2(2x + 1)?",
+        "options": [
+          "x = 5",
+          "x = 0",
+          "x = 2",
+          "x = 1"
+        ],
+        "correct": 1,
+        "id": "m_h_164"
+      },
+      {
+        "question": "If 1/6 of a number is equal to 9, what is the number?",
+        "options": [
+          "54",
+          "15",
+          "18",
+          "36"
+        ],
+        "correct": 0,
+        "id": "m_h_165"
+      },
+      {
+        "question": "What is the area of a rectangle with a length of 12 cm and a width of 9 cm?",
+        "options": [
+          "108 cm²",
+          "96 cm²",
+          "72 cm²",
+          "54 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_166"
+      },
+      {
+        "question": "In a class, 20% of students are boys. If there are 50 students, how many are girls?",
+        "options": [
+          "40",
+          "10",
+          "20",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_h_167"
+      },
+      {
+        "question": "How do you spell the term for 'the longest side of a right triangle?'",
+        "options": [
+          "hypotenuse",
+          "hypotenuese",
+          "hipoteneuse",
+          "hypoteneus"
+        ],
+        "correct": 0,
+        "id": "m_h_168"
+      },
+      {
+        "question": "What is 50% of 640?",
+        "options": [
+          "320",
+          "240",
+          "400",
+          "350"
+        ],
+        "correct": 0,
+        "id": "m_h_169"
+      },
+      {
+        "question": "What is the value of x in the equation 4(x - 2) = 12?",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "correct": 2,
+        "id": "m_h_170"
+      },
+      {
+        "question": "If a triangle has sides of lengths 5 cm, 12 cm, and 13 cm, what type of triangle is it?",
+        "options": [
+          "Isosceles",
+          "Acute",
+          "Right",
+          "Obtuse"
+        ],
+        "correct": 2,
+        "id": "m_h_171"
+      },
+      {
+        "question": "How do you spell the term for 'the distance around a polygon'?",
+        "options": [
+          "Perimter",
+          "Peremeter",
+          "Perimeter",
+          "Perymeter"
+        ],
+        "correct": 2,
+        "id": "m_h_172"
+      },
+      {
+        "question": "What is the sum of the angles in a hexagon?",
+        "options": [
+          "720 degrees",
+          "540 degrees",
+          "360 degrees",
+          "600 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_173"
+      },
+      {
+        "question": "In the expression 3x + 4y - 2, what is the coefficient of y?",
+        "options": [
+          "3",
+          "4",
+          "-2",
+          "0"
+        ],
+        "correct": 1,
+        "id": "m_h_174"
+      },
+      {
+        "question": "Which fraction represents the same value as 75%?",
+        "options": [
+          "3/4",
+          "7/8",
+          "2/3",
+          "5/6"
+        ],
+        "correct": 0,
+        "id": "m_h_175"
+      },
+      {
+        "question": "How do you spell the term for 'a number that divides another number evenly'?",
+        "options": [
+          "Dividor",
+          "Divisor",
+          "Diviser",
+          "Divoser"
+        ],
+        "correct": 1,
+        "id": "m_h_176"
+      },
+      {
+        "question": "What is the result of 0.25 + 0.50 + 0.75?",
+        "options": [
+          "1.0",
+          "1.50",
+          "1.25",
+          "2.0"
+        ],
+        "correct": 2,
+        "id": "m_h_177"
+      },
+      {
+        "question": "If 3/4 of a number is equal to 12, what is the number?",
+        "options": [
+          "8",
+          "16",
+          "24",
+          "32"
+        ],
+        "correct": 1,
+        "id": "m_h_178"
+      },
+      {
+        "question": "What is the area of a trapezoid with bases 10 cm and 6 cm, and height 4 cm?",
+        "options": [
+          "32 cm²",
+          "24 cm²",
+          "40 cm²",
+          "36 cm²"
+        ],
+        "correct": 1,
+        "id": "m_h_179"
+      },
+      {
+        "question": "Which integer is not a prime number?",
+        "options": [
+          "7",
+          "11",
+          "15",
+          "17"
+        ],
+        "correct": 2,
+        "id": "m_h_180"
+      },
+      {
+        "question": "If you have 3/5 of a pizza and eat 1/3 of that, how much pizza do you have left?",
+        "options": [
+          "2/5",
+          "1/2",
+          "4/15",
+          "1/5"
+        ],
+        "correct": 2,
+        "id": "m_h_181"
+      },
+      {
+        "question": "How do you spell the term for 'the result of adding two numbers'?",
+        "options": [
+          "Sum",
+          "Sume",
+          "Somm",
+          "Suum"
+        ],
+        "correct": 0,
+        "id": "m_h_182"
+      },
+      {
+        "question": "In a class of 40 students, if 25% are absent, how many are present?",
+        "options": [
+          "30",
+          "35",
+          "25",
+          "20"
+        ],
+        "correct": 1,
+        "id": "m_h_183"
+      },
+      {
+        "question": "What is 2/3 divided by 4/5?",
+        "options": [
+          "5/6",
+          "3/8",
+          "10/12",
+          "1/4"
+        ],
+        "correct": 0,
+        "id": "m_h_184"
+      },
+      {
+        "question": "If a rectangle's length is doubled and the width is tripled, how does the area change?",
+        "options": [
+          "Increases by 6 times",
+          "Increases by 3 times",
+          "Increases by 2 times",
+          "Stays the same"
+        ],
+        "correct": 0,
+        "id": "m_h_185"
+      },
+      {
+        "question": "How do you spell the term for 'a pair of angles that are opposite each other when two lines cross'?",
+        "options": [
+          "Oppisit",
+          "Opposite",
+          "Oppositee",
+          "Oposit"
+        ],
+        "correct": 1,
+        "id": "m_h_186"
+      },
+      {
+        "question": "What is the value of 8% of 250?",
+        "options": [
+          "20",
+          "15",
+          "25",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_h_187"
+      },
+      {
+        "question": "If you have a fraction 5/12 and you add 1/4 to it, what is the result?",
+        "options": [
+          "7/12",
+          "2/3",
+          "4/3",
+          "1/2"
+        ],
+        "correct": 1,
+        "id": "m_h_188"
+      },
+      {
+        "question": "A rectangular garden has a length of 15 m and a perimeter of 50 m. What is the width?",
+        "options": [
+          "10 m",
+          "12.5 m",
+          "5 m",
+          "15 m"
+        ],
+        "correct": 0,
+        "id": "m_h_189"
+      },
+      {
+        "question": "Which of the following is equal to 0.125?",
+        "options": [
+          "1/8",
+          "1/4",
+          "1/16",
+          "1/2"
+        ],
+        "correct": 0,
+        "id": "m_h_190"
+      },
+      {
+        "question": "What is the product of the least common multiple (LCM) of 4 and 6 and their greatest common divisor (GCD)?",
+        "options": [
+          "12",
+          "24",
+          "8",
+          "6"
+        ],
+        "correct": 1,
+        "id": "m_h_191"
+      },
+      {
+        "question": "How do you spell the term for 'the horizontal distance along the base of a figure'?",
+        "options": [
+          "base",
+          "bace",
+          "beis",
+          "baes"
+        ],
+        "correct": 0,
+        "id": "m_h_192"
+      },
+      {
+        "question": "If 3x + 2 = 14, what is the value of x?",
+        "options": [
+          "4",
+          "3",
+          "2",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_193"
+      },
+      {
+        "question": "What is the value of 25% of 300?",
+        "options": [
+          "75",
+          "50",
+          "125",
+          "60"
+        ],
+        "correct": 0,
+        "id": "m_h_194"
+      },
+      {
+        "question": "If a right triangle has a hypotenuse of 10 cm and one side of 6 cm, what is the length of the other side?",
+        "options": [
+          "8 cm",
+          "7 cm",
+          "5 cm",
+          "4 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_195"
+      },
+      {
+        "question": "How do you spell the term for 'the angle formed by two rays that share a common endpoint'?",
+        "options": [
+          "angule",
+          "anglee",
+          "angle",
+          "anggul"
+        ],
+        "correct": 2,
+        "id": "m_h_196"
+      },
+      {
+        "question": "Find the sum of the interior angles of a pentagon.",
+        "options": [
+          "540 degrees",
+          "360 degrees",
+          "720 degrees",
+          "180 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_197"
+      },
+      {
+        "question": "You have a polynomial 4x^2 - 3x + 7. What is the coefficient of x?",
+        "options": [
+          "4",
+          "-3",
+          "7",
+          "1"
+        ],
+        "correct": 1,
+        "id": "m_h_198"
+      },
+      {
+        "question": "If a circle has a radius of 7 cm, what is the area of the circle? (Use π ≈ 3.14)",
+        "options": [
+          "153.86 cm²",
+          "149.76 cm²",
+          "75.36 cm²",
+          "34.20 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_199"
+      },
+      {
+        "question": "How do you spell the term for 'the middle number in a sorted list of numbers'?",
+        "options": [
+          "mediam",
+          "median",
+          "mediate",
+          "medin"
+        ],
+        "correct": 1,
+        "id": "m_h_200"
+      },
+      {
+        "question": "What is the least number of slices if you have 3/4 of a pizza and you want to make slices each measuring 1/8 of the whole pizza?",
+        "options": [
+          "6",
+          "4",
+          "12",
+          "8"
+        ],
+        "correct": 0,
+        "id": "m_h_201"
+      },
+      {
+        "question": "If the pattern is 2, 4, 8, 16, what is the next number in the sequence?",
+        "options": [
+          "32",
+          "28",
+          "24",
+          "20"
+        ],
+        "correct": 0,
+        "id": "m_h_202"
+      },
+      {
+        "question": "How do you spell the term for 'an angle that is greater than 90 degrees but less than 180 degrees'?",
+        "options": [
+          "obtuse",
+          "obtusee",
+          "obtus",
+          "obtuce"
+        ],
+        "correct": 0,
+        "id": "m_h_203"
+      },
+      {
+        "question": "What is 15 squared?",
+        "options": [
+          "225",
+          "30",
+          "150",
+          "75"
+        ],
+        "correct": 0,
+        "id": "m_h_204"
+      },
+      {
+        "question": "If a square has a perimeter of 48 cm, what is the length of one side?",
+        "options": [
+          "12 cm",
+          "10 cm",
+          "8 cm",
+          "6 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_205"
+      },
+      {
+        "question": "What is the result of 1/3 + 1/4?",
+        "options": [
+          "7/12",
+          "5/12",
+          "8/12",
+          "1/12"
+        ],
+        "correct": 0,
+        "id": "m_h_206"
+      },
+      {
+        "question": "If a train travels at 60 miles per hour for 2.5 hours, how far does it travel?",
+        "options": [
+          "120 miles",
+          "150 miles",
+          "180 miles",
+          "100 miles"
+        ],
+        "correct": 1,
+        "id": "m_h_207"
+      },
+      {
+        "question": "If you have a triangle with angles measuring 45° and 90°, what is the measure of the third angle?",
+        "options": [
+          "45°",
+          "30°",
+          "60°",
+          "75°"
+        ],
+        "correct": 0,
+        "id": "m_h_208"
+      },
+      {
+        "question": "What is the result of 5x + 3 when x = 2?",
+        "options": [
+          "13",
+          "8",
+          "15",
+          "10"
+        ],
+        "correct": 0,
+        "id": "m_h_209"
+      },
+      {
+        "question": "How do you spell the term for 'a part of a whole expressed as a number over another number'?",
+        "options": [
+          "fraction",
+          "fractoin",
+          "frakshun",
+          "frakshun"
+        ],
+        "correct": 0,
+        "id": "m_h_210"
+      },
+      {
+        "question": "If a class has 30 students and 40% are girls, how many girls are there?",
+        "options": [
+          "12",
+          "14",
+          "10",
+          "8"
+        ],
+        "correct": 1,
+        "id": "m_h_211"
+      },
+      {
+        "question": "In a parallelogram, if the base is 5 cm and the height is 6 cm, what is the area?",
+        "options": [
+          "30 cm²",
+          "20 cm²",
+          "25 cm²",
+          "15 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_212"
+      },
+      {
+        "question": "What is the next number in the sequence: 5, 10, 20, 40?",
+        "options": [
+          "60",
+          "80",
+          "100",
+          "70"
+        ],
+        "correct": 1,
+        "id": "m_h_213"
+      },
+      {
+        "question": "How do you spell the term for 'a number that is larger than 0'?",
+        "options": [
+          "positive",
+          "posotive",
+          "positve",
+          "poitive"
+        ],
+        "correct": 0,
+        "id": "m_h_214"
+      },
+      {
+        "question": "If you have a box that is 4 cm wide, 5 cm long, and 6 cm high, what is the volume?",
+        "options": [
+          "120 cm³",
+          "100 cm³",
+          "110 cm³",
+          "90 cm³"
+        ],
+        "correct": 0,
+        "id": "m_h_215"
+      },
+      {
+        "question": "What is the value of (6 + 4) × (5 - 3)?",
+        "options": [
+          "20",
+          "18",
+          "10",
+          "12"
+        ],
+        "correct": 0,
+        "id": "m_h_216"
+      },
+      {
+        "question": "If you have a fraction 3/8 and subtract 1/4 from it, what is the result?",
+        "options": [
+          "1/8",
+          "5/8",
+          "3/8",
+          "7/8"
+        ],
+        "correct": 1,
+        "id": "m_h_217"
+      },
+      {
+        "question": "If a regular hexagon has a side length of 3 cm, what is the perimeter?",
+        "options": [
+          "18 cm",
+          "15 cm",
+          "20 cm",
+          "12 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_218"
+      },
+      {
+        "question": "How do you spell the term for 'an angle that measures exactly 90 degrees'?",
+        "options": [
+          "rightangle",
+          "right angle",
+          "riteangle",
+          "right-angel"
+        ],
+        "correct": 1,
+        "id": "m_h_219"
+      },
+      {
+        "question": "What is the greatest common divisor (GCD) of 24 and 36?",
+        "options": [
+          "6",
+          "12",
+          "8",
+          "4"
+        ],
+        "correct": 0,
+        "id": "m_h_220"
+      },
+      {
+        "question": "What is the missing number in the equation 3/4 ÷ x = 1/2?",
+        "options": [
+          "3/2",
+          "1/2",
+          "2/3",
+          "2"
+        ],
+        "correct": 0,
+        "id": "m_h_221"
+      },
+      {
+        "question": "If a rectangle has an area of 50 cm² and its length is 10 cm, what is the width?",
+        "options": [
+          "5 cm",
+          "7 cm",
+          "6 cm",
+          "4 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_222"
+      },
+      {
+        "question": "What is the value of 60% of 150?",
+        "options": [
+          "90",
+          "100",
+          "80",
+          "70"
+        ],
+        "correct": 0,
+        "id": "m_h_223"
+      },
+      {
+        "question": "If 5x - 7 = 3, what is the value of x?",
+        "options": [
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "correct": 1,
+        "id": "m_h_224"
+      },
+      {
+        "question": "If a polynomial is 3x^3 - 2x^2 + x - 5, what is the coefficient of x^2?",
+        "options": [
+          "-2",
+          "3",
+          "1",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_225"
+      },
+      {
+        "question": "If you have a set of numbers 2, 4, 6, 8, and you add 10 to it, what is the average?",
+        "options": [
+          "6",
+          "8",
+          "7",
+          "5"
+        ],
+        "correct": 2,
+        "id": "m_h_226"
+      },
+      {
+        "question": "If a rectangle has a width of 4 cm and a length of 7 cm, what is its perimeter?",
+        "options": [
+          "22 cm",
+          "28 cm",
+          "18 cm",
+          "20 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_227"
+      },
+      {
+        "question": "What is the solution to the equation 4(x - 3) = 2x + 6?",
+        "options": [
+          "6",
+          "3",
+          "0",
+          "9"
+        ],
+        "correct": 0,
+        "id": "m_h_228"
+      },
+      {
+        "question": "You have 3/4 of a chocolate bar. If you give away 1/3 of it, how much do you have left?",
+        "options": [
+          "1/2",
+          "5/12",
+          "1/4",
+          "1/3"
+        ],
+        "correct": 1,
+        "id": "m_h_229"
+      },
+      {
+        "question": "If x is 3, what is the value of 2x² + 4x - 1?",
+        "options": [
+          "35",
+          "28",
+          "23",
+          "16"
+        ],
+        "correct": 1,
+        "id": "m_h_230"
+      },
+      {
+        "question": "How do you spell the term for 'a number that appears most frequently in a data set'?",
+        "options": [
+          "moda",
+          "mode",
+          "moed",
+          "moad"
+        ],
+        "correct": 1,
+        "id": "m_h_231"
+      },
+      {
+        "question": "In a class of 30 students, if 60% are boys, how many are girls?",
+        "options": [
+          "12",
+          "18",
+          "10",
+          "15"
+        ],
+        "correct": 1,
+        "id": "m_h_232"
+      },
+      {
+        "question": "If a right triangle has one leg measuring 9 cm and the hypotenuse measuring 15 cm, what is the length of the other leg?",
+        "options": [
+          "12 cm",
+          "10 cm",
+          "8 cm",
+          "7 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_233"
+      },
+      {
+        "question": "How do you spell the term for 'the process of finding a percentage of a number'?",
+        "options": [
+          "percentizing",
+          "precentaging",
+          "percentaging",
+          "percenting"
+        ],
+        "correct": 3,
+        "id": "m_h_234"
+      },
+      {
+        "question": "What is the result of (3 + 5) × 2 - 6?",
+        "options": [
+          "10",
+          "14",
+          "12",
+          "8"
+        ],
+        "correct": 2,
+        "id": "m_h_235"
+      },
+      {
+        "question": "If the sum of three consecutive integers is 72, what is the smallest integer?",
+        "options": [
+          "23",
+          "24",
+          "25",
+          "22"
+        ],
+        "correct": 1,
+        "id": "m_h_236"
+      },
+      {
+        "question": "In an octagon, what is the total measure of the interior angles?",
+        "options": [
+          "1080 degrees",
+          "900 degrees",
+          "720 degrees",
+          "1800 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_237"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 12 and 15?",
+        "options": [
+          "60",
+          "30",
+          "45",
+          "75"
+        ],
+        "correct": 0,
+        "id": "m_h_238"
+      },
+      {
+        "question": "If a bag contains 12 marbles: 3 red, 5 blue, and the rest green, what fraction of the marbles are green?",
+        "options": [
+          "1/4",
+          "1/3",
+          "2/3",
+          "1/2"
+        ],
+        "correct": 1,
+        "id": "m_h_239"
+      },
+      {
+        "question": "What is the value of 4/5 + 2/5?",
+        "options": [
+          "3/5",
+          "6/5",
+          "1",
+          "1/5"
+        ],
+        "correct": 1,
+        "id": "m_h_240"
+      },
+      {
+        "question": "A rectangle's length is three times its width. If the width is 4 cm, what is the area?",
+        "options": [
+          "48 cm²",
+          "16 cm²",
+          "12 cm²",
+          "24 cm²"
+        ],
+        "correct": 3,
+        "id": "m_h_241"
+      },
+      {
+        "question": "What is the result of (7 × 9) - (5 × 3)?",
+        "options": [
+          "60",
+          "54",
+          "66",
+          "72"
+        ],
+        "correct": 1,
+        "id": "m_h_242"
+      },
+      {
+        "question": "If 25% of a number is 60, what is the number?",
+        "options": [
+          "240",
+          "150",
+          "180",
+          "200"
+        ],
+        "correct": 0,
+        "id": "m_h_243"
+      },
+      {
+        "question": "What is the area of a triangle with a base of 10 cm and a height of 4 cm?",
+        "options": [
+          "40 cm²",
+          "20 cm²",
+          "30 cm²",
+          "15 cm²"
+        ],
+        "correct": 1,
+        "id": "m_h_244"
+      },
+      {
+        "question": "If a pizza is cut into 8 equal slices and you eat 3 slices, what fraction of the pizza is left?",
+        "options": [
+          "1/2",
+          "5/8",
+          "3/8",
+          "4/8"
+        ],
+        "correct": 1,
+        "id": "m_h_245"
+      },
+      {
+        "question": "What is the value of x if 2x + 3 = 15?",
+        "options": [
+          "6",
+          "3",
+          "5",
+          "7"
+        ],
+        "correct": 0,
+        "id": "m_h_246"
+      },
+      {
+        "question": "How do you spell the term for 'the number that appears most frequently in a set'?",
+        "options": [
+          "mode",
+          "mowd",
+          "moed",
+          "moode"
+        ],
+        "correct": 0,
+        "id": "m_h_247"
+      },
+      {
+        "question": "What is the next number in the sequence: 2, 4, 8, 16, ... ?",
+        "options": [
+          "30",
+          "20",
+          "32",
+          "64"
+        ],
+        "correct": 2,
+        "id": "m_h_248"
+      },
+      {
+        "question": "A triangle has sides measuring 6 cm, 8 cm, and 10 cm. What type of triangle is it?",
+        "options": [
+          "scalene",
+          "equilateral",
+          "isosceles",
+          "right"
+        ],
+        "correct": 3,
+        "id": "m_h_249"
+      },
+      {
+        "question": "What is 150% of 120?",
+        "options": [
+          "180",
+          "150",
+          "120",
+          "200"
+        ],
+        "correct": 0,
+        "id": "m_h_250"
+      },
+      {
+        "question": "If the perimeter of a square is 64 cm, what is the length of one side?",
+        "options": [
+          "16 cm",
+          "18 cm",
+          "20 cm",
+          "14 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_251"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 4, 5, and 6?",
+        "options": [
+          "60",
+          "30",
+          "120",
+          "45"
+        ],
+        "correct": 0,
+        "id": "m_h_252"
+      },
+      {
+        "question": "How do you spell the term for 'the part of a whole represented in hundredths'?",
+        "options": [
+          "percent",
+          "percet",
+          "percent",
+          "precent"
+        ],
+        "correct": 0,
+        "id": "m_h_253"
+      },
+      {
+        "question": "If you have 2/3 of a chocolate bar and you give away 1/6 of it, how much do you have left?",
+        "options": [
+          "1/2",
+          "3/6",
+          "1/3",
+          "1/4"
+        ],
+        "correct": 0,
+        "id": "m_h_254"
+      },
+      {
+        "question": "If 3/4 of a number is 45, what is the number?",
+        "options": [
+          "60",
+          "75",
+          "80",
+          "90"
+        ],
+        "correct": 1,
+        "id": "m_h_255"
+      },
+      {
+        "question": "What is the value of x in the equation 3(x + 4) = 18?",
+        "options": [
+          "2",
+          "6",
+          "4",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_256"
+      },
+      {
+        "question": "A bag contains 20 marbles. If 25% of them are red, how many are not red?",
+        "options": [
+          "15",
+          "5",
+          "10",
+          "12"
+        ],
+        "correct": 0,
+        "id": "m_h_257"
+      },
+      {
+        "question": "How do you spell the term for 'the value that occurs most often in a data set'?",
+        "options": [
+          "modius",
+          "mode",
+          "mody",
+          "modus"
+        ],
+        "correct": 1,
+        "id": "m_h_258"
+      },
+      {
+        "question": "If the ratio of cats to dogs is 3:4 and there are 12 cats, how many dogs are there?",
+        "options": [
+          "16",
+          "9",
+          "15",
+          "8"
+        ],
+        "correct": 0,
+        "id": "m_h_259"
+      },
+      {
+        "question": "What is the sum of the angles in a pentagon?",
+        "options": [
+          "360 degrees",
+          "540 degrees",
+          "720 degrees",
+          "1080 degrees"
+        ],
+        "correct": 1,
+        "id": "m_h_260"
+      },
+      {
+        "question": "In a circle with a radius of 7 cm, what is the circumference? (Use π ≈ 3.14)",
+        "options": [
+          "43.96 cm",
+          "21.98 cm",
+          "38.84 cm",
+          "14 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_261"
+      },
+      {
+        "question": "If you multiply a number by 6 and then subtract 7, you get 41. What is the number?",
+        "options": [
+          "8",
+          "9",
+          "10",
+          "7"
+        ],
+        "correct": 2,
+        "id": "m_h_262"
+      },
+      {
+        "question": "What is 3/5 of 75?",
+        "options": [
+          "45",
+          "50",
+          "40",
+          "60"
+        ],
+        "correct": 0,
+        "id": "m_h_263"
+      },
+      {
+        "question": "If 20% of a number is 30, what is the number?",
+        "options": [
+          "150",
+          "200",
+          "100",
+          "75"
+        ],
+        "correct": 1,
+        "id": "m_h_264"
+      },
+      {
+        "question": "How do you spell the term for 'the number that represents a part of a whole'?",
+        "options": [
+          "fractoin",
+          "frakshun",
+          "fraction",
+          "frakshon"
+        ],
+        "correct": 2,
+        "id": "m_h_265"
+      },
+      {
+        "question": "What is the perimeter of a rectangle that is 5 cm wide and 12 cm long?",
+        "options": [
+          "34 cm",
+          "30 cm",
+          "25 cm",
+          "27 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_266"
+      },
+      {
+        "question": "If you have 3/8 of a pizza and you eat 1/4 of what you have left, what fraction of the pizza remains?",
+        "options": [
+          "1/2",
+          "5/8",
+          "3/8",
+          "1/4"
+        ],
+        "correct": 1,
+        "id": "m_h_267"
+      },
+      {
+        "question": "What is the area of a trapezoid with bases of 10 cm and 6 cm, and a height of 5 cm?",
+        "options": [
+          "40 cm²",
+          "30 cm²",
+          "25 cm²",
+          "50 cm²"
+        ],
+        "correct": 1,
+        "id": "m_h_268"
+      },
+      {
+        "question": "If x - 4 = 2, what is the value of x?",
+        "options": [
+          "6",
+          "8",
+          "4",
+          "2"
+        ],
+        "correct": 0,
+        "id": "m_h_269"
+      },
+      {
+        "question": "In percentage terms, what is 18 out of 60?",
+        "options": [
+          "30%",
+          "25%",
+          "20%",
+          "15%"
+        ],
+        "correct": 0,
+        "id": "m_h_270"
+      },
+      {
+        "question": "What is the least common multiple of 8 and 12?",
+        "options": [
+          "24",
+          "48",
+          "32",
+          "60"
+        ],
+        "correct": 0,
+        "id": "m_h_271"
+      },
+      {
+        "question": "If the ratio of boys to girls in a class is 5:3, and there are 40 boys, how many girls are there?",
+        "options": [
+          "24",
+          "20",
+          "16",
+          "32"
+        ],
+        "correct": 0,
+        "id": "m_h_272"
+      },
+      {
+        "question": "What is the result of 15² - 9²?",
+        "options": [
+          "144",
+          "81",
+          "225",
+          "36"
+        ],
+        "correct": 0,
+        "id": "m_h_273"
+      },
+      {
+        "question": "If a rectangle has a length of 15 cm and a width of 9 cm, what is its area?",
+        "options": [
+          "135 cm²",
+          "150 cm²",
+          "45 cm²",
+          "90 cm²"
+        ],
+        "correct": 1,
+        "id": "m_h_274"
+      },
+      {
+        "question": "What is 25% of 320?",
+        "options": [
+          "70",
+          "80",
+          "50",
+          "60"
+        ],
+        "correct": 1,
+        "id": "m_h_275"
+      },
+      {
+        "question": "How do you spell the term for 'a number that divides another number without leaving a remainder'?",
+        "options": [
+          "divisor",
+          "diviser",
+          "devisore",
+          "diversor"
+        ],
+        "correct": 0,
+        "id": "m_h_276"
+      },
+      {
+        "question": "In a class of 30 students, 40% are girls. How many boys are in the class?",
+        "options": [
+          "18",
+          "12",
+          "15",
+          "20"
+        ],
+        "correct": 1,
+        "id": "m_h_277"
+      },
+      {
+        "question": "If you have the expression 5(x - 2) = 15, what is the value of x?",
+        "options": [
+          "5",
+          "7",
+          "6",
+          "4"
+        ],
+        "correct": 1,
+        "id": "m_h_278"
+      },
+      {
+        "question": "Which of the following fractions is equivalent to 0.75?",
+        "options": [
+          "3/4",
+          "1/2",
+          "2/3",
+          "5/6"
+        ],
+        "correct": 0,
+        "id": "m_h_279"
+      },
+      {
+        "question": "If 3/5 of a number is 24, what is the number?",
+        "options": [
+          "30",
+          "40",
+          "20",
+          "50"
+        ],
+        "correct": 1,
+        "id": "m_h_280"
+      },
+      {
+        "question": "If a train travels 180 miles in 3 hours, what is its average speed in miles per hour?",
+        "options": [
+          "60 mph",
+          "70 mph",
+          "50 mph",
+          "80 mph"
+        ],
+        "correct": 0,
+        "id": "m_h_281"
+      },
+      {
+        "question": "What is 7² + 4²?",
+        "options": [
+          "65",
+          "53",
+          "49",
+          "25"
+        ],
+        "correct": 0,
+        "id": "m_h_282"
+      },
+      {
+        "question": "What is the fraction that represents 60% as a simplified fraction?",
+        "options": [
+          "3/5",
+          "2/3",
+          "1/2",
+          "5/6"
+        ],
+        "correct": 0,
+        "id": "m_h_283"
+      },
+      {
+        "question": "If you multiply a number by 4 and add 6, you get 30. What is the number?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correct": 0,
+        "id": "m_h_284"
+      },
+      {
+        "question": "What is the circumference of a circle with a diameter of 10 cm? (Use π ≈ 3.14)",
+        "options": [
+          "31.4 cm",
+          "28.1 cm",
+          "25.0 cm",
+          "30.0 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_285"
+      },
+      {
+        "question": "How do you spell the term for 'a part of a whole expressed in relation to 100'?",
+        "options": [
+          "percentage",
+          "percentige",
+          "percentrage",
+          "perciëntage"
+        ],
+        "correct": 0,
+        "id": "m_h_286"
+      },
+      {
+        "question": "In a ratio of 2:5, if there are 10 apples, how many total items are there?",
+        "options": [
+          "25",
+          "30",
+          "15",
+          "20"
+        ],
+        "correct": 1,
+        "id": "m_h_287"
+      },
+      {
+        "question": "What is the area of a circle with a radius of 4 cm? (Use π ≈ 3.14)",
+        "options": [
+          "50.24 cm²",
+          "25.12 cm²",
+          "12.56 cm²",
+          "15.68 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_288"
+      },
+      {
+        "question": "A triangle has angles measuring 40 degrees and 70 degrees. What is the measure of the third angle?",
+        "options": [
+          "70 degrees",
+          "50 degrees",
+          "60 degrees",
+          "80 degrees"
+        ],
+        "correct": 1,
+        "id": "m_h_289"
+      },
+      {
+        "question": "If x + 3 = 10, what is the value of 2x - 4?",
+        "options": [
+          "6",
+          "8",
+          "10",
+          "12"
+        ],
+        "correct": 1,
+        "id": "m_h_290"
+      },
+      {
+        "question": "What is 64 divided by 0.8?",
+        "options": [
+          "64",
+          "72",
+          "80",
+          "56"
+        ],
+        "correct": 0,
+        "id": "m_h_291"
+      },
+      {
+        "question": "Which of the following shapes has the greatest number of sides?",
+        "options": [
+          "Pentagon",
+          "Hexagon",
+          "Heptagon",
+          "Octagon"
+        ],
+        "correct": 3,
+        "id": "m_h_292"
+      },
+      {
+        "question": "If you have a fraction that reduces to 1/3 when simplified, which of the following could it be?",
+        "options": [
+          "2/6",
+          "5/9",
+          "10/30",
+          "4/12"
+        ],
+        "correct": 0,
+        "id": "m_h_293"
+      },
+      {
+        "question": "What is the least common multiple of 9 and 15?",
+        "options": [
+          "45",
+          "27",
+          "90",
+          "36"
+        ],
+        "correct": 0,
+        "id": "m_h_294"
+      },
+      {
+        "question": "If the area of a rectangle is 36 square centimeters and its length is 9 cm, what is the width?",
+        "options": [
+          "4 cm",
+          "5 cm",
+          "3 cm",
+          "6 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_295"
+      },
+      {
+        "question": "Which fraction is equivalent to 90%?",
+        "options": [
+          "9/10",
+          "8/9",
+          "7/10",
+          "3/4"
+        ],
+        "correct": 0,
+        "id": "m_h_296"
+      },
+      {
+        "question": "What is the value of 3x + 2 when x = 5?",
+        "options": [
+          "17",
+          "12",
+          "15",
+          "20"
+        ],
+        "correct": 0,
+        "id": "m_h_297"
+      },
+      {
+        "question": "How do you spell the term for 'the middle value in a set of numbers'?",
+        "options": [
+          "Mediun",
+          "Medain",
+          "Median",
+          "Medain"
+        ],
+        "correct": 2,
+        "id": "m_h_298"
+      },
+      {
+        "question": "What is 150% of 60?",
+        "options": [
+          "60",
+          "90",
+          "100",
+          "80"
+        ],
+        "correct": 1,
+        "id": "m_h_299"
+      },
+      {
+        "question": "If 2/3 of a number is 18, what is the number?",
+        "options": [
+          "27",
+          "36",
+          "12",
+          "21"
+        ],
+        "correct": 0,
+        "id": "m_h_300"
+      },
+      {
+        "question": "How many degrees are in a complete circle?",
+        "options": [
+          "360 degrees",
+          "180 degrees",
+          "90 degrees",
+          "270 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_301"
+      },
+      {
+        "question": "If you have the equation 4(x - 5) = 12, what is the value of x?",
+        "options": [
+          "8",
+          "9",
+          "7",
+          "10"
+        ],
+        "correct": 1,
+        "id": "m_h_302"
+      },
+      {
+        "question": "A circle has a radius of 3 cm. What is the area? (Use π ≈ 3.14)",
+        "options": [
+          "28.26 cm²",
+          "18.84 cm²",
+          "9.42 cm²",
+          "12.56 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_303"
+      },
+      {
+        "question": "In a class, 60% of students passed. If there are 50 students in total, how many passed?",
+        "options": [
+          "30",
+          "25",
+          "20",
+          "35"
+        ],
+        "correct": 0,
+        "id": "m_h_304"
+      },
+      {
+        "question": "How do you spell the term for 'a number that is less than zero'?",
+        "options": [
+          "Negative",
+          "Negitive",
+          "Negetive",
+          "Negtive"
+        ],
+        "correct": 0,
+        "id": "m_h_305"
+      },
+      {
+        "question": "What is the GCF (Greatest Common Factor) of 18 and 24?",
+        "options": [
+          "6",
+          "12",
+          "4",
+          "9"
+        ],
+        "correct": 0,
+        "id": "m_h_306"
+      },
+      {
+        "question": "What is the value of 8² - 3²?",
+        "options": [
+          "73",
+          "55",
+          "65",
+          "49"
+        ],
+        "correct": 1,
+        "id": "m_h_307"
+      },
+      {
+        "question": "If you have the expression 4x + 5 = 29, what is the value of x?",
+        "options": [
+          "6",
+          "7",
+          "5",
+          "8"
+        ],
+        "correct": 0,
+        "id": "m_h_308"
+      },
+      {
+        "question": "What is the area of a triangle with a base of 10 cm and height of 6 cm?",
+        "options": [
+          "30 cm²",
+          "60 cm²",
+          "20 cm²",
+          "50 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_309"
+      },
+      {
+        "question": "Which fraction is equivalent to 7/14?",
+        "options": [
+          "1/2",
+          "1/4",
+          "2/3",
+          "3/5"
+        ],
+        "correct": 0,
+        "id": "m_h_310"
+      },
+      {
+        "question": "If the sum of three consecutive numbers is 72, what is the largest of these numbers?",
+        "options": [
+          "25",
+          "24",
+          "22",
+          "21"
+        ],
+        "correct": 0,
+        "id": "m_h_311"
+      },
+      {
+        "question": "A car travels 240 miles in 4 hours. What is its average speed in miles per hour?",
+        "options": [
+          "60 mph",
+          "55 mph",
+          "50 mph",
+          "65 mph"
+        ],
+        "correct": 0,
+        "id": "m_h_312"
+      },
+      {
+        "question": "What is 85% of 200?",
+        "options": [
+          "150",
+          "170",
+          "180",
+          "140"
+        ],
+        "correct": 1,
+        "id": "m_h_313"
+      },
+      {
+        "question": "What is the perimeter of a rectangle with lengths 10 cm and widths 4 cm?",
+        "options": [
+          "28 cm",
+          "40 cm",
+          "30 cm",
+          "24 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_314"
+      },
+      {
+        "question": "Which of the following shapes is a quadrilateral?",
+        "options": [
+          "Triangle",
+          "Square",
+          "Hexagon",
+          "Circle"
+        ],
+        "correct": 1,
+        "id": "m_h_315"
+      },
+      {
+        "question": "What is the value of 2(3x + 4) when x = 2?",
+        "options": [
+          "20",
+          "22",
+          "26",
+          "28"
+        ],
+        "correct": 2,
+        "id": "m_h_316"
+      },
+      {
+        "question": "How do you spell the term for 'the distance around a shape'?",
+        "options": [
+          "Cirfumference",
+          "Circumfrence",
+          "Circumference",
+          "Circumfrenc"
+        ],
+        "correct": 2,
+        "id": "m_h_317"
+      },
+      {
+        "question": "If a pizza is cut into 8 equal slices and you eat 3, what fraction of the pizza is left?",
+        "options": [
+          "1/4",
+          "5/8",
+          "3/8",
+          "3/4"
+        ],
+        "correct": 1,
+        "id": "m_h_318"
+      },
+      {
+        "question": "If 30% of a number is 90, what is the number?",
+        "options": [
+          "300",
+          "400",
+          "500",
+          "600"
+        ],
+        "correct": 2,
+        "id": "m_h_319"
+      },
+      {
+        "question": "What is 15 multiplied by the sum of 4 and 6?",
+        "options": [
+          "150",
+          "100",
+          "200",
+          "120"
+        ],
+        "correct": 0,
+        "id": "m_h_320"
+      },
+      {
+        "question": "How do you spell the term for 'the bottom number of a fraction'?",
+        "options": [
+          "Denomanator",
+          "Deminator",
+          "Denominator",
+          "Demnominator"
+        ],
+        "correct": 2,
+        "id": "m_h_321"
+      },
+      {
+        "question": "What is the value of the expression 5(x + 3) when x = 2?",
+        "options": [
+          "40",
+          "25",
+          "35",
+          "30"
+        ],
+        "correct": 2,
+        "id": "m_h_322"
+      },
+      {
+        "question": "If a clock shows 3:00 PM, what is the angle between the hour and minute hands?",
+        "options": [
+          "90 degrees",
+          "180 degrees",
+          "150 degrees",
+          "30 degrees"
+        ],
+        "correct": 0,
+        "id": "m_h_323"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 12 and 18?",
+        "options": [
+          "36",
+          "72",
+          "54",
+          "24"
+        ],
+        "correct": 0,
+        "id": "m_h_324"
+      },
+      {
+        "question": "What is the slope of the line that passes through the points (2, 3) and (5, 11)?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "8"
+        ],
+        "correct": 1,
+        "id": "m_h_325"
+      },
+      {
+        "question": "A rectangular prism has a length of 5 cm, a width of 3 cm, and a height of 4 cm. What is its volume?",
+        "options": [
+          "60 cm³",
+          "20 cm³",
+          "30 cm³",
+          "15 cm³"
+        ],
+        "correct": 0,
+        "id": "m_h_326"
+      },
+      {
+        "question": "If the expression 2x + 3 = 11, what is the value of x?",
+        "options": [
+          "2",
+          "4",
+          "1",
+          "5"
+        ],
+        "correct": 1,
+        "id": "m_h_327"
+      },
+      {
+        "question": "What is 25% of 400?",
+        "options": [
+          "50",
+          "75",
+          "100",
+          "200"
+        ],
+        "correct": 2,
+        "id": "m_h_328"
+      },
+      {
+        "question": "How do you spell the term for 'a shape with four sides and four angles'?",
+        "options": [
+          "Quadrilateral",
+          "Quadderateral",
+          "Quadretal",
+          "Quadralateral"
+        ],
+        "correct": 0,
+        "id": "m_h_329"
+      },
+      {
+        "question": "If you have the number 64, what is the square root?",
+        "options": [
+          "6",
+          "8",
+          "10",
+          "12"
+        ],
+        "correct": 1,
+        "id": "m_h_330"
+      },
+      {
+        "question": "An item costs $80 after being marked down by 20%. What was the original price?",
+        "options": [
+          "$100",
+          "$90",
+          "$80",
+          "$70"
+        ],
+        "correct": 0,
+        "id": "m_h_331"
+      },
+      {
+        "question": "If the perimeter of a square is 48 cm, what is the length of one side?",
+        "options": [
+          "10 cm",
+          "12 cm",
+          "8 cm",
+          "6 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_332"
+      },
+      {
+        "question": "How do you spell the term for 'a fraction where the numerator is greater than the denominator'?",
+        "options": [
+          "Improper",
+          "Improper",
+          "Impropper",
+          "Impropore"
+        ],
+        "correct": 0,
+        "id": "m_h_333"
+      },
+      {
+        "question": "What is 3/4 divided by 2?",
+        "options": [
+          "1/4",
+          "3/8",
+          "3/2",
+          "1/2"
+        ],
+        "correct": 1,
+        "id": "m_h_334"
+      },
+      {
+        "question": "A recipe requires 2/3 cup of sugar. If you want to double the recipe, how much sugar do you need?",
+        "options": [
+          "1 cup",
+          "1 1/3 cups",
+          "2/3 cup",
+          "1 1/2 cups"
+        ],
+        "correct": 1,
+        "id": "m_h_335"
+      },
+      {
+        "question": "Which of the following expressions simplifies to 10?",
+        "options": [
+          "2(5)",
+          "20/2",
+          "3 + 5 + 2",
+          "All of the above"
+        ],
+        "correct": 3,
+        "id": "m_h_336"
+      },
+      {
+        "question": "If the distance between two points on a number line is 15, and one point is at -3, where is the other point?",
+        "options": [
+          "12",
+          "9",
+          "-12",
+          "-18"
+        ],
+        "correct": 0,
+        "id": "m_h_337"
+      },
+      {
+        "question": "How do you spell the term for 'the top number of a fraction'?",
+        "options": [
+          "Numerator",
+          "Nominator",
+          "Nummmerator",
+          "Numinator"
+        ],
+        "correct": 0,
+        "id": "m_h_338"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 9 and 15?",
+        "options": [
+          "45",
+          "30",
+          "60",
+          "90"
+        ],
+        "correct": 0,
+        "id": "m_h_339"
+      },
+      {
+        "question": "If x/5 = 3, what is the value of x?",
+        "options": [
+          "5",
+          "10",
+          "15",
+          "20"
+        ],
+        "correct": 2,
+        "id": "m_h_340"
+      },
+      {
+        "question": "A cylinder has a radius of 7 cm and a height of 10 cm. What is the volume? (Use π ≈ 3.14)",
+        "options": [
+          "154 cm³",
+          "220 cm³",
+          "490 cm³",
+          "100 cm³"
+        ],
+        "correct": 0,
+        "id": "m_h_341"
+      },
+      {
+        "question": "In a certain school, 25% of the students are in the music program. If there are 120 students, how many are in the music program?",
+        "options": [
+          "20",
+          "30",
+          "40",
+          "25"
+        ],
+        "correct": 1,
+        "id": "m_h_342"
+      },
+      {
+        "question": "What is 8 multiplied by the sum of 5 and 7?",
+        "options": [
+          "96",
+          "104",
+          "72",
+          "80"
+        ],
+        "correct": 0,
+        "id": "m_h_343"
+      },
+      {
+        "question": "A triangle has sides of lengths 7 cm, 24 cm, and x cm. If it is a right triangle, what is the value of x?",
+        "options": [
+          "25",
+          "30",
+          "23",
+          "19"
+        ],
+        "correct": 0,
+        "id": "m_h_344"
+      },
+      {
+        "question": "What is 3/5 of 100?",
+        "options": [
+          "60",
+          "40",
+          "75",
+          "30"
+        ],
+        "correct": 0,
+        "id": "m_h_345"
+      },
+      {
+        "question": "If the expression 5x - 3 = 12, what is the value of x?",
+        "options": [
+          "3",
+          "4",
+          "2",
+          "5"
+        ],
+        "correct": 1,
+        "id": "m_h_346"
+      },
+      {
+        "question": "A number is decreased by 30%, resulting in 70. What was the original number?",
+        "options": [
+          "100",
+          "90",
+          "80",
+          "150"
+        ],
+        "correct": 0,
+        "id": "m_h_347"
+      },
+      {
+        "question": "How do you spell the term for 'the part of a circle that is less than a semicircle'?",
+        "options": [
+          "Sector",
+          "Sektor",
+          "Séctor",
+          "Secktor"
+        ],
+        "correct": 0,
+        "id": "m_h_348"
+      },
+      {
+        "question": "What is the greatest common factor (GCF) of 48 and 64?",
+        "options": [
+          "16",
+          "12",
+          "8",
+          "24"
+        ],
+        "correct": 0,
+        "id": "m_h_349"
+      },
+      {
+        "question": "If 75% of a number is 45, what is the number?",
+        "options": [
+          "60",
+          "65",
+          "55",
+          "70"
+        ],
+        "correct": 0,
+        "id": "m_h_350"
+      },
+      {
+        "question": "How do you spell the term for 'the amount by which a number is greater than another'?",
+        "options": [
+          "Difference",
+          "Differance",
+          "Diference",
+          "Diffirence"
+        ],
+        "correct": 0,
+        "id": "m_h_351"
+      },
+      {
+        "question": "What is the result of (3 + 5) × (10 - 4)?",
+        "options": [
+          "48",
+          "56",
+          "32",
+          "40"
+        ],
+        "correct": 2,
+        "id": "m_h_352"
+      },
+      {
+        "question": "A rectangle has a width of 6 cm and an area of 48 cm². What is its length?",
+        "options": [
+          "8 cm",
+          "9 cm",
+          "7 cm",
+          "10 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_353"
+      },
+      {
+        "question": "If 2/3 of a number is 12, what is the number?",
+        "options": [
+          "20",
+          "18",
+          "16",
+          "15"
+        ],
+        "correct": 0,
+        "id": "m_h_354"
+      },
+      {
+        "question": "How do you spell the term for 'a number that can be divided evenly into another number'?",
+        "options": [
+          "Factor",
+          "Facter",
+          "Faktor",
+          "Factore"
+        ],
+        "correct": 0,
+        "id": "m_h_355"
+      },
+      {
+        "question": "In a class, 20% of the students are girls. If there are 25 students, how many are girls?",
+        "options": [
+          "5",
+          "6",
+          "4",
+          "7"
+        ],
+        "correct": 0,
+        "id": "m_h_356"
+      },
+      {
+        "question": "What is the perimeter of a triangle with sides measuring 7 cm, 10 cm, and 5 cm?",
+        "options": [
+          "22 cm",
+          "25 cm",
+          "19 cm",
+          "20 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_357"
+      },
+      {
+        "question": "If the price of a shirt is reduced by 15% and the sale price is $34. What was the original price?",
+        "options": [
+          "40",
+          "41",
+          "38",
+          "42"
+        ],
+        "correct": 2,
+        "id": "m_h_358"
+      },
+      {
+        "question": "What is the solution to the equation 2(x + 3) = 16?",
+        "options": [
+          "5",
+          "7",
+          "8",
+          "10"
+        ],
+        "correct": 1,
+        "id": "m_h_359"
+      },
+      {
+        "question": "If a circle has a radius of 4 cm, what is its circumference? (Use π ≈ 3.14)",
+        "options": [
+          "12.56 cm",
+          "25.12 cm",
+          "37.76 cm",
+          "50.24 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_360"
+      },
+      {
+        "question": "If 3/4 of a number is equal to 18, what is the number?",
+        "options": [
+          "24",
+          "30",
+          "36",
+          "40"
+        ],
+        "correct": 0,
+        "id": "m_h_361"
+      },
+      {
+        "question": "What is 40% of 250?",
+        "options": [
+          "90",
+          "100",
+          "110",
+          "120"
+        ],
+        "correct": 1,
+        "id": "m_h_362"
+      },
+      {
+        "question": "A rectangular prism has a length of 5 cm, width of 3 cm, and height of 4 cm. What is its volume?",
+        "options": [
+          "60 cm³",
+          "45 cm³",
+          "25 cm³",
+          "15 cm³"
+        ],
+        "correct": 0,
+        "id": "m_h_363"
+      },
+      {
+        "question": "In a certain class, if the ratio of boys to girls is 3:2 and there are 30 boys, how many girls are there?",
+        "options": [
+          "10",
+          "15",
+          "20",
+          "25"
+        ],
+        "correct": 1,
+        "id": "m_h_364"
+      },
+      {
+        "question": "What does 'x' equal if 5(x - 2) = 15?",
+        "options": [
+          "1",
+          "3",
+          "5",
+          "7"
+        ],
+        "correct": 3,
+        "id": "m_h_365"
+      },
+      {
+        "question": "If you have 35 apples and you give away 5, what percentage do you have left?",
+        "options": [
+          "85%",
+          "90%",
+          "95%",
+          "80%"
+        ],
+        "correct": 0,
+        "id": "m_h_366"
+      },
+      {
+        "question": "How do you spell the term for 'a shape with only three sides'?",
+        "options": [
+          "triangle",
+          "triyangle",
+          "trianlge",
+          "triangel"
+        ],
+        "correct": 0,
+        "id": "m_h_367"
+      },
+      {
+        "question": "If the volume of a cube is 27 cm³, what is the length of one side?",
+        "options": [
+          "2 cm",
+          "3 cm",
+          "4 cm",
+          "5 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_368"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 6 and 9?",
+        "options": [
+          "18",
+          "24",
+          "36",
+          "54"
+        ],
+        "correct": 0,
+        "id": "m_h_369"
+      },
+      {
+        "question": "How do you spell the term for 'a number less than one'?",
+        "options": [
+          "fraction",
+          "fraktion",
+          "fregtion",
+          "frakshin"
+        ],
+        "correct": 0,
+        "id": "m_h_370"
+      },
+      {
+        "question": "If a line segment is divided into a ratio of 2:3, and the total length is 25 cm, how long is the shorter part?",
+        "options": [
+          "10 cm",
+          "15 cm",
+          "20 cm",
+          "5 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_371"
+      },
+      {
+        "question": "What is the next prime number after 11?",
+        "options": [
+          "13",
+          "15",
+          "17",
+          "19"
+        ],
+        "correct": 0,
+        "id": "m_h_372"
+      },
+      {
+        "question": "In the expression 3x + 4 = 19, what is the value of x?",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 0,
+        "id": "m_h_373"
+      },
+      {
+        "question": "How do you spell the term for 'the distance all the way around a circle'?",
+        "options": [
+          "circumference",
+          "circumferance",
+          "circmference",
+          "circumferene"
+        ],
+        "correct": 0,
+        "id": "m_h_374"
+      },
+      {
+        "question": "What is the value of x if 5(x + 1) + 3 = 28?",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 1,
+        "id": "m_h_375"
+      },
+      {
+        "question": "If a triangle has angles of 35° and 75°, what is the measure of the third angle?",
+        "options": [
+          "60°",
+          "80°",
+          "90°",
+          "100°"
+        ],
+        "correct": 1,
+        "id": "m_h_376"
+      },
+      {
+        "question": "In the equation 4x - 7 = 13, what is the value of x?",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "correct": 1,
+        "id": "m_h_377"
+      },
+      {
+        "question": "If 3/4 of a number equals 36, what is the number?",
+        "options": [
+          "42",
+          "48",
+          "50",
+          "54"
+        ],
+        "correct": 1,
+        "id": "m_h_378"
+      },
+      {
+        "question": "A box has a length of 8 cm, a width of 5 cm, and a height of 3 cm. What is its surface area?",
+        "options": [
+          "78 cm²",
+          "96 cm²",
+          "70 cm²",
+          "90 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_379"
+      },
+      {
+        "question": "How do you spell the term for 'the number that appears most often in a data set'?",
+        "options": [
+          "Modus",
+          "Modee",
+          "Moed",
+          "Mod"
+        ],
+        "correct": 0,
+        "id": "m_h_380"
+      },
+      {
+        "question": "If a number is multiplied by 3 and then increased by 4, the result is 22. What is the number?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correct": 2,
+        "id": "m_h_381"
+      },
+      {
+        "question": "A shirt is on sale for $24 after a 20% discount. What was the original price?",
+        "options": [
+          "$30",
+          "$32",
+          "$25",
+          "$28"
+        ],
+        "correct": 0,
+        "id": "m_h_382"
+      },
+      {
+        "question": "What is the next number in the sequence: 2, 6, 12, 20?",
+        "options": [
+          "30",
+          "24",
+          "36",
+          "28"
+        ],
+        "correct": 3,
+        "id": "m_h_383"
+      },
+      {
+        "question": "How do you spell the term for the 'bottom part of a fraction'?",
+        "options": [
+          "Denominator",
+          "Denoninator",
+          "Denoiminator",
+          "Denomynator"
+        ],
+        "correct": 0,
+        "id": "m_h_384"
+      },
+      {
+        "question": "If 45 is 90% of a number, what is that number?",
+        "options": [
+          "50",
+          "55",
+          "60",
+          "65"
+        ],
+        "correct": 0,
+        "id": "m_h_385"
+      },
+      {
+        "question": "What is the perimeter of a rectangle that is 10 cm long and 4 cm wide?",
+        "options": [
+          "28 cm",
+          "24 cm",
+          "30 cm",
+          "32 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_386"
+      },
+      {
+        "question": "If you divide a number by 3 and then subtract 5, the result is 4. What is the number?",
+        "options": [
+          "27",
+          "30",
+          "33",
+          "42"
+        ],
+        "correct": 2,
+        "id": "m_h_387"
+      },
+      {
+        "question": "A number is increased by 15% and the result is 115. What was the original number?",
+        "options": [
+          "100",
+          "95",
+          "90",
+          "85"
+        ],
+        "correct": 0,
+        "id": "m_h_388"
+      },
+      {
+        "question": "What is 1/6 of 72?",
+        "options": [
+          "9",
+          "10",
+          "12",
+          "14"
+        ],
+        "correct": 0,
+        "id": "m_h_389"
+      },
+      {
+        "question": "How do you spell the term for 'a solid figure with six square faces'?",
+        "options": [
+          "Cube",
+          "Cob",
+          "Cuby",
+          "Qube"
+        ],
+        "correct": 0,
+        "id": "m_h_390"
+      },
+      {
+        "question": "What is the value of x in the equation 2(3x + 5) = 4x + 10?",
+        "options": [
+          "0",
+          "5",
+          "3",
+          "10"
+        ],
+        "correct": 0,
+        "id": "m_h_391"
+      },
+      {
+        "question": "If 25% of a number is 40, what is the number?",
+        "options": [
+          "160",
+          "100",
+          "10",
+          "200"
+        ],
+        "correct": 1,
+        "id": "m_h_392"
+      },
+      {
+        "question": "What is the area of a triangle that has a base of 10 cm and a height of 6 cm?",
+        "options": [
+          "30 cm²",
+          "60 cm²",
+          "40 cm²",
+          "70 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_393"
+      },
+      {
+        "question": "If a car travels 150 kilometers in 2 hours, what is its average speed in kilometers per hour?",
+        "options": [
+          "75 km/h",
+          "60 km/h",
+          "70 km/h",
+          "80 km/h"
+        ],
+        "correct": 0,
+        "id": "m_h_394"
+      },
+      {
+        "question": "How do you spell the term for 'a line that divides a shape into two equal parts'?",
+        "options": [
+          "bisector",
+          "biseector",
+          "bisser",
+          "biseector"
+        ],
+        "correct": 0,
+        "id": "m_h_395"
+      },
+      {
+        "question": "If 80 is 20% of a number, what is that number?",
+        "options": [
+          "400",
+          "500",
+          "450",
+          "350"
+        ],
+        "correct": 1,
+        "id": "m_h_396"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 15 and 20?",
+        "options": [
+          "45",
+          "60",
+          "75",
+          "80"
+        ],
+        "correct": 1,
+        "id": "m_h_397"
+      },
+      {
+        "question": "What is 3/8 + 5/8?",
+        "options": [
+          "1/2",
+          "1",
+          "1/4",
+          "1 1/4"
+        ],
+        "correct": 1,
+        "id": "m_h_398"
+      },
+      {
+        "question": "How do you spell the term for 'a number that multiplies a variable in an algebraic term'?",
+        "options": [
+          "coefficient",
+          "coeefficient",
+          "cohfficient",
+          "cofficient"
+        ],
+        "correct": 0,
+        "id": "m_h_399"
+      },
+      {
+        "question": "What is the value of x in the equation 4x - 3 = 25?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "5"
+        ],
+        "correct": 1,
+        "id": "m_h_400"
+      },
+      {
+        "question": "If the circumference of a circle is 31.4 cm, what is the approximate radius (Pi = 3.14)?",
+        "options": [
+          "5 cm",
+          "10 cm",
+          "15 cm",
+          "20 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_401"
+      },
+      {
+        "question": "If a recipe requires 2/3 cup of sugar and you want to make half, how much sugar do you need?",
+        "options": [
+          "1/3 cup",
+          "1/2 cup",
+          "1/4 cup",
+          "3/4 cup"
+        ],
+        "correct": 0,
+        "id": "m_h_402"
+      },
+      {
+        "question": "How do you spell the term for 'a geometric figure with four sides'?",
+        "options": [
+          "quadrilateral",
+          "quadarateral",
+          "quadriliteral",
+          "quadrialateral"
+        ],
+        "correct": 0,
+        "id": "m_h_403"
+      },
+      {
+        "question": "Which number is a perfect square? 17, 25, 30, or 38?",
+        "options": [
+          "17",
+          "25",
+          "30",
+          "38"
+        ],
+        "correct": 1,
+        "id": "m_h_404"
+      },
+      {
+        "question": "If a rectangle has a perimeter of 24 cm and one side is 5 cm long, what is the length of the other side?",
+        "options": [
+          "2 cm",
+          "7 cm",
+          "6 cm",
+          "10 cm"
+        ],
+        "correct": 1,
+        "id": "m_h_405"
+      },
+      {
+        "question": "How do you spell the term for 'the part of a fraction above the line'?",
+        "options": [
+          "numerator",
+          "numirator",
+          "numerater",
+          "nummirator"
+        ],
+        "correct": 0,
+        "id": "m_h_406"
+      },
+      {
+        "question": "What is the value of x in the equation 5x + 2 = 32?",
+        "options": [
+          "6",
+          "8",
+          "5",
+          "7"
+        ],
+        "correct": 1,
+        "id": "m_h_407"
+      },
+      {
+        "question": "If a triangle has sides of lengths 7 cm, 8 cm, and 5 cm, what is its area (using Heron's formula)?",
+        "options": [
+          "14 cm²",
+          "28 cm²",
+          "21 cm²",
+          "12 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_408"
+      },
+      {
+        "question": "What is the result of (3/4) ÷ (1/2)?",
+        "options": [
+          "1/2",
+          "1",
+          "3/2",
+          "3/4"
+        ],
+        "correct": 2,
+        "id": "m_h_409"
+      },
+      {
+        "question": "A number is tripled and decreased by 4, resulting in 14. What is the number?",
+        "options": [
+          "6",
+          "8",
+          "10",
+          "4"
+        ],
+        "correct": 1,
+        "id": "m_h_410"
+      },
+      {
+        "question": "If a pizza is divided into 8 equal slices and 3 slices are eaten, what fraction of the pizza is left?",
+        "options": [
+          "3/8",
+          "5/8",
+          "6/8",
+          "1/4"
+        ],
+        "correct": 1,
+        "id": "m_h_411"
+      },
+      {
+        "question": "How do you spell the term for 'a number that can be expressed as a fraction'?",
+        "options": [
+          "Ratinal",
+          "Rational",
+          "Rationall",
+          "Raitonal"
+        ],
+        "correct": 1,
+        "id": "m_h_412"
+      },
+      {
+        "question": "If you have 3 apples and you want to distribute them equally among 4 friends, how many apples does each friend get?",
+        "options": [
+          "3/4",
+          "1/2",
+          "4/3",
+          "1/3"
+        ],
+        "correct": 0,
+        "id": "m_h_413"
+      },
+      {
+        "question": "What is 25% of 200?",
+        "options": [
+          "25",
+          "40",
+          "50",
+          "75"
+        ],
+        "correct": 2,
+        "id": "m_h_414"
+      },
+      {
+        "question": "How do you spell the term for 'a four-sided figure with opposite sides parallel'?",
+        "options": [
+          "Parallelogram",
+          "Parallelogramme",
+          "Paraleogram",
+          "Parallelogramn"
+        ],
+        "correct": 0,
+        "id": "m_h_415"
+      },
+      {
+        "question": "In the expression 2(x + 3) = 14, what is the value of x?",
+        "options": [
+          "4",
+          "2",
+          "1",
+          "5"
+        ],
+        "correct": 0,
+        "id": "m_h_416"
+      },
+      {
+        "question": "How do you spell the term for 'the number that appears more than once in a data set'?",
+        "options": [
+          "Modus",
+          "Mod",
+          "Mode",
+          "Modal"
+        ],
+        "correct": 2,
+        "id": "m_h_417"
+      },
+      {
+        "question": "Solve for y in the equation 4y - 3 = 29.",
+        "options": [
+          "8",
+          "7",
+          "6",
+          "5"
+        ],
+        "correct": 1,
+        "id": "m_h_418"
+      },
+      {
+        "question": "If a shop has a 30% discount on a $50 jacket, what is the sale price?",
+        "options": [
+          "$15",
+          "$35",
+          "$40",
+          "$45"
+        ],
+        "correct": 1,
+        "id": "m_h_419"
+      },
+      {
+        "question": "If 2x + 3 = 11, what is the value of x?",
+        "options": [
+          "4",
+          "5",
+          "3",
+          "2"
+        ],
+        "correct": 0,
+        "id": "m_h_420"
+      },
+      {
+        "question": "A rectangle has a length of 12 cm and a width of 5 cm. What is its area?",
+        "options": [
+          "60 cm²",
+          "55 cm²",
+          "57 cm²",
+          "65 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_421"
+      },
+      {
+        "question": "What is the value of x in the equation 2(x - 4) + 3 = 5?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correct": 1,
+        "id": "m_h_422"
+      },
+      {
+        "question": "Simplify the expression 4(2x + 3) - 5.",
+        "options": [
+          "8x + 7",
+          "8x + 12",
+          "8x - 7",
+          "8x - 12"
+        ],
+        "correct": 2,
+        "id": "m_h_423"
+      },
+      {
+        "question": "If a number is increased by 15 and then multiplied by 2, the result is 50. What is the number?",
+        "options": [
+          "10",
+          "25",
+          "17.5",
+          "35"
+        ],
+        "correct": 0,
+        "id": "m_h_424"
+      },
+      {
+        "question": "What is 3/4 - 1/2?",
+        "options": [
+          "1/4",
+          "1/2",
+          "3/8",
+          "1/8"
+        ],
+        "correct": 2,
+        "id": "m_h_425"
+      },
+      {
+        "question": "If a triangle has a base of 10 cm and a height of 8 cm, what is its area?",
+        "options": [
+          "40 cm²",
+          "80 cm²",
+          "20 cm²",
+          "30 cm²"
+        ],
+        "correct": 0,
+        "id": "m_h_426"
+      },
+      {
+        "question": "What is the least common multiple (LCM) of 5 and 12?",
+        "options": [
+          "60",
+          "20",
+          "30",
+          "12"
+        ],
+        "correct": 0,
+        "id": "m_h_427"
+      },
+      {
+        "question": "A class of 24 students has 50% girls. How many girls are in the class?",
+        "options": [
+          "12",
+          "10",
+          "14",
+          "16"
+        ],
+        "correct": 0,
+        "id": "m_h_428"
+      },
+      {
+        "question": "If a recipe calls for 2/5 cup of flour and you double it, how much flour do you need?",
+        "options": [
+          "1/5 cup",
+          "4/5 cup",
+          "2/2 cup",
+          "3/5 cup"
+        ],
+        "correct": 1,
+        "id": "m_h_429"
+      },
+      {
+        "question": "What is the value of x in the equation x/4 + 3 = 8?",
+        "options": [
+          "12",
+          "16",
+          "20",
+          "14"
+        ],
+        "correct": 1,
+        "id": "m_h_430"
+      },
+      {
+        "question": "Which fraction is equivalent to 20%?",
+        "options": [
+          "1/4",
+          "1/10",
+          "2/5",
+          "1/5"
+        ],
+        "correct": 0,
+        "id": "m_h_431"
+      },
+      {
+        "question": "What is 7/9 + 2/9?",
+        "options": [
+          "1",
+          "1/3",
+          "3/9",
+          "9/9"
+        ],
+        "correct": 0,
+        "id": "m_h_432"
+      },
+      {
+        "question": "If a circle has a diameter of 10 cm, what is its circumference (Pi = 3.14)?",
+        "options": [
+          "31.4 cm",
+          "25 cm",
+          "20 cm",
+          "15.7 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_433"
+      },
+      {
+        "question": "How do you spell the term for 'the middle value in a data set'?",
+        "options": [
+          "median",
+          "medean",
+          "mediam",
+          "medion"
+        ],
+        "correct": 0,
+        "id": "m_h_434"
+      },
+      {
+        "question": "What is the product of 9 and the sum of 3 and 5?",
+        "options": [
+          "72",
+          "60",
+          "90",
+          "80"
+        ],
+        "correct": 1,
+        "id": "m_h_435"
+      },
+      {
+        "question": "If 1/3 of a number is 18, what is the number?",
+        "options": [
+          "54",
+          "36",
+          "72",
+          "27"
+        ],
+        "correct": 0,
+        "id": "m_h_436"
+      },
+      {
+        "question": "A piece of ribbon is 80 cm long. If 25% of it is cut off, how long is the remaining piece?",
+        "options": [
+          "60 cm",
+          "70 cm",
+          "75 cm",
+          "65 cm"
+        ],
+        "correct": 0,
+        "id": "m_h_437"
       }
     ]
   },

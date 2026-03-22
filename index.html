@@ -3,60 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STEM Quiz for Kids</title>
+    <title>STEM Quest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Sound toggle -->
+    <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound">
+        <svg class="sound-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        <svg class="sound-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+    </button>
+
+    <div class="app">
         <!-- Welcome Screen -->
         <div id="welcomeScreen" class="screen active">
-            <div class="logo">
-                <h1 class="brand-title">🚀 STEM Quest</h1>
-                <p class="brand-subtitle">Learn, Play, Explore!</p>
-            </div>
-
-            <div class="card welcome-card">
-                <h2>Welcome, Young Explorer!</h2>
-                <p>Test your knowledge across Math, Science, Riddles, Spelling & India Quiz!</p>
-
-                <div class="age-selection">
-                    <h3>Select Your Age Group:</h3>
-                    <div class="age-buttons">
-                        <button class="age-btn" data-age="5-7">5-7 years</button>
-                        <button class="age-btn" data-age="8-10">8-10 years</button>
-                        <button class="age-btn" data-age="11-13">11-13 years</button>
-                    </div>
+            <div class="welcome-container">
+                <div class="brand-mark">
+                    <svg class="brand-icon" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="20" fill="#58CC02" opacity="0.1"/>
+                        <path d="M24 8L28 18H38L30 24L33 34L24 28L15 34L18 24L10 18H20L24 8Z" fill="#58CC02"/>
+                    </svg>
+                    <h1 class="brand-title">STEM Quest</h1>
+                    <p class="brand-subtitle">Learn, Play, Explore</p>
                 </div>
+                <button id="beginBtn" class="primary-btn">
+                    Begin Adventure
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </button>
+            </div>
+        </div>
 
-                <button id="startQuizBtn" class="primary-btn" style="display: none;">Start Quiz!</button>
+        <!-- Age Selection Screen -->
+        <div id="ageScreen" class="screen">
+            <div class="screen-header stagger-child">
+                <h2>How old are you?</h2>
+                <p>This helps us pick the right questions for you</p>
+            </div>
+            <div class="age-cards">
+                <button class="age-card stagger-child" data-age="5-7">
+                    <span class="age-range">5-7</span>
+                    <span class="age-label">years</span>
+                </button>
+                <button class="age-card stagger-child" data-age="8-10">
+                    <span class="age-range">8-10</span>
+                    <span class="age-label">years</span>
+                </button>
+                <button class="age-card stagger-child" data-age="11-13">
+                    <span class="age-range">11-13</span>
+                    <span class="age-label">years</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Character Selection Screen -->
+        <div id="characterScreen" class="screen">
+            <div class="screen-header stagger-child">
+                <h2>Choose Your Guide</h2>
+                <p>Pick a character to join your adventure</p>
+            </div>
+            <div id="characterGrid" class="character-grid">
+                <!-- Populated by JS -->
+            </div>
+            <div style="display:flex;justify-content:center;">
+                <button id="startWithCharacterBtn" class="primary-btn" disabled>
+                    Let's Go!
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </button>
             </div>
         </div>
 
         <!-- Quiz Screen -->
         <div id="quizScreen" class="screen">
-            <div class="quiz-header">
-                <div class="score-display">
-                    <span class="score-label">Score:</span>
-                    <span id="currentScore" class="score-value">0</span>
+            <!-- Progress bar -->
+            <div class="progress-bar">
+                <div id="progressSegments" class="progress-segments">
+                    <!-- 10 segments populated by JS -->
                 </div>
-                <div class="header-badges">
-                    <div class="streak-badge" id="streakBadge" style="display: none;">
-                        <span>🔥 <span id="streakCount">0</span> Streak</span>
+                <span id="progressLabel" class="progress-label">1 of 10</span>
+            </div>
+
+            <!-- Quiz header -->
+            <div class="quiz-header">
+                <div class="quiz-header-left">
+                    <div class="score-pill">
+                        <span class="score-icon">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+                        </span>
+                        <span id="currentScore" class="score-value">0</span>
                     </div>
-                    <div class="difficulty-badge">
-                        <span id="difficultyLevel">Easy</span>
+                    <div class="streak-pill" id="streakBadge" style="display:none">
+                        <span class="streak-fire">
+                            <svg width="12" height="14" viewBox="0 0 12 16" fill="#FF9600"><path d="M6 0C6 0 0 6 0 10a6 6 0 0012 0C12 6 6 0 6 0zM6 14a4 4 0 01-4-4c0-2 2-5 4-7 2 2 4 5 4 7a4 4 0 01-4 4z"/></svg>
+                        </span>
+                        <span id="streakCount">0</span>
                     </div>
+                </div>
+                <div class="quiz-header-right">
+                    <span class="difficulty-pill" id="difficultyBadge">Easy</span>
+                    <span class="category-pill" id="categoryBadge"></span>
                 </div>
             </div>
 
-            <div class="card quiz-card">
-                <div class="question-meta">
-                    <span class="question-number">Question <span id="questionNum">1</span></span>
-                    <span class="category-badge" id="categoryBadge"></span>
-                </div>
-
-                <div class="question-container">
+            <!-- Question card -->
+            <div class="quiz-card" id="quizCard">
+                <div class="question-container" id="questionContainer">
                     <h2 id="questionText" class="question-text"></h2>
+                    <p id="characterHint" class="character-hint"></p>
                 </div>
 
                 <div id="optionsContainer" class="options-container"></div>
@@ -64,29 +125,86 @@
                 <div id="feedbackMessage" class="feedback-message"></div>
             </div>
 
-            <button id="nextQuestionBtn" class="primary-btn" style="display: none;">Next Question</button>
+            <button id="nextQuestionBtn" class="primary-btn next-btn" style="display:none">
+                Next Question
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
         </div>
 
         <!-- Results Screen -->
         <div id="resultsScreen" class="screen">
-            <div class="card results-card">
-                <h2>🎉 Quiz Complete!</h2>
-                <div class="final-score">
-                    <p>Your Final Score:</p>
-                    <h1 id="finalScore">0</h1>
+            <div class="results-container">
+                <!-- Character celebration -->
+                <div class="character-celebration" id="resultsCharacter">
+                    <!-- Character SVG inserted by JS -->
                 </div>
-                <div class="results-stats">
-                    <p>Questions Answered: <span id="totalQuestions">0</span></p>
-                    <p>Difficulty Reached: <span id="finalDifficulty">Easy</span></p>
+                <div class="speech-bubble results-speech" id="resultsSpeechBubble">
+                    <p id="resultsSpeechText"></p>
                 </div>
-                <button id="playAgainBtn" class="primary-btn">Play Again!</button>
+
+                <!-- Score ring -->
+                <div class="score-ring-container">
+                    <svg class="score-ring" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#E5E5E5" stroke-width="8"/>
+                        <circle id="scoreRingCircle" cx="60" cy="60" r="52" fill="none" stroke="#58CC02" stroke-width="8"
+                            stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327"
+                            transform="rotate(-90 60 60)"/>
+                    </svg>
+                    <div class="score-ring-inner">
+                        <span class="score-number" id="finalScoreNum">0</span>
+                        <span class="score-unit">points</span>
+                    </div>
+                </div>
+
+                <!-- Stat cards -->
+                <div class="results-stats-grid">
+                    <div class="stat-card stagger-child">
+                        <span class="stat-value" id="statCorrect">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat-card stagger-child">
+                        <span class="stat-value" id="statDifficulty">Easy</span>
+                        <span class="stat-label">Max Level</span>
+                    </div>
+                    <div class="stat-card stagger-child">
+                        <span class="stat-value" id="statStreak">0</span>
+                        <span class="stat-label">Best Streak</span>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="results-actions">
+                    <button id="playAgainBtn" class="primary-btn">
+                        Play Again
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 8a7 7 0 1114 0A7 7 0 011 8z"/><path d="M8 4v4l3 2"/></svg>
+                    </button>
+                    <button id="changeCharacterBtn" class="secondary-btn">Change Character</button>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Character toast panel (outside quiz screen to avoid CLS) -->
+    <div class="character-panel" id="characterPanel">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="character-avatar-quiz" id="quizCharacterAvatar">
+                <!-- Character SVG inserted by JS -->
+            </div>
+            <div class="character-guide-badge" id="characterGuideBadge"></div>
+        </div>
+        <div class="speech-bubble" id="speechBubble">
+            <p id="speechText"></p>
         </div>
     </div>
 
     <!-- Confetti Canvas -->
     <canvas id="confettiCanvas"></canvas>
 
+    <!-- Notification container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="characters.js"></script>
+    <script src="sounds.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
