@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <!-- Sound toggle -->
@@ -35,8 +36,34 @@
                     <h1 class="brand-title">STEM Quest</h1>
                     <p class="brand-subtitle">Learn, Play, Explore</p>
                 </div>
-                <button id="beginBtn" class="primary-btn">
+                <button id="beginBtn" class="primary-btn" style="display:none">
                     Begin Adventure
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </button>
+                <div id="googleBtnContainer" class="google-btn-container"></div>
+                <button id="guestBtn" class="secondary-btn">Play as Guest</button>
+                <button id="trophyBtn" class="trophy-btn" aria-label="Leaderboard" style="display:none">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9H4.5a2.5 2.5 0 010-5H6"/>
+                        <path d="M18 9h1.5a2.5 2.5 0 000-5H18"/>
+                        <path d="M4 22h16"/>
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 19.24 7 20h10c0-.76-.85-1.25-2.03-1.79C14.47 17.98 14 17.55 14 17v-2.34"/>
+                        <path d="M18 2H6v7a6 6 0 0012 0V2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Name Input Screen -->
+        <div id="nameScreen" class="screen">
+            <div class="screen-header stagger-child">
+                <h2>What's your name?</h2>
+                <p>This will be shown on the leaderboard</p>
+            </div>
+            <div class="name-input-container stagger-child">
+                <input type="text" id="playerNameInput" class="name-input" maxlength="20" placeholder="Enter your name" autocomplete="off">
+                <button id="nameNextBtn" class="primary-btn" disabled>
+                    Continue
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
                 </button>
             </div>
@@ -168,11 +195,27 @@
                     </div>
                 </div>
 
+                <!-- Badges -->
+                <div class="badges-section" id="badgesSection" style="display:none">
+                    <h3 class="badges-title">&#127941; Badges Earned</h3>
+                    <div id="badgesList" class="badges-list"></div>
+                </div>
+
+                <!-- Leaderboard in results -->
+                <div class="leaderboard-section" id="leaderboardSection">
+                    <h3 class="leaderboard-title">&#127942; Top Players</h3>
+                    <div id="resultsLeaderboardList" class="leaderboard-list"></div>
+                </div>
+
                 <!-- Actions -->
                 <div class="results-actions">
                     <button id="playAgainBtn" class="primary-btn">
                         Play Again
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 8a7 7 0 1114 0A7 7 0 011 8z"/><path d="M8 4v4l3 2"/></svg>
+                    </button>
+                    <button id="shareScoreBtn" class="secondary-btn share-btn">
+                        Share Score
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8l4-4 4 4M8 4v8"/></svg>
                     </button>
                     <button id="changeCharacterBtn" class="secondary-btn">Change Character</button>
                 </div>
@@ -193,6 +236,17 @@
         </div>
     </div>
 
+    <!-- Leaderboard Modal -->
+    <div id="leaderboardModal" class="modal-overlay" style="display:none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>&#127942; Top Players</h3>
+                <button id="closeLeaderboardBtn" class="modal-close">&times;</button>
+            </div>
+            <div id="leaderboardList" class="leaderboard-list"></div>
+        </div>
+    </div>
+
     <!-- Confetti Canvas -->
     <canvas id="confettiCanvas"></canvas>
 
@@ -201,6 +255,7 @@
 
     <script src="characters.js"></script>
     <script src="sounds.js"></script>
+    <script src="badges.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

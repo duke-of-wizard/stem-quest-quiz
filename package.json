@@ -9,14 +9,21 @@
     "generate": "node generate-questions.js",
     "verify": "node verify-questions.js"
   },
-  "keywords": ["quiz", "stem", "kids", "education", "learning"],
+  "keywords": [
+    "quiz",
+    "stem",
+    "kids",
+    "education",
+    "learning"
+  ],
   "author": "Hemant",
   "license": "MIT",
   "dependencies": {
-    "openai": "^4.73.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "sqlite3": "^5.1.7",
-    "cors": "^2.8.5"
+    "google-auth-library": "^9.15.1",
+    "openai": "^4.73.0",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

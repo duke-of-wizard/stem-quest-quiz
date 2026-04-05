@@ -22,6 +22,8 @@ const gameState = {
     userId: null,
     gameSessionId: null,
     ageGroup: null,
+    displayName: localStorage.getItem('stemquest_display_name') || '',
+    authToken: null,
     selectedCharacter: null,
     currentQuestion: null,
     currentScore: 0,
@@ -42,7 +44,10 @@ const gameState = {
     autoAdvanceTimer: null,
     questionResults: [], // track correct/wrong for progress bar
     isDifficultyChanging: false, // suppress character pop-in during difficulty change
-    recentWrong: 0 // track wrong answers in recent window for difficulty downgrade
+    recentWrong: 0, // track wrong answers in recent window for difficulty downgrade
+    categoriesSeen: new Set(),
+    hadComeback: false,
+    wasDroppedToEasy: false
 };
 
 // ============================================
@@ -51,6 +56,7 @@ const gameState = {
 
 const screens = {
     welcome: document.getElementById('welcomeScreen'),
+    name: document.getElementById('nameScreen'),
     age: document.getElementById('ageScreen'),
     character: document.getElementById('characterScreen'),
     quiz: document.getElementById('quizScreen'),
@@ -60,6 +66,27 @@ const screens = {
 const els = {
     // Welcome
     beginBtn: document.getElementById('beginBtn'),
+    guestBtn: document.getElementById('guestBtn'),
+    googleBtnContainer: document.getElementById('googleBtnContainer'),
+    trophyBtn: document.getElementById('trophyBtn'),
+
+    // Name
+    playerNameInput: document.getElementById('playerNameInput'),
+    nameNextBtn: document.getElementById('nameNextBtn'),
+
+    // Leaderboard modal
+    leaderboardModal: document.getElementById('leaderboardModal'),
+    leaderboardList: document.getElementById('leaderboardList'),
+    closeLeaderboardBtn: document.getElementById('closeLeaderboardBtn'),
+    resultsLeaderboardList: document.getElementById('resultsLeaderboardList'),
+    leaderboardSection: document.getElementById('leaderboardSection'),
+
+    // Badges
+    badgesSection: document.getElementById('badgesSection'),
+    badgesList: document.getElementById('badgesList'),
+
+    // Share
+    shareScoreBtn: document.getElementById('shareScoreBtn'),
 
     // Age
     ageCards: document.querySelectorAll('.age-card'),
@@ -139,6 +166,7 @@ els.soundToggle.addEventListener('click', () => {
 // Initialize sound on first interaction
 document.addEventListener('click', function initSound() {
     SoundSystem.init();
+    SoundSystem.welcome();
     document.removeEventListener('click', initSound);
 }, { once: true });
 
@@ -154,8 +182,172 @@ if (localStorage.getItem('stemquest_sound') === 'false') {
 
 els.beginBtn.addEventListener('click', () => {
     SoundSystem.click();
+    switchScreen('name');
+});
+
+// Guest button — go to name screen
+els.guestBtn.addEventListener('click', () => {
+    SoundSystem.click();
+    switchScreen('name');
+});
+
+// ============================================
+// Name Input Screen
+// ============================================
+
+// Pre-fill name from localStorage
+if (gameState.displayName) {
+    els.playerNameInput.value = gameState.displayName;
+    els.nameNextBtn.disabled = gameState.displayName.trim().length < 2;
+}
+
+els.playerNameInput.addEventListener('input', () => {
+    const val = els.playerNameInput.value.trim();
+    els.nameNextBtn.disabled = val.length < 2;
+});
+
+els.nameNextBtn.addEventListener('click', () => {
+    const name = els.playerNameInput.value.trim();
+    if (name.length < 2) return;
+    SoundSystem.click();
+    gameState.displayName = name;
+    localStorage.setItem('stemquest_display_name', name);
     switchScreen('age');
 });
+
+// ============================================
+// Trophy / Leaderboard Modal
+// ============================================
+
+els.trophyBtn.addEventListener('click', () => {
+    SoundSystem.click();
+    fetchLeaderboard(els.leaderboardList);
+    els.leaderboardModal.style.display = 'flex';
+});
+
+els.closeLeaderboardBtn.addEventListener('click', () => {
+    els.leaderboardModal.style.display = 'none';
+});
+
+els.leaderboardModal.addEventListener('click', (e) => {
+    if (e.target === els.leaderboardModal) {
+        els.leaderboardModal.style.display = 'none';
+    }
+});
+
+async function fetchLeaderboard(container) {
+    container.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);padding:24px;">Loading...</p>';
+    try {
+        const headers = { 'Content-Type': 'application/json' };
+        if (gameState.authToken) {
+            headers['Authorization'] = 'Bearer ' + gameState.authToken;
+        }
+        const response = await fetch(API_URL + '/leaderboard', { headers });
+        const data = await response.json();
+
+        if (data.success && data.leaderboard && data.leaderboard.length > 0) {
+            const rankIcons = ['\uD83E\uDD47', '\uD83E\uDD48', '\uD83E\uDD49'];
+            container.innerHTML = data.leaderboard.map((entry, i) => {
+                const rank = i < 3 ? rankIcons[i] : (i + 1);
+                const isMe = entry.display_name === gameState.displayName;
+                return `<div class="leaderboard-row${isMe ? ' highlight' : ''}${i < 3 ? ' top-' + (i + 1) : ''}">
+                    <span class="lb-rank">${rank}</span>
+                    <span class="lb-name">${escapeHtml(entry.display_name || 'Player')}</span>
+                    <span class="lb-score">${entry.score} pts</span>
+                    <span class="lb-age">${entry.age_group || ''}</span>
+                </div>`;
+            }).join('');
+        } else {
+            container.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);padding:24px;">No scores yet. Be the first!</p>';
+        }
+    } catch (e) {
+        container.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);padding:24px;">Could not load leaderboard</p>';
+    }
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// ============================================
+// Share Score
+// ============================================
+
+els.shareScoreBtn.addEventListener('click', async () => {
+    const text = `I scored ${gameState.currentScore} points on STEM Quest! My best streak was ${gameState.bestStreak} and I reached ${gameState.maxDifficulty} difficulty. Can you beat me?`;
+
+    if (navigator.share) {
+        try {
+            await navigator.share({ title: 'STEM Quest Score', text });
+        } catch (e) {
+            // User cancelled or share failed
+        }
+    } else {
+        // Clipboard fallback
+        try {
+            await navigator.clipboard.writeText(text);
+            showNotification('Score copied to clipboard!', 'difficulty');
+        } catch (e) {
+            showNotification('Could not copy score', 'difficulty');
+        }
+    }
+});
+
+// ============================================
+// Google SSO
+// ============================================
+
+async function initGoogleSSO() {
+    try {
+        const response = await fetch(API_URL + '/config');
+        const config = await response.json();
+
+        if (config.googleClientId && typeof google !== 'undefined' && google.accounts) {
+            google.accounts.id.initialize({
+                client_id: config.googleClientId,
+                callback: handleGoogleSignIn
+            });
+            google.accounts.id.renderButton(els.googleBtnContainer, {
+                theme: 'outline',
+                size: 'large',
+                width: 280,
+                text: 'signin_with'
+            });
+        }
+    } catch (e) {
+        // Google SSO not available, guest mode only
+    }
+}
+
+async function handleGoogleSignIn(response) {
+    try {
+        const res = await fetch(API_URL + '/auth/google', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ credential: response.credential })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+            gameState.authToken = data.authToken;
+            gameState.displayName = data.displayName || '';
+            if (data.displayName) {
+                localStorage.setItem('stemquest_display_name', data.displayName);
+                els.playerNameInput.value = data.displayName;
+                els.nameNextBtn.disabled = data.displayName.trim().length < 2;
+            }
+            switchScreen('name');
+        }
+    } catch (e) {
+        console.error('Google sign-in error:', e);
+        switchScreen('name');
+    }
+}
+
+// Init Google SSO on page load
+setTimeout(initGoogleSSO, 500);
 
 // ============================================
 // Age Selection
@@ -240,15 +432,23 @@ async function startQuiz() {
     gameState.bestStreak = 0;
     gameState.answered = false;
     gameState.questionResults = [];
+    gameState.categoriesSeen = new Set();
+    gameState.hadComeback = false;
+    gameState.wasDroppedToEasy = false;
 
     try {
+        const headers = { 'Content-Type': 'application/json' };
+        if (gameState.authToken) {
+            headers['Authorization'] = 'Bearer ' + gameState.authToken;
+        }
         const response = await fetch(`${API_URL}/user/create`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers,
             body: JSON.stringify({
                 sessionId: gameState.sessionId,
                 ageGroup: gameState.ageGroup,
-                category: 'mixed'
+                category: 'mixed',
+                displayName: gameState.displayName
             })
         });
 
@@ -485,6 +685,9 @@ function displayQuestion() {
     const cat = gameState.currentQuestion.category;
     els.categoryBadge.textContent = categoryNames[cat] || cat;
 
+    // Track category for badges
+    gameState.categoriesSeen.add(cat);
+
     // Slide transition for question text
     const container = els.questionContainer;
     container.classList.add('slide-out');
@@ -634,6 +837,12 @@ async function handleAnswer(selectedIndex) {
                     gameState.correctStreak = 0;
                 }
 
+                // Check badge unlocks after each answer
+                const newBadgesOnAnswer = checkBadgeUnlocks(gameState);
+                newBadgesOnAnswer.forEach(badge => {
+                    showNotification(`${badge.icon} ${badge.name} unlocked!`, 'difficulty');
+                });
+
                 // Auto-advance after 1.5s
                 els.nextQuestionBtn.style.display = 'flex';
                 gameState.autoAdvanceTimer = setTimeout(() => {
@@ -750,6 +959,11 @@ async function increaseDifficulty() {
             gameState.maxDifficulty = newDifficulty;
         }
 
+        // Track comeback badge
+        if (newDifficulty === 'medium' && gameState.wasDroppedToEasy) {
+            gameState.hadComeback = true;
+        }
+
         els.difficultyBadge.textContent = newDifficulty.charAt(0).toUpperCase() + newDifficulty.slice(1);
 
         SoundSystem.levelUp();
@@ -785,6 +999,11 @@ async function decreaseDifficulty() {
     if (newDifficulty !== gameState.difficulty) {
         gameState.isDifficultyChanging = true;
         gameState.difficulty = newDifficulty;
+
+        // Track if dropped to easy for comeback badge
+        if (newDifficulty === 'easy') {
+            gameState.wasDroppedToEasy = true;
+        }
 
         els.difficultyBadge.textContent = newDifficulty.charAt(0).toUpperCase() + newDifficulty.slice(1);
         showNotification(`Easing up: ${els.difficultyBadge.textContent} mode`, 'difficulty');
@@ -899,16 +1118,33 @@ function triggerConfetti() {
 
 async function completeQuiz() {
     try {
+        const headers = { 'Content-Type': 'application/json' };
+        if (gameState.authToken) {
+            headers['Authorization'] = 'Bearer ' + gameState.authToken;
+        }
         await fetch(`${API_URL}/session/complete`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ sessionId: gameState.gameSessionId })
+            headers,
+            body: JSON.stringify({
+                sessionId: gameState.gameSessionId,
+                displayName: gameState.displayName,
+                score: gameState.currentScore,
+                ageGroup: gameState.ageGroup,
+                questionsAnswered: gameState.questionsAnswered,
+                maxDifficulty: gameState.maxDifficulty
+            })
         });
     } catch (error) {
         console.error('Error completing session:', error);
     }
 
     SoundSystem.complete();
+
+    // Check for badge unlocks
+    const newBadges = checkBadgeUnlocks(gameState);
+    newBadges.forEach(badge => {
+        showNotification(`${badge.icon} ${badge.name} unlocked!`, 'difficulty');
+    });
 
     // Setup results screen
     setupResultsScreen();
@@ -941,6 +1177,23 @@ function setupResultsScreen() {
     els.statCorrect.textContent = `${gameState.questionsCorrect}/${gameState.questionsAnswered}`;
     els.statDifficulty.textContent = gameState.maxDifficulty.charAt(0).toUpperCase() + gameState.maxDifficulty.slice(1);
     els.statStreak.textContent = gameState.bestStreak;
+
+    // Show leaderboard in results
+    fetchLeaderboard(els.resultsLeaderboardList);
+
+    // Show badges
+    const earned = getAllEarnedBadges();
+    if (earned.length > 0) {
+        els.badgesSection.style.display = '';
+        els.badgesList.innerHTML = earned.map(b =>
+            `<div class="badge-card">
+                <span class="badge-icon">${b.icon}</span>
+                <span class="badge-name">${b.name}</span>
+            </div>`
+        ).join('');
+    } else {
+        els.badgesSection.style.display = 'none';
+    }
 }
 
 function animateNumber(el, from, to, duration, delay = 0) {
@@ -1013,6 +1266,9 @@ function resetQuizState() {
     gameState.lives = gameState.maxLives;
     gameState.isDifficultyChanging = false;
     gameState.recentWrong = 0;
+    gameState.categoriesSeen = new Set();
+    gameState.hadComeback = false;
+    gameState.wasDroppedToEasy = false;
 }
 
 // ============================================

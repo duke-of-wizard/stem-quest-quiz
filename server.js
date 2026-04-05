@@ -3,18 +3,42 @@ const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 // Load OpenAI SDK if available (for online question generation)
 let OpenAI;
 try { OpenAI = require('openai'); } catch (e) { /* SDK not installed, online mode unavailable */ }
 
+// Load Google Auth if available
+let OAuth2Client;
+try {
+    const { OAuth2Client: OAC } = require('google-auth-library');
+    OAuth2Client = OAC;
+} catch (e) { /* google-auth-library not installed */ }
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// In-memory auth sessions
+const authSessions = new Map();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+
+// Optional authentication middleware
+function authenticateOptional(req, res, next) {
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.slice(7);
+        const session = authSessions.get(token);
+        if (session) {
+            req.authUser = session;
+        }
+    }
+    next();
+}
 
 // Initialize SQLite Database
 const db = new sqlite3.Database('quiz.db', (err) => {
@@ -80,6 +104,34 @@ function initializeTables() {
         db.run(`
             CREATE INDEX IF NOT EXISTS idx_uqh_device
             ON user_question_history(device_id, category, difficulty)
+        `);
+
+        // Migration: add new columns to users table
+        db.run(`ALTER TABLE users ADD COLUMN display_name TEXT`, (err) => {
+            if (err && !err.message.includes('duplicate column')) console.error(err.message);
+        });
+        db.run(`ALTER TABLE users ADD COLUMN google_id TEXT`, (err) => {
+            if (err && !err.message.includes('duplicate column')) console.error(err.message);
+        });
+        db.run(`ALTER TABLE users ADD COLUMN google_email TEXT`, (err) => {
+            if (err && !err.message.includes('duplicate column')) console.error(err.message);
+        });
+        db.run(`ALTER TABLE users ADD COLUMN device_id TEXT`, (err) => {
+            if (err && !err.message.includes('duplicate column')) console.error(err.message);
+        });
+
+        // Leaderboard entries table
+        db.run(`
+            CREATE TABLE IF NOT EXISTS leaderboard_entries (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER,
+                display_name TEXT,
+                score INTEGER NOT NULL,
+                age_group TEXT,
+                questions_answered INTEGER DEFAULT 0,
+                max_difficulty TEXT DEFAULT 'easy',
+                played_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
         `, (err) => {
             if (!err) {
                 console.log('Database initialized successfully');
@@ -113,12 +165,61 @@ function getNextQuestionId(category, difficulty) {
 
 // API Routes
 
+// Config endpoint (for Google Client ID)
+app.get('/api/config', (req, res) => {
+    res.json({ googleClientId: process.env.GOOGLE_CLIENT_ID || '' });
+});
+
+// Google SSO endpoint
+app.post('/api/auth/google', async (req, res) => {
+    const { credential } = req.body;
+    if (!credential || !OAuth2Client || !process.env.GOOGLE_CLIENT_ID) {
+        return res.status(400).json({ success: false, error: 'Google auth not configured' });
+    }
+
+    try {
+        const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+        const ticket = await client.verifyIdToken({
+            idToken: credential,
+            audience: process.env.GOOGLE_CLIENT_ID
+        });
+        const payload = ticket.getPayload();
+        const { sub: googleId, email, name } = payload;
+
+        // Upsert user by google_id
+        db.get('SELECT id, display_name FROM users WHERE google_id = ?', [googleId], (err, row) => {
+            if (err) return res.status(500).json({ success: false, error: err.message });
+
+            const authToken = crypto.randomBytes(32).toString('hex');
+
+            if (row) {
+                // Existing user
+                authSessions.set(authToken, { userId: row.id, displayName: row.display_name || name });
+                return res.json({ success: true, authToken, displayName: row.display_name || name, userId: row.id });
+            }
+
+            // Create new user
+            db.run('INSERT INTO users (session_id, age_group, category, display_name, google_id, google_email) VALUES (?, ?, ?, ?, ?, ?)',
+                ['google_' + googleId, '8-10', 'mixed', name, googleId, email],
+                function(err) {
+                    if (err) return res.status(500).json({ success: false, error: err.message });
+                    const userId = this.lastID;
+                    authSessions.set(authToken, { userId, displayName: name });
+                    res.json({ success: true, authToken, displayName: name, userId });
+                });
+        });
+    } catch (error) {
+        console.error('Google auth error:', error.message);
+        res.status(401).json({ success: false, error: 'Invalid credential' });
+    }
+});
+
 // Create new user session
 app.post('/api/user/create', (req, res) => {
-    const { sessionId, ageGroup, category } = req.body;
+    const { sessionId, ageGroup, category, displayName } = req.body;
 
-    db.run('INSERT INTO users (session_id, age_group, category) VALUES (?, ?, ?)',
-        [sessionId, ageGroup, category],
+    db.run('INSERT INTO users (session_id, age_group, category, display_name) VALUES (?, ?, ?, ?)',
+        [sessionId, ageGroup, category, displayName || null],
         function (err) {
             if (err) {
                 return res.status(500).json({ success: false, error: err.message });
@@ -247,8 +348,8 @@ app.post('/api/difficulty/update', (req, res) => {
 });
 
 // Complete game session
-app.post('/api/session/complete', (req, res) => {
-    const { sessionId } = req.body;
+app.post('/api/session/complete', authenticateOptional, (req, res) => {
+    const { sessionId, displayName, score, ageGroup, questionsAnswered, maxDifficulty } = req.body;
 
     db.run('UPDATE game_sessions SET completed_at = CURRENT_TIMESTAMP WHERE id = ?',
         [sessionId],
@@ -256,6 +357,15 @@ app.post('/api/session/complete', (req, res) => {
             if (err) {
                 return res.status(500).json({ success: false, error: err.message });
             }
+
+            // Insert into leaderboard_entries if we have a name and score
+            if (displayName && typeof score === 'number') {
+                const userId = req.authUser ? req.authUser.userId : null;
+                db.run(`INSERT INTO leaderboard_entries (user_id, display_name, score, age_group, questions_answered, max_difficulty)
+                        VALUES (?, ?, ?, ?, ?, ?)`,
+                    [userId, displayName, score, ageGroup || null, questionsAnswered || 0, maxDifficulty || 'easy']);
+            }
+
             res.json({ success: true });
         });
 });
@@ -470,17 +580,9 @@ ${JSON.stringify(existingTexts)}
 
 // Get leaderboard
 app.get('/api/leaderboard', (req, res) => {
-    db.all(`SELECT
-                u.age_group,
-                u.category,
-                g.total_score,
-                g.questions_answered,
-                g.difficulty_level,
-                g.completed_at
-            FROM game_sessions g
-            JOIN users u ON g.user_id = u.id
-            WHERE g.completed_at IS NOT NULL
-            ORDER BY g.total_score DESC
+    db.all(`SELECT display_name, score, age_group, max_difficulty, played_at
+            FROM leaderboard_entries
+            ORDER BY score DESC
             LIMIT 10`,
         [],
         (err, rows) => {

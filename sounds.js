@@ -97,5 +97,24 @@ const SoundSystem = {
         setTimeout(() => this._tone(659, 0.15, 'sine', 0.1), 120);
         setTimeout(() => this._tone(784, 0.15, 'sine', 0.1), 240);
         setTimeout(() => this._tone(1047, 0.4, 'sine', 0.12), 360);
+    },
+
+    welcome() {
+        // Playful welcome jingle — ascending major scale snippet + resolution
+        if (!this.enabled || !this.ctx) return;
+        if (this.ctx.state === 'suspended') this.ctx.resume();
+
+        const notes = [
+            { freq: 523, delay: 0, dur: 0.12 },    // C5
+            { freq: 587, delay: 100, dur: 0.12 },   // D5
+            { freq: 659, delay: 200, dur: 0.12 },   // E5
+            { freq: 784, delay: 300, dur: 0.12 },   // G5
+            { freq: 1047, delay: 450, dur: 0.3 },   // C6 (hold)
+            { freq: 784, delay: 650, dur: 0.1 },    // G5
+            { freq: 1047, delay: 750, dur: 0.4 },   // C6 (resolve)
+        ];
+        notes.forEach(n => {
+            setTimeout(() => this._tone(n.freq, n.dur, 'sine', 0.1), n.delay);
+        });
     }
 };
