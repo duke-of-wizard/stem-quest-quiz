@@ -66,7 +66,6 @@ const screens = {
 const els = {
     // Welcome
     beginBtn: document.getElementById('beginBtn'),
-    guestBtn: document.getElementById('guestBtn'),
     googleBtnContainer: document.getElementById('googleBtnContainer'),
     trophyBtn: document.getElementById('trophyBtn'),
 
@@ -185,11 +184,6 @@ els.beginBtn.addEventListener('click', () => {
     switchScreen('name');
 });
 
-// Guest button — go to name screen
-els.guestBtn.addEventListener('click', () => {
-    SoundSystem.click();
-    switchScreen('name');
-});
 
 // ============================================
 // Name Input Screen
@@ -315,9 +309,13 @@ async function initGoogleSSO() {
                 width: 280,
                 text: 'signin_with'
             });
+        } else {
+            // Google SSO not configured — show begin button as fallback
+            els.beginBtn.style.display = '';
         }
     } catch (e) {
-        // Google SSO not available, guest mode only
+        // Google SSO not available — show begin button as fallback
+        els.beginBtn.style.display = '';
     }
 }
 
@@ -332,6 +330,7 @@ async function handleGoogleSignIn(response) {
 
         if (data.success) {
             gameState.authToken = data.authToken;
+            gameState.userId = data.userId;
             gameState.displayName = data.displayName || '';
             if (data.displayName) {
                 localStorage.setItem('stemquest_display_name', data.displayName);
@@ -595,7 +594,8 @@ async function fetchQuestion(category, difficulty) {
             sessionId: gameState.gameSessionId,
             category: category,
             difficulty: difficulty,
-            deviceId: gameState.deviceId
+            deviceId: gameState.deviceId,
+            userId: gameState.userId
         })
     });
     return response.json();
@@ -775,6 +775,7 @@ async function handleAnswer(selectedIndex) {
                 correctOption: correctIndex,
                 attempt: gameState.attempt,
                 deviceId: gameState.deviceId,
+                userId: gameState.userId,
                 category: gameState.currentQuestion.category,
                 difficulty: gameState.difficulty
             })

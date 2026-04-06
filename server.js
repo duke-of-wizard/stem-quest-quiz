@@ -119,6 +119,10 @@ function initializeTables() {
         db.run(`ALTER TABLE users ADD COLUMN device_id TEXT`, (err) => {
             if (err && !err.message.includes('duplicate column')) console.error(err.message);
         });
+        db.run(`ALTER TABLE user_question_history ADD COLUMN user_id INTEGER`, (err) => {
+            if (err && !err.message.includes('duplicate column')) console.error(err.message);
+        });
+        db.run(`CREATE INDEX IF NOT EXISTS idx_uqh_user ON user_question_history(user_id, category, difficulty)`);
 
         // Leaderboard entries table
         db.run(`
@@ -245,17 +249,24 @@ app.post('/api/user/create', (req, res) => {
 
 // Get question (ensuring no repeats across sessions)
 app.post('/api/question/get', (req, res) => {
-    const { sessionId, category, difficulty, deviceId } = req.body;
+    const { sessionId, category, difficulty, deviceId, userId } = req.body;
 
     if (!questionBank[category] || !questionBank[category][difficulty]) {
         return res.json({ success: false, message: 'Invalid category or difficulty' });
     }
 
-    // Get questions this device has already seen (cross-session)
-    const query = deviceId
-        ? 'SELECT question_id FROM user_question_history WHERE device_id = ? AND category = ? AND difficulty = ?'
-        : 'SELECT question_id FROM question_history WHERE session_id = ?';
-    const params = deviceId ? [deviceId, category, difficulty] : [sessionId];
+    // Prefer userId (account-based) over deviceId (device-based) for dedup
+    let query, params;
+    if (userId) {
+        query = 'SELECT question_id FROM user_question_history WHERE user_id = ? AND category = ? AND difficulty = ?';
+        params = [userId, category, difficulty];
+    } else if (deviceId) {
+        query = 'SELECT question_id FROM user_question_history WHERE device_id = ? AND category = ? AND difficulty = ?';
+        params = [deviceId, category, difficulty];
+    } else {
+        query = 'SELECT question_id FROM question_history WHERE session_id = ?';
+        params = [sessionId];
+    }
 
     db.all(query, params, (err, rows) => {
         if (err) {
@@ -281,16 +292,16 @@ app.post('/api/question/get', (req, res) => {
 
 // Submit answer
 app.post('/api/answer/submit', (req, res) => {
-    const { sessionId, questionId, selectedOption, correctOption, attempt, deviceId, category, difficulty } = req.body;
+    const { sessionId, questionId, selectedOption, correctOption, attempt, deviceId, userId, category, difficulty } = req.body;
 
     const isCorrect = selectedOption === correctOption;
     const pointsEarned = isCorrect ? (attempt === 1 ? 2 : 1) : 0;
 
-    // Record in cross-session history
-    if (deviceId && category && difficulty) {
-        db.run(`INSERT OR IGNORE INTO user_question_history (device_id, question_id, category, difficulty)
-                VALUES (?, ?, ?, ?)`,
-            [deviceId, questionId, category, difficulty]);
+    // Record in cross-session history (prefer userId for SSO users)
+    if (category && difficulty) {
+        db.run(`INSERT OR IGNORE INTO user_question_history (device_id, question_id, category, difficulty, user_id)
+                VALUES (?, ?, ?, ?, ?)`,
+            [deviceId || null, questionId, category, difficulty, userId || null]);
     }
 
     // Record the answer
@@ -592,6 +603,131 @@ app.get('/api/leaderboard', (req, res) => {
             res.json({ success: true, leaderboard: rows });
         });
 });
+
+// Admin dashboard
+app.get('/admin', (req, res) => {
+    const queries = {
+        totalUsers: `SELECT COUNT(*) as count FROM users`,
+        googleUsers: `SELECT COUNT(*) as count FROM users WHERE google_id IS NOT NULL`,
+        guestUsers: `SELECT COUNT(*) as count FROM users WHERE google_id IS NULL`,
+        totalSessions: `SELECT COUNT(*) as count FROM game_sessions`,
+        completedSessions: `SELECT COUNT(*) as count FROM game_sessions WHERE completed_at IS NOT NULL`,
+        totalAnswers: `SELECT COUNT(*) as count FROM question_history`,
+        correctAnswers: `SELECT COUNT(*) as count FROM question_history WHERE was_correct = 1`,
+        leaderboard: `SELECT display_name, score, age_group, max_difficulty, questions_answered, played_at FROM leaderboard_entries ORDER BY score DESC LIMIT 20`,
+        recentPlayers: `SELECT u.display_name, u.google_email, u.age_group, u.created_at,
+            (SELECT COUNT(*) FROM game_sessions gs WHERE gs.user_id = u.id) as sessions
+            FROM users u WHERE u.display_name IS NOT NULL ORDER BY u.created_at DESC LIMIT 20`,
+        dailyActivity: `SELECT DATE(started_at) as day, COUNT(*) as sessions, SUM(questions_answered) as questions
+            FROM game_sessions WHERE started_at > datetime('now', '-30 days') GROUP BY DATE(started_at) ORDER BY day DESC LIMIT 14`
+    };
+
+    const results = {};
+    let pending = Object.keys(queries).length;
+
+    Object.entries(queries).forEach(([key, sql]) => {
+        const method = sql.includes('LIMIT') && !sql.includes('COUNT') ? 'all' : 'get';
+        if (method === 'get' && !sql.includes('LIMIT')) {
+            db.get(sql, (err, row) => {
+                results[key] = err ? null : row;
+                if (--pending === 0) renderDashboard(res, results);
+            });
+        } else {
+            db.all(sql, (err, rows) => {
+                results[key] = err ? [] : rows;
+                if (--pending === 0) renderDashboard(res, results);
+            });
+        }
+    });
+});
+
+function renderDashboard(res, d) {
+    const total = d.totalUsers?.count || 0;
+    const google = d.googleUsers?.count || 0;
+    const guest = d.guestUsers?.count || 0;
+    const sessions = d.totalSessions?.count || 0;
+    const completed = d.completedSessions?.count || 0;
+    const answers = d.totalAnswers?.count || 0;
+    const correct = d.correctAnswers?.count || 0;
+    const accuracy = answers > 0 ? ((correct / answers) * 100).toFixed(1) : 0;
+
+    const leaderboardRows = (d.leaderboard || []).map((r, i) => `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${r.display_name || 'Anonymous'}</td>
+            <td><strong>${r.score}</strong></td>
+            <td>${r.age_group || '-'}</td>
+            <td>${r.max_difficulty || '-'}</td>
+            <td>${r.questions_answered || 0}</td>
+            <td>${new Date(r.played_at).toLocaleDateString()}</td>
+        </tr>`).join('');
+
+    const playerRows = (d.recentPlayers || []).map(r => `
+        <tr>
+            <td>${r.display_name || 'Anonymous'}</td>
+            <td>${r.google_email ? '✅ Google' : '👤 Guest'}</td>
+            <td>${r.age_group || '-'}</td>
+            <td>${r.sessions}</td>
+            <td>${new Date(r.created_at).toLocaleDateString()}</td>
+        </tr>`).join('');
+
+    const activityRows = (d.dailyActivity || []).map(r => `
+        <tr>
+            <td>${r.day}</td>
+            <td>${r.sessions}</td>
+            <td>${r.questions || 0}</td>
+        </tr>`).join('');
+
+    res.send(`<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STEM Quest — Admin Dashboard</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; padding: 24px; }
+    h1 { font-size: 24px; margin-bottom: 24px; }
+    h2 { font-size: 18px; margin: 24px 0 12px; color: #555; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .card .value { font-size: 32px; font-weight: 700; color: #58cc02; }
+    .card .label { font-size: 13px; color: #888; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    th { background: #fafafa; font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase; }
+    tr:last-child td { border-bottom: none; }
+    .refresh { color: #58cc02; text-decoration: none; font-size: 14px; }
+</style></head><body>
+<h1>📊 STEM Quest Dashboard <a href="/admin" class="refresh">↻ Refresh</a></h1>
+
+<div class="cards">
+    <div class="card"><div class="value">${total}</div><div class="label">Total Users</div></div>
+    <div class="card"><div class="value">${google}</div><div class="label">Google SSO</div></div>
+    <div class="card"><div class="value">${guest}</div><div class="label">Guests</div></div>
+    <div class="card"><div class="value">${sessions}</div><div class="label">Total Sessions</div></div>
+    <div class="card"><div class="value">${completed}</div><div class="label">Completed</div></div>
+    <div class="card"><div class="value">${answers}</div><div class="label">Questions Answered</div></div>
+    <div class="card"><div class="value">${accuracy}%</div><div class="label">Accuracy</div></div>
+</div>
+
+<h2>🏆 Leaderboard (Top 20)</h2>
+<table>
+    <tr><th>#</th><th>Player</th><th>Score</th><th>Age</th><th>Difficulty</th><th>Questions</th><th>Date</th></tr>
+    ${leaderboardRows || '<tr><td colspan="7" style="text-align:center;color:#aaa">No entries yet</td></tr>'}
+</table>
+
+<h2>👥 Recent Players</h2>
+<table>
+    <tr><th>Name</th><th>Auth</th><th>Age</th><th>Sessions</th><th>Joined</th></tr>
+    ${playerRows || '<tr><td colspan="5" style="text-align:center;color:#aaa">No players yet</td></tr>'}
+</table>
+
+<h2>📈 Daily Activity (Last 14 days)</h2>
+<table>
+    <tr><th>Date</th><th>Sessions</th><th>Questions</th></tr>
+    ${activityRows || '<tr><td colspan="3" style="text-align:center;color:#aaa">No activity yet</td></tr>'}
+</table>
+
+</body></html>`);
+}
 
 // Serve index.html
 app.get('/', (req, res) => {
