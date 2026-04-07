@@ -48,7 +48,7 @@ const difficultyDescriptions = {
 // Parse CLI args
 const args = process.argv.slice(2);
 let TARGET_PER_SLOT = 1000;
-let BATCH_SIZE = 20;
+let BATCH_SIZE = 50;
 let filterCategory = null;
 let filterDifficulty = null;
 

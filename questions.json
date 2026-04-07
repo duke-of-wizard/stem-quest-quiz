@@ -73485,6 +73485,2701 @@
         ],
         "correct": 1,
         "id": "r_e_679"
+      },
+      {
+        "question": "What has cities, but no houses?",
+        "options": [
+          "Map",
+          "Puzzle",
+          "Drawing",
+          "Story"
+        ],
+        "correct": 0,
+        "id": "r_e_680"
+      },
+      {
+        "question": "How do you spell the word for a small cat?",
+        "options": [
+          "Kitten",
+          "Kitin",
+          "Kittenn",
+          "Kittin"
+        ],
+        "correct": 0,
+        "id": "r_e_681"
+      },
+      {
+        "question": "How do you spell the word for a flying animal that can sing?",
+        "options": [
+          "Bird",
+          "Berid",
+          "Berd",
+          "Burd"
+        ],
+        "correct": 0,
+        "id": "r_e_682"
+      },
+      {
+        "question": "What starts with P and ends with E and has thousands of letters?",
+        "options": [
+          "Post office",
+          "Pine",
+          "Peach",
+          "Pencil"
+        ],
+        "correct": 0,
+        "id": "r_e_683"
+      },
+      {
+        "question": "What is an animal known for its slow movements?",
+        "options": [
+          "Sloth",
+          "Rabbit",
+          "Dog",
+          "Cat"
+        ],
+        "correct": 0,
+        "id": "r_e_684"
+      },
+      {
+        "question": "What gives you a lot of information but is not alive?",
+        "options": [
+          "Book",
+          "Dog",
+          "Tree",
+          "Flower"
+        ],
+        "correct": 0,
+        "id": "r_e_685"
+      },
+      {
+        "question": "What can change its shape but is not alive?",
+        "options": [
+          "Cloud",
+          "Balloon",
+          "Rock",
+          "Animal"
+        ],
+        "correct": 0,
+        "id": "r_e_686"
+      },
+      {
+        "question": "How do you spell the color of the sky?",
+        "options": [
+          "Blue",
+          "Bluu",
+          "Blew",
+          "Bloo"
+        ],
+        "correct": 0,
+        "id": "r_e_687"
+      },
+      {
+        "question": "What do you call a fruit that is often yellow and curvy?",
+        "options": [
+          "Banana",
+          "Apple",
+          "Grape",
+          "Orange"
+        ],
+        "correct": 0,
+        "id": "r_e_688"
+      },
+      {
+        "question": "What is a fruit that is red or green and keeps doctors away?",
+        "options": [
+          "Apple",
+          "Peach",
+          "Orange",
+          "Banana"
+        ],
+        "correct": 0,
+        "id": "r_e_689"
+      },
+      {
+        "question": "What lives on the tree and can be fuzzy but is not an animal?",
+        "options": [
+          "Moss",
+          "Fern",
+          "Fruit",
+          "Leaf"
+        ],
+        "correct": 3,
+        "id": "r_e_690"
+      },
+      {
+        "question": "What has keys but opens no locks?",
+        "options": [
+          "A map",
+          "A piano",
+          "A computer",
+          "A treasure chest"
+        ],
+        "correct": 1,
+        "id": "r_e_691"
+      },
+      {
+        "question": "I am tall when I am young, and I am short when I am old. What am I?",
+        "options": [
+          "A candle",
+          "A tree",
+          "A pencil",
+          "A tower"
+        ],
+        "correct": 0,
+        "id": "r_e_692"
+      },
+      {
+        "question": "What runs all around a backyard but never moves?",
+        "options": [
+          "A fence",
+          "A dog",
+          "A cat",
+          "A tree"
+        ],
+        "correct": 0,
+        "id": "r_e_693"
+      },
+      {
+        "question": "What is it that you can keep but always has to be given away?",
+        "options": [
+          "A secret",
+          "A gift",
+          "A promise",
+          "A story"
+        ],
+        "correct": 0,
+        "id": "r_e_694"
+      },
+      {
+        "question": "I have branches, but no fruit, trunk or leaves. What am I?",
+        "options": [
+          "A bank",
+          "A tree",
+          "A library",
+          "A store"
+        ],
+        "correct": 0,
+        "id": "r_e_695"
+      },
+      {
+        "question": "What is brown, has a soft inside, and is often associated with chocolate?",
+        "options": [
+          "A cake",
+          "A nut",
+          "A banana",
+          "A peanut"
+        ],
+        "correct": 3,
+        "id": "r_e_696"
+      },
+      {
+        "question": "What can you only keep after giving it to someone?",
+        "options": [
+          "A promise",
+          "A toy",
+          "A letter",
+          "A dollar"
+        ],
+        "correct": 0,
+        "id": "r_e_697"
+      },
+      {
+        "question": "What begins with an ‘r’ and ends with an ‘s’, is something we do often in school?",
+        "options": [
+          "Read",
+          "Run",
+          "Write",
+          "Rest"
+        ],
+        "correct": 2,
+        "id": "r_e_698"
+      },
+      {
+        "question": "You will find me in a pot of gold but I’m not gold. What am I?",
+        "options": [
+          "A rainbow",
+          "A fairy",
+          "A coin",
+          "A troll"
+        ],
+        "correct": 0,
+        "id": "r_e_699"
+      },
+      {
+        "question": "What begins and has no end; is the key to many hearts?",
+        "options": [
+          "Love",
+          "Happiness",
+          "Friendship",
+          "Music"
+        ],
+        "correct": 0,
+        "id": "r_e_700"
+      },
+      {
+        "question": "What has roots as nobody sees, is taller than trees, up, up it goes, and yet never grows?",
+        "options": [
+          "A mountain",
+          "A tower",
+          "A cloud",
+          "A comet"
+        ],
+        "correct": 0,
+        "id": "r_e_701"
+      },
+      {
+        "question": "What starts with an E, ends with an E, but only contains one letter?",
+        "options": [
+          "an envelope",
+          "an eye",
+          "a name",
+          "an apple"
+        ],
+        "correct": 1,
+        "id": "r_e_702"
+      },
+      {
+        "question": "What cannot talk but will reply when spoken to?",
+        "options": [
+          "an echo",
+          "a friend",
+          "a phone",
+          "a teacher"
+        ],
+        "correct": 0,
+        "id": "r_e_703"
+      },
+      {
+        "question": "What is white when it’s dirty?",
+        "options": [
+          "a chalkboard",
+          "snow",
+          "a shirt",
+          "a paper"
+        ],
+        "correct": 0,
+        "id": "r_e_704"
+      },
+      {
+        "question": "I start with 'M' and end with 'X'. I have a 'Y' in the middle. What am I?",
+        "options": [
+          "matrix",
+          "mixing",
+          "monkey",
+          "math"
+        ],
+        "correct": 0,
+        "id": "r_e_705"
+      },
+      {
+        "question": "What can you find in the sky during the day but not at night?",
+        "options": [
+          "the sun",
+          "a bird",
+          "the moon",
+          "a plane"
+        ],
+        "correct": 0,
+        "id": "r_e_706"
+      },
+      {
+        "question": "What can you see at night that you can't see during the day?",
+        "options": [
+          "stars",
+          "birds",
+          "clouds",
+          "trees"
+        ],
+        "correct": 0,
+        "id": "r_e_707"
+      },
+      {
+        "question": "How do you spell the color of grass?",
+        "options": [
+          "greeen",
+          "green",
+          "grayne",
+          "gree"
+        ],
+        "correct": 1,
+        "id": "r_e_708"
+      },
+      {
+        "question": "What begins with a P and ends with an E, and can be found in a classroom?",
+        "options": [
+          "A pencil",
+          "A paper",
+          "A pen",
+          "A plaque"
+        ],
+        "correct": 2,
+        "id": "r_e_709"
+      },
+      {
+        "question": "What can you fill a room with but takes up no space?",
+        "options": [
+          "Light",
+          "Furniture",
+          "People",
+          "Toys"
+        ],
+        "correct": 0,
+        "id": "r_e_710"
+      },
+      {
+        "question": "What type of glass can you not see through?",
+        "options": [
+          "A mirror",
+          "A window",
+          "A bottle",
+          "A lens"
+        ],
+        "correct": 0,
+        "id": "r_e_711"
+      },
+      {
+        "question": "What can be seen in the water but never wet?",
+        "options": [
+          "A reflection",
+          "A fish",
+          "A boat",
+          "A wave"
+        ],
+        "correct": 0,
+        "id": "r_e_712"
+      },
+      {
+        "question": "What is light as a feather, yet even the world's strongest man couldn't hold it for much longer?",
+        "options": [
+          "Breath",
+          "A balloon",
+          "A feather",
+          "Air"
+        ],
+        "correct": 0,
+        "id": "r_e_713"
+      },
+      {
+        "question": "I can be long or short; I can be grown or bought; I can be painted or left bare. What am I?",
+        "options": [
+          "A nail",
+          "A hair",
+          "A fence",
+          "A ribbon"
+        ],
+        "correct": 0,
+        "id": "r_e_714"
+      },
+      {
+        "question": "I can run but never walk. What am I?",
+        "options": [
+          "A river",
+          "A car",
+          "A train",
+          "A clock"
+        ],
+        "correct": 0,
+        "id": "r_e_715"
+      },
+      {
+        "question": "What is sweet and comes in a cone?",
+        "options": [
+          "Ice cream",
+          "A cupcake",
+          "A cookie",
+          "Candy"
+        ],
+        "correct": 0,
+        "id": "r_e_716"
+      },
+      {
+        "question": "What has roots that nobody sees, is taller than trees, up, up it goes, and yet never grows?",
+        "options": [
+          "A mountain",
+          "A river",
+          "A tree",
+          "A shadow"
+        ],
+        "correct": 0,
+        "id": "r_e_717"
+      },
+      {
+        "question": "What is black when you buy it, red when you use it, and gray when you're done?",
+        "options": [
+          "Charcoal",
+          "A pencil",
+          "A shoe",
+          "A sweater"
+        ],
+        "correct": 0,
+        "id": "r_e_718"
+      },
+      {
+        "question": "What is something that is always in front of you but can't be seen?",
+        "options": [
+          "The future",
+          "The air",
+          "A shadow",
+          "A cloud"
+        ],
+        "correct": 0,
+        "id": "r_e_719"
+      },
+      {
+        "question": "How do you spell the color of lemons?",
+        "options": [
+          "Leemon",
+          "Lemon",
+          "Lemean",
+          "Lemmon"
+        ],
+        "correct": 1,
+        "id": "r_e_720"
+      },
+      {
+        "question": "How do you spell the color of ripe strawberries?",
+        "options": [
+          "Red",
+          "Reed",
+          "Redd",
+          "Rad"
+        ],
+        "correct": 0,
+        "id": "r_e_721"
+      },
+      {
+        "question": "What is something that has teeth but cannot bite?",
+        "options": [
+          "A comb",
+          "A bear",
+          "A dog",
+          "A zipper"
+        ],
+        "correct": 0,
+        "id": "r_e_722"
+      },
+      {
+        "question": "How do you spell the color of stop signs?",
+        "options": [
+          "R-E-D",
+          "R-D-E",
+          "R-A-D",
+          "R-D"
+        ],
+        "correct": 0,
+        "id": "r_e_723"
+      },
+      {
+        "question": "How do you spell the color of bananas?",
+        "options": [
+          "Y-E-L-L-O-W",
+          "Y-E-L-O",
+          "Y-E-L-L",
+          "Y-E-L-O-W-D"
+        ],
+        "correct": 0,
+        "id": "r_e_724"
+      },
+      {
+        "question": "What begins with an 'S' and ends with a 'T', but is not a thing?",
+        "options": [
+          "Support",
+          "Second",
+          "Sat",
+          "Soft"
+        ],
+        "correct": 2,
+        "id": "r_e_725"
+      },
+      {
+        "question": "What becomes colder as it gets darker?",
+        "options": [
+          "Ice cream",
+          "Night",
+          "Rain",
+          "Water"
+        ],
+        "correct": 1,
+        "id": "r_e_726"
+      },
+      {
+        "question": "What has many keys but can't open a door?",
+        "options": [
+          "A keyboard",
+          "A piano",
+          "A lock",
+          "A keychain"
+        ],
+        "correct": 0,
+        "id": "r_e_727"
+      },
+      {
+        "question": "What is a word that sounds the same when spelled backward?",
+        "options": [
+          "Racecar",
+          "Hello",
+          "Dog",
+          "Cat"
+        ],
+        "correct": 0,
+        "id": "r_e_728"
+      },
+      {
+        "question": "What can you break but never touch?",
+        "options": [
+          "A heart",
+          "A promise",
+          "A toy",
+          "An egg"
+        ],
+        "correct": 1,
+        "id": "r_e_729"
+      },
+      {
+        "question": "What has a mouth but never talks?",
+        "options": [
+          "A river",
+          "A cat",
+          "A dog",
+          "A person"
+        ],
+        "correct": 0,
+        "id": "r_e_730"
+      },
+      {
+        "question": "What is moving while staying in one place?",
+        "options": [
+          "The clock",
+          "The ocean",
+          "A train",
+          "The earth"
+        ],
+        "correct": 0,
+        "id": "r_e_731"
+      },
+      {
+        "question": "What can hold a lot but takes up very little space?",
+        "options": [
+          "A computer",
+          "A suitcase",
+          "A key",
+          "A pencil"
+        ],
+        "correct": 0,
+        "id": "r_e_732"
+      },
+      {
+        "question": "How do you spell the color of oranges?",
+        "options": [
+          "O-R-A-N-G-E",
+          "O-R-A-N-G",
+          "O-R-A-N",
+          "O-R-A"
+        ],
+        "correct": 0,
+        "id": "r_e_733"
+      },
+      {
+        "question": "I fly without wings, I cry without eyes. Whenever I go, darkness flies. What am I?",
+        "options": [
+          "A cloud",
+          "The wind",
+          "A kite",
+          "A shadow"
+        ],
+        "correct": 1,
+        "id": "r_e_734"
+      },
+      {
+        "question": "I am light as a feather, yet the strongest person can't hold me for much longer. What am I?",
+        "options": [
+          "Breath",
+          "Air",
+          "A balloon",
+          "Water"
+        ],
+        "correct": 0,
+        "id": "r_e_735"
+      },
+      {
+        "question": "I am always hungry, I must always be fed. The finger I touch, will soon turn red. What am I?",
+        "options": [
+          "Fire",
+          "Ice",
+          "Water",
+          "Wind"
+        ],
+        "correct": 0,
+        "id": "r_e_736"
+      },
+      {
+        "question": "What has a bark but does not bite?",
+        "options": [
+          "A tree",
+          "A dog",
+          "A cat",
+          "A rabbit"
+        ],
+        "correct": 0,
+        "id": "r_e_737"
+      },
+      {
+        "question": "I start with T, end with T, and have T in me. What am I?",
+        "options": [
+          "A teapot",
+          "A cat",
+          "A plate",
+          "A mat"
+        ],
+        "correct": 0,
+        "id": "r_e_738"
+      },
+      {
+        "question": "What gets heavier the more you take away?",
+        "options": [
+          "A bag of rocks",
+          "A hole",
+          "A box",
+          "A balloon"
+        ],
+        "correct": 1,
+        "id": "r_e_739"
+      },
+      {
+        "question": "What begins with three letters, ends with three letters, but is not three letters long?",
+        "options": [
+          "Eye",
+          "Ant",
+          "Car",
+          "Dog"
+        ],
+        "correct": 0,
+        "id": "r_e_740"
+      },
+      {
+        "question": "What is made of wood but can't be cut?",
+        "options": [
+          "A tree",
+          "A table",
+          "A chair",
+          "A pencil"
+        ],
+        "correct": 1,
+        "id": "r_e_741"
+      },
+      {
+        "question": "The more you have of it, the less you see. What is it?",
+        "options": [
+          "Darkness",
+          "Light",
+          "A shadow",
+          "A fog"
+        ],
+        "correct": 0,
+        "id": "r_e_742"
+      },
+      {
+        "question": "What is always growing but never needs water?",
+        "options": [
+          "A school",
+          "A shadow",
+          "A person",
+          "Your mind"
+        ],
+        "correct": 3,
+        "id": "r_e_743"
+      },
+      {
+        "question": "What starts out tall, but the longer it stands, the shorter it grows?",
+        "options": [
+          "A candle",
+          "A tree",
+          "A shadow",
+          "A flagpole"
+        ],
+        "correct": 0,
+        "id": "r_e_744"
+      },
+      {
+        "question": "What is light as a feather but can't be held for long?",
+        "options": [
+          "Breath",
+          "A balloon",
+          "A feather",
+          "Cotton"
+        ],
+        "correct": 0,
+        "id": "r_e_745"
+      },
+      {
+        "question": "What can be broken but never picked up?",
+        "options": [
+          "A promise",
+          "A toy",
+          "A glass",
+          "A heart"
+        ],
+        "correct": 0,
+        "id": "r_e_746"
+      },
+      {
+        "question": "What is something you can pour but cannot see?",
+        "options": [
+          "Time",
+          "Water",
+          "Sand",
+          "Sugar"
+        ],
+        "correct": 1,
+        "id": "r_e_747"
+      },
+      {
+        "question": "What two things can you never eat for breakfast?",
+        "options": [
+          "Lunch and dinner",
+          "Cornflakes and milk",
+          "Eggs and toast",
+          "Fruits and cereal"
+        ],
+        "correct": 0,
+        "id": "r_e_748"
+      },
+      {
+        "question": "What is it that you can only take but never give away?",
+        "options": [
+          "A picture",
+          "A photograph",
+          "A moment",
+          "A memory"
+        ],
+        "correct": 2,
+        "id": "r_e_749"
+      },
+      {
+        "question": "What runs on two legs but can’t walk?",
+        "options": [
+          "A person",
+          "A chair",
+          "A dog",
+          "A bicycle"
+        ],
+        "correct": 0,
+        "id": "r_e_750"
+      },
+      {
+        "question": "What do you call a bear with no teeth?",
+        "options": [
+          "A gummy bear",
+          "A sleeping bear",
+          "A fluffy bear",
+          "A happy bear"
+        ],
+        "correct": 0,
+        "id": "r_e_751"
+      },
+      {
+        "question": "Which is heavier, a ton of bricks or a ton of feathers?",
+        "options": [
+          "They weigh the same",
+          "The feathers",
+          "The bricks",
+          "Neither"
+        ],
+        "correct": 0,
+        "id": "r_e_752"
+      },
+      {
+        "question": "What has a hole and still can hold water?",
+        "options": [
+          "A sponge",
+          "A bucket",
+          "A colander",
+          "A glass"
+        ],
+        "correct": 0,
+        "id": "r_e_753"
+      },
+      {
+        "question": "What is easily broken but can't be tied?",
+        "options": [
+          "A promise",
+          "A string",
+          "A rope",
+          "A chain"
+        ],
+        "correct": 0,
+        "id": "r_e_754"
+      },
+      {
+        "question": "What has four wheels and flies but is not a car?",
+        "options": [
+          "A plane",
+          "A bus",
+          "A garbage truck",
+          "A bicycle"
+        ],
+        "correct": 1,
+        "id": "r_e_755"
+      },
+      {
+        "question": "Which letter of the alphabet has the most water?",
+        "options": [
+          "C",
+          "S",
+          "H",
+          "O"
+        ],
+        "correct": 3,
+        "id": "r_e_756"
+      },
+      {
+        "question": "What sounds like a promise but is made with a 't'?",
+        "options": [
+          "A bet",
+          "A pet",
+          "A net",
+          "A set"
+        ],
+        "correct": 0,
+        "id": "r_e_757"
+      },
+      {
+        "question": "What can you pour but cannot hold?",
+        "options": [
+          "Time",
+          "Sand",
+          "Water",
+          "Rice"
+        ],
+        "correct": 0,
+        "id": "r_e_758"
+      },
+      {
+        "question": "What has many letters but never sends a letter?",
+        "options": [
+          "A mailbox",
+          "A school",
+          "A bank",
+          "A post office"
+        ],
+        "correct": 0,
+        "id": "r_e_759"
+      },
+      {
+        "question": "What is a door that you can't enter?",
+        "options": [
+          "A keyboard",
+          "A house door",
+          "A car door",
+          "A garage door"
+        ],
+        "correct": 0,
+        "id": "r_e_760"
+      },
+      {
+        "question": "What is seen in the middle of March and April but not at the beginning or end?",
+        "options": [
+          "The letter R",
+          "The rain",
+          "The snow",
+          "The wind"
+        ],
+        "correct": 0,
+        "id": "r_e_761"
+      },
+      {
+        "question": "What has fingers but can't point?",
+        "options": [
+          "A glove",
+          "A hand",
+          "A cat",
+          "A tree"
+        ],
+        "correct": 0,
+        "id": "r_e_762"
+      },
+      {
+        "question": "What can be heard and seen but can’t be touched?",
+        "options": [
+          "A song",
+          "A shadow",
+          "A dream",
+          "A cloud"
+        ],
+        "correct": 0,
+        "id": "r_e_763"
+      },
+      {
+        "question": "What has a beginning but no end?",
+        "options": [
+          "A circle",
+          "A line",
+          "A story",
+          "A dream"
+        ],
+        "correct": 0,
+        "id": "r_e_764"
+      },
+      {
+        "question": "Which word in the dictionary is always spelled incorrectly?",
+        "options": [
+          "Incorrectly",
+          "Misspelled",
+          "Wrong",
+          "Right"
+        ],
+        "correct": 0,
+        "id": "r_e_765"
+      },
+      {
+        "question": "The more you take away from it, the bigger it gets. What is it?",
+        "options": [
+          "A hole",
+          "A gas",
+          "A balloon",
+          "A dream"
+        ],
+        "correct": 0,
+        "id": "r_e_766"
+      },
+      {
+        "question": "What kind of cup doesn’t hold water?",
+        "options": [
+          "A hiccup",
+          "A teacup",
+          "A cup",
+          "A coffee mug"
+        ],
+        "correct": 0,
+        "id": "r_e_767"
+      },
+      {
+        "question": "Which is heavier, a pound of feathers or a pound of stones?",
+        "options": [
+          "They weigh the same",
+          "The stones",
+          "The feathers",
+          "Both are light"
+        ],
+        "correct": 0,
+        "id": "r_e_768"
+      },
+      {
+        "question": "What can go up and down without moving?",
+        "options": [
+          "A staircase",
+          "A person",
+          "A balloon",
+          "A kite"
+        ],
+        "correct": 0,
+        "id": "r_e_769"
+      },
+      {
+        "question": "What is tall when it is young, but short when it is old?",
+        "options": [
+          "A candle",
+          "A tree",
+          "A tower",
+          "A flower"
+        ],
+        "correct": 0,
+        "id": "r_e_770"
+      },
+      {
+        "question": "What can only be seen when it’s dark?",
+        "options": [
+          "Stars",
+          "A rock",
+          "A chair",
+          "A wall"
+        ],
+        "correct": 0,
+        "id": "r_e_771"
+      },
+      {
+        "question": "What can be touched but never held?",
+        "options": [
+          "Air",
+          "A pillow",
+          "A ball",
+          "A hat"
+        ],
+        "correct": 0,
+        "id": "r_e_772"
+      },
+      {
+        "question": "What is it that goes around the world but stays in one spot?",
+        "options": [
+          "A stamp",
+          "A map",
+          "A shadow",
+          "A wall"
+        ],
+        "correct": 0,
+        "id": "r_e_773"
+      },
+      {
+        "question": "What has a tail and a head but no body?",
+        "options": [
+          "A coin",
+          "A fish",
+          "A snake",
+          "A dragon"
+        ],
+        "correct": 0,
+        "id": "r_e_774"
+      },
+      {
+        "question": "What can fill a garden but is not alive?",
+        "options": [
+          "A fence",
+          "A statue",
+          "A flower",
+          "Weeds"
+        ],
+        "correct": 1,
+        "id": "r_e_775"
+      },
+      {
+        "question": "What runs but doesn’t walk?",
+        "options": [
+          "A river",
+          "A car",
+          "A bike",
+          "An animal"
+        ],
+        "correct": 0,
+        "id": "r_e_776"
+      },
+      {
+        "question": "What has streets but no houses?",
+        "options": [
+          "A map",
+          "A town",
+          "A city",
+          "A picture"
+        ],
+        "correct": 0,
+        "id": "r_e_777"
+      },
+      {
+        "question": "What must be broken before you can eat it?",
+        "options": [
+          "An egg",
+          "A cookie",
+          "A pizza",
+          "A sandwich"
+        ],
+        "correct": 0,
+        "id": "r_e_778"
+      },
+      {
+        "question": "What has a mouth but does not speak?",
+        "options": [
+          "A river",
+          "A door",
+          "A chair",
+          "A car"
+        ],
+        "correct": 0,
+        "id": "r_e_779"
+      },
+      {
+        "question": "What can be closed but never opened?",
+        "options": [
+          "A secret",
+          "A box",
+          "A door",
+          "A window"
+        ],
+        "correct": 0,
+        "id": "r_e_780"
+      },
+      {
+        "question": "What goes up in smoke?",
+        "options": [
+          "a fire",
+          "a balloon",
+          "a car",
+          "a plant"
+        ],
+        "correct": 0,
+        "id": "r_e_781"
+      },
+      {
+        "question": "What has a mouth but cannot talk?",
+        "options": [
+          "a river",
+          "a book",
+          "a tunnel",
+          "a well"
+        ],
+        "correct": 0,
+        "id": "r_e_782"
+      },
+      {
+        "question": "How do you spell the word 'cat'?",
+        "options": [
+          "catt",
+          "kat",
+          "cat",
+          "catt"
+        ],
+        "correct": 2,
+        "id": "r_e_783"
+      },
+      {
+        "question": "Which letter of the alphabet is a question?",
+        "options": [
+          "Q",
+          "A",
+          "E",
+          "C"
+        ],
+        "correct": 0,
+        "id": "r_e_784"
+      },
+      {
+        "question": "What is covered with T but never gets wet?",
+        "options": [
+          "a teapot",
+          "an umbrella",
+          "a tea bag",
+          "a cup"
+        ],
+        "correct": 0,
+        "id": "r_e_785"
+      },
+      {
+        "question": "What can fill a basket but can't be seen?",
+        "options": [
+          "air",
+          "thoughts",
+          "water",
+          "sand"
+        ],
+        "correct": 0,
+        "id": "r_e_786"
+      },
+      {
+        "question": "Which animal can you always find at a baseball game?",
+        "options": [
+          "a bat",
+          "a dog",
+          "a cat",
+          "a bird"
+        ],
+        "correct": 0,
+        "id": "r_e_787"
+      },
+      {
+        "question": "What has teeth but can’t bite?",
+        "options": [
+          "a comb",
+          "a saw",
+          "a zipper",
+          "a mouth"
+        ],
+        "correct": 0,
+        "id": "r_e_788"
+      },
+      {
+        "question": "What has wheels and flies, but is not an airplane?",
+        "options": [
+          "a garbage truck",
+          "a bicycle",
+          "a car",
+          "a dump truck"
+        ],
+        "correct": 1,
+        "id": "r_e_789"
+      },
+      {
+        "question": "What is light as a feather, yet the strongest person can't hold it for much longer than a minute?",
+        "options": [
+          "breath",
+          "air",
+          "a bubble",
+          "a cloud"
+        ],
+        "correct": 0,
+        "id": "r_e_790"
+      },
+      {
+        "question": "What is very easy to get into but very hard to get out of?",
+        "options": [
+          "trouble",
+          "water",
+          "clothes",
+          "a car"
+        ],
+        "correct": 0,
+        "id": "r_e_791"
+      },
+      {
+        "question": "How do you spell the word 'dog'?",
+        "options": [
+          "dod",
+          "dogg",
+          "dog",
+          "dawg"
+        ],
+        "correct": 2,
+        "id": "r_e_792"
+      },
+      {
+        "question": "What has wheels and can fly but is not an airplane?",
+        "options": [
+          "A garbage truck",
+          "A bicycle",
+          "A helicopter",
+          "A garbage can"
+        ],
+        "correct": 2,
+        "id": "r_e_793"
+      },
+      {
+        "question": "What has a tongue that cannot taste?",
+        "options": [
+          "A shoe",
+          "A car",
+          "A clock",
+          "A book"
+        ],
+        "correct": 0,
+        "id": "r_e_794"
+      },
+      {
+        "question": "How do you spell the word 'kite'?",
+        "options": [
+          "K-I-T-E",
+          "K-A-T-E",
+          "K-I-G-H-T",
+          "K-I-T"
+        ],
+        "correct": 0,
+        "id": "r_e_795"
+      },
+      {
+        "question": "What has a tail and a head, but no body?",
+        "options": [
+          "A coin",
+          "A snake",
+          "A kite",
+          "A worm"
+        ],
+        "correct": 0,
+        "id": "r_e_796"
+      },
+      {
+        "question": "How do you spell the word 'fish'?",
+        "options": [
+          "F-I-S-H",
+          "F-I-S-S",
+          "F-I-S-H-E",
+          "F-I-B-S"
+        ],
+        "correct": 0,
+        "id": "r_e_797"
+      },
+      {
+        "question": "What has holes but holds water?",
+        "options": [
+          "A sponge",
+          "A bucket",
+          "A jar",
+          "A cup"
+        ],
+        "correct": 0,
+        "id": "r_e_798"
+      },
+      {
+        "question": "How do you spell the word 'car'?",
+        "options": [
+          "C-A-R",
+          "K-A-R",
+          "C-A-R-R",
+          "C-O-R"
+        ],
+        "correct": 0,
+        "id": "r_e_799"
+      },
+      {
+        "question": "What breaks on the ground but never falls?",
+        "options": [
+          "A wave",
+          "Your heart",
+          "A promise",
+          "A stick"
+        ],
+        "correct": 2,
+        "id": "r_e_800"
+      },
+      {
+        "question": "How do you spell the word 'see'?",
+        "options": [
+          "C",
+          "S",
+          "Cee",
+          "Sey"
+        ],
+        "correct": 2,
+        "id": "r_e_801"
+      },
+      {
+        "question": "What is light as a feather but hard to hold for long?",
+        "options": [
+          "Breath",
+          "Air",
+          "A cloud",
+          "A balloon"
+        ],
+        "correct": 0,
+        "id": "r_e_802"
+      },
+      {
+        "question": "What can be heard and made but cannot be touched?",
+        "options": [
+          "A song",
+          "A book",
+          "A bell",
+          "A dog"
+        ],
+        "correct": 0,
+        "id": "r_e_803"
+      },
+      {
+        "question": "What has many keys but can't open a single door?",
+        "options": [
+          "A piano",
+          "A car",
+          "A locker",
+          "A book"
+        ],
+        "correct": 0,
+        "id": "r_e_804"
+      },
+      {
+        "question": "What goes up and down but always stays in place?",
+        "options": [
+          "A staircase",
+          "A balloon",
+          "A car",
+          "A person"
+        ],
+        "correct": 0,
+        "id": "r_e_805"
+      },
+      {
+        "question": "What has feathers and cannot fly?",
+        "options": [
+          "A pillow",
+          "A bird",
+          "A kite",
+          "A fish"
+        ],
+        "correct": 0,
+        "id": "r_e_806"
+      },
+      {
+        "question": "I am full of holes, but I can hold water. What am I?",
+        "options": [
+          "A sponge",
+          "A bowl",
+          "A bucket",
+          "A cup"
+        ],
+        "correct": 0,
+        "id": "r_e_807"
+      },
+      {
+        "question": "What is so delicate that saying its name breaks it?",
+        "options": [
+          "Silence",
+          "A whisper",
+          "A joke",
+          "A promise"
+        ],
+        "correct": 0,
+        "id": "r_e_808"
+      },
+      {
+        "question": "How do you spell the word for a small dog?",
+        "options": [
+          "Puppy",
+          "Pupi",
+          "Poppy",
+          "Poopey"
+        ],
+        "correct": 0,
+        "id": "r_e_809"
+      },
+      {
+        "question": "How do you spell the word for a big cat?",
+        "options": [
+          "Lion",
+          "Lyun",
+          "Lyan",
+          "Leone"
+        ],
+        "correct": 0,
+        "id": "r_e_810"
+      },
+      {
+        "question": "What can you serve but never eat?",
+        "options": [
+          "A tennis ball",
+          "A dish",
+          "A song",
+          "A menu"
+        ],
+        "correct": 3,
+        "id": "r_e_811"
+      },
+      {
+        "question": "How do you spell the word for something that makes you laugh?",
+        "options": [
+          "Funny",
+          "Funnie",
+          "Foni",
+          "Funy"
+        ],
+        "correct": 0,
+        "id": "r_e_812"
+      },
+      {
+        "question": "What has 4 wheels and flies?",
+        "options": [
+          "A garbage truck",
+          "A plane",
+          "A bicycle",
+          "A car"
+        ],
+        "correct": 1,
+        "id": "r_e_813"
+      },
+      {
+        "question": "How do you spell the word for sweet food?",
+        "options": [
+          "Candy",
+          "Candi",
+          "Kandy",
+          "Kandi"
+        ],
+        "correct": 0,
+        "id": "r_e_814"
+      },
+      {
+        "question": "What vehicle has wings but does not fly?",
+        "options": [
+          "A car",
+          "A boat",
+          "A bicycle",
+          "A hangar"
+        ],
+        "correct": 1,
+        "id": "r_e_815"
+      },
+      {
+        "question": "What can you give without taking?",
+        "options": [
+          "Your word",
+          "A gift",
+          "A hug",
+          "A cookie"
+        ],
+        "correct": 0,
+        "id": "r_e_816"
+      },
+      {
+        "question": "How do you spell 'kite'?",
+        "options": [
+          "K-I-T",
+          "K-I-T-E",
+          "K-Y-T-E",
+          "K-I-T-T"
+        ],
+        "correct": 1,
+        "id": "r_e_817"
+      },
+      {
+        "question": "How do you spell 'baby'?",
+        "options": [
+          "B-A-B-E-E",
+          "B-A-B-Y",
+          "B-E-B-Y",
+          "B-A-B-I"
+        ],
+        "correct": 1,
+        "id": "r_e_818"
+      },
+      {
+        "question": "How do you spell 'apple'?",
+        "options": [
+          "A-P-E-L",
+          "A-P-P-L",
+          "A-P-P-L-E",
+          "A-P-L-E"
+        ],
+        "correct": 2,
+        "id": "r_e_819"
+      },
+      {
+        "question": "How do you spell 'home'?",
+        "options": [
+          "H-O-M",
+          "H-O-M-E",
+          "H-O-H",
+          "H-O-M-E-Y"
+        ],
+        "correct": 1,
+        "id": "r_e_820"
+      },
+      {
+        "question": "What flies without wings?",
+        "options": [
+          "Time",
+          "A bird",
+          "A plane",
+          "A helicopter"
+        ],
+        "correct": 0,
+        "id": "r_e_821"
+      },
+      {
+        "question": "How do you spell 'cup'?",
+        "options": [
+          "C-U-P",
+          "C-U-P-P",
+          "C-O-P",
+          "C-U-B"
+        ],
+        "correct": 0,
+        "id": "r_e_822"
+      },
+      {
+        "question": "How do you spell 'star'?",
+        "options": [
+          "S-T-A-R",
+          "S-T-O-R",
+          "S-T-A-R-R",
+          "S-T-A-R-E"
+        ],
+        "correct": 0,
+        "id": "r_e_823"
+      },
+      {
+        "question": "What has many pieces but can still be whole?",
+        "options": [
+          "A puzzle",
+          "A sandwich",
+          "A toy",
+          "A drawing"
+        ],
+        "correct": 0,
+        "id": "r_e_824"
+      },
+      {
+        "question": "I have wings and I can fly, but I am not a bird. What am I?",
+        "options": [
+          "An airplane",
+          "A butterfly",
+          "A superhero",
+          "A toy"
+        ],
+        "correct": 0,
+        "id": "r_e_825"
+      },
+      {
+        "question": "How do you spell the word for a popular fruit that is usually red?",
+        "options": [
+          "Tomato",
+          "Tomaeto",
+          "Tammato",
+          "Tometo"
+        ],
+        "correct": 0,
+        "id": "r_e_826"
+      },
+      {
+        "question": "What goes up and down, but always stays in one place?",
+        "options": [
+          "A staircase",
+          "A balloon",
+          "A kite",
+          "A bird"
+        ],
+        "correct": 0,
+        "id": "r_e_827"
+      },
+      {
+        "question": "What's bright and can be seen at night, but isn't a light?",
+        "options": [
+          "A star",
+          "A car",
+          "A kite",
+          "A flower"
+        ],
+        "correct": 0,
+        "id": "r_e_828"
+      },
+      {
+        "question": "What has words but never talks?",
+        "options": [
+          "A book",
+          "A movie",
+          "A person",
+          "A dog"
+        ],
+        "correct": 0,
+        "id": "r_e_829"
+      },
+      {
+        "question": "I fly without wings. I cry without eyes. Wherever I go, darkness flies. What am I?",
+        "options": [
+          "A cloud",
+          "A bird",
+          "A plane",
+          "A superhero"
+        ],
+        "correct": 0,
+        "id": "r_e_830"
+      },
+      {
+        "question": "What has no legs but can move?",
+        "options": [
+          "A snake",
+          "A car",
+          "A fish",
+          "A bird"
+        ],
+        "correct": 1,
+        "id": "r_e_831"
+      },
+      {
+        "question": "How do you spell the word for the thing we drink from?",
+        "options": [
+          "Cubb",
+          "Cupp",
+          "Cup",
+          "Cjp"
+        ],
+        "correct": 2,
+        "id": "r_e_832"
+      },
+      {
+        "question": "How do you spell the word for delicious fruit that is yellow?",
+        "options": [
+          "Banana",
+          "Bananae",
+          "Beenana",
+          "Benana"
+        ],
+        "correct": 0,
+        "id": "r_e_833"
+      },
+      {
+        "question": "How do you spell the word for the animal that barks?",
+        "options": [
+          "Dogg",
+          "Dog",
+          "Doge",
+          "Dg"
+        ],
+        "correct": 1,
+        "id": "r_e_834"
+      },
+      {
+        "question": "How do you spell the word for the thing that makes you laugh?",
+        "options": [
+          "Joke",
+          "Jok",
+          "Jokie",
+          "Joky"
+        ],
+        "correct": 0,
+        "id": "r_e_835"
+      },
+      {
+        "question": "What can run, walk, and sit, but never get tired?",
+        "options": [
+          "Water",
+          "A clock",
+          "A river",
+          "A sun"
+        ],
+        "correct": 1,
+        "id": "r_e_836"
+      },
+      {
+        "question": "How do you spell the word for something that hops?",
+        "options": [
+          "Bunny",
+          "Bunnny",
+          "Bunni",
+          "Bunnyyy"
+        ],
+        "correct": 0,
+        "id": "r_e_837"
+      },
+      {
+        "question": "How do you spell the word for sharp teeth?",
+        "options": [
+          "Canine",
+          "Caanine",
+          "Caneen",
+          "Caanin"
+        ],
+        "correct": 0,
+        "id": "r_e_838"
+      },
+      {
+        "question": "What is it that you throw out when you want to use it but take in when you don’t?",
+        "options": [
+          "An anchor",
+          "A line",
+          "A net",
+          "A fishing pole"
+        ],
+        "correct": 1,
+        "id": "r_e_839"
+      },
+      {
+        "question": "How do you spell the word for a place to store things?",
+        "options": [
+          "Stor",
+          "Storr",
+          "Store",
+          "Stoor"
+        ],
+        "correct": 2,
+        "id": "r_e_840"
+      },
+      {
+        "question": "What can be broken without you ever touching it?",
+        "options": [
+          "A dream",
+          "A toy",
+          "A vase",
+          "A picture"
+        ],
+        "correct": 0,
+        "id": "r_e_841"
+      },
+      {
+        "question": "How do you spell the word for something that you can ride but it is not a horse?",
+        "options": [
+          "Bicycle",
+          "Bicicle",
+          "Byke",
+          "Bikcle"
+        ],
+        "correct": 0,
+        "id": "r_e_842"
+      },
+      {
+        "question": "What runs in but never out?",
+        "options": [
+          "Water",
+          "Money",
+          "The wind",
+          "Air"
+        ],
+        "correct": 3,
+        "id": "r_e_843"
+      },
+      {
+        "question": "What is always in the last place you look?",
+        "options": [
+          "Your keys",
+          "A treasure",
+          "A toy",
+          "A book"
+        ],
+        "correct": 0,
+        "id": "r_e_844"
+      },
+      {
+        "question": "What can be found in the middle of 'water'?",
+        "options": [
+          "The letter T",
+          "The letter A",
+          "The letter R",
+          "The letter E"
+        ],
+        "correct": 0,
+        "id": "r_e_845"
+      },
+      {
+        "question": "How do you spell the word for something you might wear on your head?",
+        "options": [
+          "Hat",
+          "Hate",
+          "Haat",
+          "Haatte"
+        ],
+        "correct": 0,
+        "id": "r_e_846"
+      },
+      {
+        "question": "I have cities but no houses, forests but no trees. What am I?",
+        "options": [
+          "A map",
+          "A puzzle",
+          "A drawing",
+          "A storybook"
+        ],
+        "correct": 0,
+        "id": "r_e_847"
+      },
+      {
+        "question": "What has an eye but can't see?",
+        "options": [
+          "A needle",
+          "A camera",
+          "A watch",
+          "A fish"
+        ],
+        "correct": 0,
+        "id": "r_e_848"
+      },
+      {
+        "question": "What can go up a chimney down but cannot go down a chimney up?",
+        "options": [
+          "An umbrella",
+          "A bird",
+          "A person",
+          "A tree"
+        ],
+        "correct": 0,
+        "id": "r_e_849"
+      },
+      {
+        "question": "What starts with an E, ends with an E, but only has one letter in it?",
+        "options": [
+          "An envelope",
+          "An eye",
+          "An engine",
+          "An eel"
+        ],
+        "correct": 0,
+        "id": "r_e_850"
+      },
+      {
+        "question": "What can be given but never taken?",
+        "options": [
+          "A smile",
+          "A toy",
+          "An offer",
+          "A gift"
+        ],
+        "correct": 0,
+        "id": "r_e_851"
+      },
+      {
+        "question": "What has a tail and no body?",
+        "options": [
+          "A coin",
+          "A cat",
+          "A snake",
+          "A kite"
+        ],
+        "correct": 0,
+        "id": "r_e_852"
+      },
+      {
+        "question": "I have roots that nobody sees, I am taller than trees. What am I?",
+        "options": [
+          "Mountain",
+          "Worm",
+          "Bird",
+          "Leaf"
+        ],
+        "correct": 1,
+        "id": "r_e_853"
+      },
+      {
+        "question": "What is light as a feather, yet the strongest man can't hold it for much longer than a minute?",
+        "options": [
+          "Breath",
+          "Balloon",
+          "Cloud",
+          "Bubble"
+        ],
+        "correct": 0,
+        "id": "r_e_854"
+      },
+      {
+        "question": "I can be long, I can be short; I can be grown, I can be cut. What am I?",
+        "options": [
+          "Hair",
+          "Ribbon",
+          "String",
+          "Paper"
+        ],
+        "correct": 0,
+        "id": "r_e_855"
+      },
+      {
+        "question": "What is it that you throw out when you want to use it, but take in when you don’t?",
+        "options": [
+          "Anchor",
+          "Towel",
+          "Fishing net",
+          "Trashcan"
+        ],
+        "correct": 1,
+        "id": "r_e_856"
+      },
+      {
+        "question": "What begins with an E but only has one letter?",
+        "options": [
+          "Envelope",
+          "Elephant",
+          "Engine",
+          "Eye"
+        ],
+        "correct": 0,
+        "id": "r_e_857"
+      },
+      {
+        "question": "What starts with a T, ends with a T, and is full of T?",
+        "options": [
+          "A teapot",
+          "A tiger",
+          "A tent",
+          "A train"
+        ],
+        "correct": 0,
+        "id": "r_e_858"
+      },
+      {
+        "question": "I have wings and I can fly. I am a type of insect. What am I?",
+        "options": [
+          "A bird",
+          "A butterfly",
+          "A bat",
+          "A dragonfly"
+        ],
+        "correct": 1,
+        "id": "r_e_859"
+      },
+      {
+        "question": "What begins with an 'e', ends with an 'e', and has only one letter in it?",
+        "options": [
+          "An envelope",
+          "An eel",
+          "An ear",
+          "An eagle"
+        ],
+        "correct": 0,
+        "id": "r_e_860"
+      },
+      {
+        "question": "What begins with P, ends with E, and is full of keys?",
+        "options": [
+          "A piano",
+          "A plate",
+          "A pillow",
+          "A purse"
+        ],
+        "correct": 0,
+        "id": "r_e_861"
+      },
+      {
+        "question": "What part of the elephant can you never use again?",
+        "options": [
+          "Its memory",
+          "Its trunk",
+          "Its tail",
+          "Its legs"
+        ],
+        "correct": 1,
+        "id": "r_e_862"
+      },
+      {
+        "question": "I start with an 'F' and end with a 'T', and have 'U' in me. What am I?",
+        "options": [
+          "A fruit",
+          "A fat",
+          "A foot",
+          "A fight"
+        ],
+        "correct": 0,
+        "id": "r_e_863"
+      },
+      {
+        "question": "What can run but doesn't have legs?",
+        "options": [
+          "A computer program",
+          "A river",
+          "A band",
+          "A runner"
+        ],
+        "correct": 1,
+        "id": "r_e_864"
+      },
+      {
+        "question": "What starts with a 'P', ends with an 'E', and is something you can eat?",
+        "options": [
+          "Pineapple",
+          "Pasta",
+          "Peas",
+          "Pepper"
+        ],
+        "correct": 0,
+        "id": "r_e_865"
+      },
+      {
+        "question": "What starts with an 'E' and ends with an 'E' but only has one letter in it?",
+        "options": [
+          "An envelope",
+          "An eye",
+          "An engine",
+          "An apple"
+        ],
+        "correct": 0,
+        "id": "r_e_866"
+      },
+      {
+        "question": "What begins with T, ends with T, and is filled with T?",
+        "options": [
+          "A teapot",
+          "A tent",
+          "A tree",
+          "A tablet"
+        ],
+        "correct": 0,
+        "id": "r_e_867"
+      },
+      {
+        "question": "I have branches yet I have no leaves. What am I?",
+        "options": [
+          "A bank",
+          "A spider",
+          "A tree",
+          "A school"
+        ],
+        "correct": 2,
+        "id": "r_e_868"
+      },
+      {
+        "question": "What can go up but never comes down?",
+        "options": [
+          "Your age",
+          "A balloon",
+          "A rocket",
+          "A leaf"
+        ],
+        "correct": 0,
+        "id": "r_e_869"
+      },
+      {
+        "question": "What is as light as a feather, yet the strongest man can't hold it for much longer than a minute?",
+        "options": [
+          "Breath",
+          "Smoke",
+          "Water",
+          "Air"
+        ],
+        "correct": 0,
+        "id": "r_e_870"
+      },
+      {
+        "question": "What comes once in a year and twice in a week?",
+        "options": [
+          "The letter 'E'",
+          "February",
+          "Christmas",
+          "The moon"
+        ],
+        "correct": 0,
+        "id": "r_e_871"
+      },
+      {
+        "question": "I can be long, or I can be short. I can be grown or cut. What am I?",
+        "options": [
+          "Hair",
+          "Grass",
+          "Time",
+          "Rope"
+        ],
+        "correct": 0,
+        "id": "r_e_872"
+      },
+      {
+        "question": "What has eyes but can’t see?",
+        "options": [
+          "A potato",
+          "A spider",
+          "A fish",
+          "An owl"
+        ],
+        "correct": 0,
+        "id": "r_e_873"
+      },
+      {
+        "question": "What begins with a P, ends with an E, and has a thousand letters in it?",
+        "options": [
+          "A post office",
+          "A pencil",
+          "A puzzle",
+          "A picture"
+        ],
+        "correct": 0,
+        "id": "r_e_874"
+      },
+      {
+        "question": "What is a place where you sleep but is not a bed?",
+        "options": [
+          "A tent",
+          "A couch",
+          "A tree",
+          "A pillow"
+        ],
+        "correct": 0,
+        "id": "r_e_875"
+      },
+      {
+        "question": "What can go up and down but never move?",
+        "options": [
+          "A staircase",
+          "A yo-yo",
+          "A balloon",
+          "A sun"
+        ],
+        "correct": 0,
+        "id": "r_e_876"
+      },
+      {
+        "question": "What is in the middle of the earth?",
+        "options": [
+          "The letter 'r'",
+          "Treasure",
+          "A cave",
+          "A volcano"
+        ],
+        "correct": 0,
+        "id": "r_e_877"
+      },
+      {
+        "question": "What starts with an E, ends with an E, and only has one letter?",
+        "options": [
+          "An envelope",
+          "An elephant",
+          "An egg",
+          "An engine"
+        ],
+        "correct": 0,
+        "id": "r_e_878"
+      },
+      {
+        "question": "What can be seen once in a minute, twice in a moment, and never in a thousand years?",
+        "options": [
+          "The letter 'M'",
+          "A sunrise",
+          "A star",
+          "A letter"
+        ],
+        "correct": 0,
+        "id": "r_e_879"
+      },
+      {
+        "question": "I have keys but open no locks, I have space but no room. What am I?",
+        "options": [
+          "A keyboard",
+          "A treasure chest",
+          "A car",
+          "A clock"
+        ],
+        "correct": 0,
+        "id": "r_e_880"
+      },
+      {
+        "question": "What starts with a ‘C’ and ends with a ‘T’ that you can eat?",
+        "options": [
+          "Cotton",
+          "Cat",
+          "Carrot",
+          "Cupcake"
+        ],
+        "correct": 2,
+        "id": "r_e_881"
+      },
+      {
+        "question": "What begins with a ‘B’ and ends with a ‘T’ and is something you can throw?",
+        "options": [
+          "Ball",
+          "Basket",
+          "Bucket",
+          "Brat"
+        ],
+        "correct": 0,
+        "id": "r_e_882"
+      },
+      {
+        "question": "I have a face and two hands, but no arms or legs. What am I?",
+        "options": [
+          "A watch",
+          "A clock",
+          "A mirror",
+          "A painting"
+        ],
+        "correct": 1,
+        "id": "r_e_883"
+      },
+      {
+        "question": "I fly without wings, I cry without eyes. Wherever I go, darkness flies. What am I?",
+        "options": [
+          "A cloud",
+          "The wind",
+          "A butterfly",
+          "A rocket"
+        ],
+        "correct": 1,
+        "id": "r_e_884"
+      },
+      {
+        "question": "What begins with an ‘F’, ends with a ‘T’, and is delicious?",
+        "options": [
+          "Fruit",
+          "Fat",
+          "Fast",
+          "Foot"
+        ],
+        "correct": 0,
+        "id": "r_e_885"
+      },
+      {
+        "question": "What becomes wetter as it dries?",
+        "options": [
+          "A towel",
+          "A sponge",
+          "A cloth",
+          "A river"
+        ],
+        "correct": 0,
+        "id": "r_e_886"
+      },
+      {
+        "question": "How do you spell the word for a flying creature that makes honey?",
+        "options": [
+          "Bee",
+          "Beee",
+          "Bea",
+          "Be"
+        ],
+        "correct": 0,
+        "id": "r_e_887"
+      },
+      {
+        "question": "I have no life, but I can die. What am I?",
+        "options": [
+          "A battery",
+          "A flower",
+          "A toy",
+          "A party"
+        ],
+        "correct": 0,
+        "id": "r_e_888"
+      },
+      {
+        "question": "How do you spell the sound of a cat?",
+        "options": [
+          "Meow",
+          "Mew",
+          "Miau",
+          "Mewww"
+        ],
+        "correct": 0,
+        "id": "r_e_889"
+      },
+      {
+        "question": "What has three letters but is made of two letters in 'the'?",
+        "options": [
+          "Tea",
+          "Hat",
+          "Dog",
+          "Pan"
+        ],
+        "correct": 0,
+        "id": "r_e_890"
+      },
+      {
+        "question": "What can be used to cut but is not a knife?",
+        "options": [
+          "Scissors",
+          "A saw",
+          "A thumb",
+          "A hand"
+        ],
+        "correct": 0,
+        "id": "r_e_891"
+      },
+      {
+        "question": "How do you spell the sound of excitement when someone wins?",
+        "options": [
+          "Yay",
+          "Yee",
+          "Yayyy",
+          "Yayi"
+        ],
+        "correct": 0,
+        "id": "r_e_892"
+      },
+      {
+        "question": "What can run around the yard without moving?",
+        "options": [
+          "A fence",
+          "A dog",
+          "A cat",
+          "A car"
+        ],
+        "correct": 0,
+        "id": "r_e_893"
+      },
+      {
+        "question": "What is always hungry and must be fed, but if you give it water, it will die?",
+        "options": [
+          "A fire",
+          "A cat",
+          "A tree",
+          "A dog"
+        ],
+        "correct": 0,
+        "id": "r_e_894"
+      },
+      {
+        "question": "What can be bent but never broken?",
+        "options": [
+          "A rule",
+          "A promise",
+          "A twig",
+          "A rope"
+        ],
+        "correct": 0,
+        "id": "r_e_895"
+      },
+      {
+        "question": "How do you spell the sound of laughter?",
+        "options": [
+          "Haha",
+          "Hehe",
+          "Hihih",
+          "Hoohoo"
+        ],
+        "correct": 0,
+        "id": "r_e_896"
+      },
+      {
+        "question": "What can fill a room without taking up any space?",
+        "options": [
+          "Light",
+          "Air",
+          "Sound",
+          "Joy"
+        ],
+        "correct": 0,
+        "id": "r_e_897"
+      },
+      {
+        "question": "How do you spell the word that means to see something for the second time?",
+        "options": [
+          "Re-see",
+          "Ree",
+          "See-again",
+          "Repeat"
+        ],
+        "correct": 3,
+        "id": "r_e_898"
+      },
+      {
+        "question": "What is something that you can break, even if you never pick it up or touch it?",
+        "options": [
+          "A heart",
+          "A vase",
+          "A promise",
+          "A plate"
+        ],
+        "correct": 2,
+        "id": "r_e_899"
+      },
+      {
+        "question": "What starts with a T, ends with a T, and has tea in it?",
+        "options": [
+          "A teapot",
+          "A T-shirt",
+          "A tent",
+          "A tablet"
+        ],
+        "correct": 0,
+        "id": "r_e_900"
+      },
+      {
+        "question": "What begins with an 'M' and is a sticky sweet treat often given as a gift?",
+        "options": [
+          "Marshmallow",
+          "Mint",
+          "Mustard",
+          "Mango"
+        ],
+        "correct": 0,
+        "id": "r_e_901"
+      },
+      {
+        "question": "What is something that can be hard or soft, and you can eat it too?",
+        "options": [
+          "An egg",
+          "A rock",
+          "A banana",
+          "A pillow"
+        ],
+        "correct": 0,
+        "id": "r_e_902"
+      },
+      {
+        "question": "What flowers are seen on a riverbank and are not real?",
+        "options": [
+          "Paper flowers",
+          "Candy rocks",
+          "Marshmallow peeps",
+          "Plastic plants"
+        ],
+        "correct": 0,
+        "id": "r_e_903"
+      },
+      {
+        "question": "What begins with an E, ends with an E, and only has one letter?",
+        "options": [
+          "An envelope",
+          "An egg",
+          "An elephant",
+          "An eel"
+        ],
+        "correct": 0,
+        "id": "r_e_904"
+      },
+      {
+        "question": "What belongs to you, but other people use it more than you do?",
+        "options": [
+          "Your name",
+          "Your toy",
+          "Your shoes",
+          "Your book"
+        ],
+        "correct": 0,
+        "id": "r_e_905"
+      },
+      {
+        "question": "What gets bigger when you take away from it?",
+        "options": [
+          "A hole",
+          "An idea",
+          "A tree",
+          "A shadow"
+        ],
+        "correct": 0,
+        "id": "r_e_906"
+      },
+      {
+        "question": "What is your favorite sport, but can never be played?",
+        "options": [
+          "Dreamsport",
+          "Cloud nine",
+          "Airplane games",
+          "Dinner time"
+        ],
+        "correct": 0,
+        "id": "r_e_907"
+      },
+      {
+        "question": "What can be seen in water but never gets wet?",
+        "options": [
+          "A reflection",
+          "A fish",
+          "A boat",
+          "A net"
+        ],
+        "correct": 0,
+        "id": "r_e_908"
+      },
+      {
+        "question": "What is light as a feather, yet the strongest man can't hold it longer than a minute?",
+        "options": [
+          "Breath",
+          "A balloon",
+          "A feather",
+          "An egg"
+        ],
+        "correct": 0,
+        "id": "r_e_909"
+      },
+      {
+        "question": "What has wheels and can carry things?",
+        "options": [
+          "A cart",
+          "A bike",
+          "A car",
+          "A skateboard"
+        ],
+        "correct": 0,
+        "id": "r_e_910"
+      },
+      {
+        "question": "What can travel around the world but stays in a corner?",
+        "options": [
+          "A stamp",
+          "A plane",
+          "A car",
+          "A person"
+        ],
+        "correct": 0,
+        "id": "r_e_911"
+      },
+      {
+        "question": "What has a lot of keys but can't open any doors?",
+        "options": [
+          "A piano",
+          "A doorbell",
+          "A car",
+          "A computer"
+        ],
+        "correct": 0,
+        "id": "r_e_912"
+      },
+      {
+        "question": "What can be touched but can't be seen?",
+        "options": [
+          "A rainbow",
+          "Air",
+          "A ghost",
+          "Fire"
+        ],
+        "correct": 1,
+        "id": "r_e_913"
+      },
+      {
+        "question": "What can be big or small, and you can speak it but it's often not true?",
+        "options": [
+          "A lie",
+          "A story",
+          "A dream",
+          "A joke"
+        ],
+        "correct": 0,
+        "id": "r_e_914"
+      },
+      {
+        "question": "What is something that can be flipped, but not turned?",
+        "options": [
+          "A pancake",
+          "A coin",
+          "A page",
+          "An egg"
+        ],
+        "correct": 0,
+        "id": "r_e_915"
+      },
+      {
+        "question": "What is a room that you can't enter?",
+        "options": [
+          "A room with no walls",
+          "A room of dreams",
+          "A mushroom",
+          "A bathroom"
+        ],
+        "correct": 2,
+        "id": "r_e_916"
+      },
+      {
+        "question": "What goes around and around but never moves?",
+        "options": [
+          "A wheel",
+          "A clock",
+          "A map",
+          "A track"
+        ],
+        "correct": 0,
+        "id": "r_e_917"
+      },
+      {
+        "question": "What is something that can be thrown but can't be caught?",
+        "options": [
+          "A voice",
+          "A shadow",
+          "A ball",
+          "A paper plane"
+        ],
+        "correct": 1,
+        "id": "r_e_918"
+      },
+      {
+        "question": "What begins with a P and ends with an E, and is something you eat?",
+        "options": [
+          "Pineapple",
+          "Apple",
+          "Pear",
+          "Grape"
+        ],
+        "correct": 0,
+        "id": "r_e_919"
+      },
+      {
+        "question": "What can you catch but can't throw?",
+        "options": [
+          "Cold",
+          "Ball",
+          "Frisbee",
+          "Bird"
+        ],
+        "correct": 0,
+        "id": "r_e_920"
+      },
+      {
+        "question": "What begins with 'E' and ends with 'E' and has only one letter in it?",
+        "options": [
+          "Envelope",
+          "Eagle",
+          "Elephant",
+          "Engine"
+        ],
+        "correct": 0,
+        "id": "r_e_921"
+      },
+      {
+        "question": "What happens once in a minute, twice in a moment, but never in a thousand years?",
+        "options": [
+          "Letter M",
+          "Hour",
+          "Day",
+          "Week"
+        ],
+        "correct": 0,
+        "id": "r_e_922"
+      },
+      {
+        "question": "What can be found on floors but is not always necessary?",
+        "options": [
+          "Dust",
+          "Bugs",
+          "Furniture",
+          "Plants"
+        ],
+        "correct": 0,
+        "id": "r_e_923"
+      },
+      {
+        "question": "What is easier to get into than to get out of?",
+        "options": [
+          "Trouble",
+          "Bathtub",
+          "Bed",
+          "Cup"
+        ],
+        "correct": 0,
+        "id": "r_e_924"
       }
     ],
     "medium": [
