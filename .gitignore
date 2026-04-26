@@ -1,7 +1,20 @@
 node_modules/
 quiz.db
+quiz [0-9]*.db
 *.log
 .DS_Store
 .env
 generate-progress.json
 questions.backup.json
+
+# Local notes / tutorials (kept on disk, not tracked)
+COMMANDS.txt
+CREATE_GITHUB_REPO.txt
+DEPLOY_NOW.txt
+GITHUB_SETUP.md
+GIT_BRANCH_AND_PUSH_EXPLAINED.txt
+GIT_EXPLAINED_SIMPLE.txt
+UNDERSTANDING_GIT_COMMANDS.md
+
+# Local Claude/IDE config (per-developer machine)
+.claude/
