@@ -499,6 +499,10 @@ function updateHeartsDisplay() {
         if (i >= gameState.lives) {
             heart.style.opacity = '0.3';
         }
+        const livesLeft = gameState.lives;
+        heart.title = livesLeft <= 1
+            ? '❗ Last heart — take your time!'
+            : `Hearts: ${livesLeft} left — miss a question twice and you'll lose one!`;
         els.progressSegments.appendChild(heart);
     }
     // Update progress label if it exists
