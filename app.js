@@ -72,6 +72,8 @@ const els = {
     // Name
     playerNameInput: document.getElementById('playerNameInput'),
     nameNextBtn: document.getElementById('nameNextBtn'),
+    welcomeBackMsg: document.getElementById('welcomeBackMsg'),
+    welcomeBackText: document.getElementById('welcomeBackText'),
 
     // Leaderboard modal
     leaderboardModal: document.getElementById('leaderboardModal'),
@@ -332,10 +334,16 @@ async function handleGoogleSignIn(response) {
             gameState.authToken = data.authToken;
             gameState.userId = data.userId;
             gameState.displayName = data.displayName || '';
+            gameState.allTimeBestStreak = data.bestStreak || 0;
             if (data.displayName) {
                 localStorage.setItem('stemquest_display_name', data.displayName);
                 els.playerNameInput.value = data.displayName;
                 els.nameNextBtn.disabled = data.displayName.trim().length < 2;
+            }
+            // Show welcome back message with best streak for returning users
+            if (data.bestStreak > 0) {
+                els.welcomeBackMsg.style.display = '';
+                els.welcomeBackText.textContent = `Welcome back! Your longest streak: ${data.bestStreak} 🔥`;
             }
             switchScreen('name');
         }
@@ -1136,7 +1144,8 @@ async function completeQuiz() {
                 score: gameState.currentScore,
                 ageGroup: gameState.ageGroup,
                 questionsAnswered: gameState.questionsAnswered,
-                maxDifficulty: gameState.maxDifficulty
+                maxDifficulty: gameState.maxDifficulty,
+                bestStreak: gameState.bestStreak
             })
         });
     } catch (error) {

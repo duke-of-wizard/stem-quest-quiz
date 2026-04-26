@@ -123,6 +123,9 @@ function initializeTables() {
             if (err && !err.message.includes('duplicate column')) console.error(err.message);
         });
         db.run(`CREATE INDEX IF NOT EXISTS idx_uqh_user ON user_question_history(user_id, category, difficulty)`);
+        db.run(`ALTER TABLE users ADD COLUMN best_streak INTEGER DEFAULT 0`, (err) => {
+            if (err && !err.message.includes('duplicate column')) console.error(err.message);
+        });
 
         // Leaderboard entries table
         db.run(`
@@ -191,7 +194,7 @@ app.post('/api/auth/google', async (req, res) => {
         const { sub: googleId, email, name } = payload;
 
         // Upsert user by google_id
-        db.get('SELECT id, display_name FROM users WHERE google_id = ?', [googleId], (err, row) => {
+        db.get('SELECT id, display_name, best_streak FROM users WHERE google_id = ?', [googleId], (err, row) => {
             if (err) return res.status(500).json({ success: false, error: err.message });
 
             const authToken = crypto.randomBytes(32).toString('hex');
@@ -199,7 +202,7 @@ app.post('/api/auth/google', async (req, res) => {
             if (row) {
                 // Existing user
                 authSessions.set(authToken, { userId: row.id, displayName: row.display_name || name });
-                return res.json({ success: true, authToken, displayName: row.display_name || name, userId: row.id });
+                return res.json({ success: true, authToken, displayName: row.display_name || name, userId: row.id, bestStreak: row.best_streak || 0 });
             }
 
             // Create new user
@@ -360,7 +363,7 @@ app.post('/api/difficulty/update', (req, res) => {
 
 // Complete game session
 app.post('/api/session/complete', authenticateOptional, (req, res) => {
-    const { sessionId, displayName, score, ageGroup, questionsAnswered, maxDifficulty } = req.body;
+    const { sessionId, displayName, score, ageGroup, questionsAnswered, maxDifficulty, bestStreak } = req.body;
 
     db.run('UPDATE game_sessions SET completed_at = CURRENT_TIMESTAMP WHERE id = ?',
         [sessionId],
@@ -369,9 +372,16 @@ app.post('/api/session/complete', authenticateOptional, (req, res) => {
                 return res.status(500).json({ success: false, error: err.message });
             }
 
+            const userId = req.authUser ? req.authUser.userId : null;
+
+            // Update all-time best streak if this session's streak is higher
+            if (userId && typeof bestStreak === 'number' && bestStreak > 0) {
+                db.run('UPDATE users SET best_streak = MAX(COALESCE(best_streak, 0), ?) WHERE id = ?',
+                    [bestStreak, userId]);
+            }
+
             // Insert into leaderboard_entries if we have a name and score
             if (displayName && typeof score === 'number') {
-                const userId = req.authUser ? req.authUser.userId : null;
                 db.run(`INSERT INTO leaderboard_entries (user_id, display_name, score, age_group, questions_answered, max_difficulty)
                         VALUES (?, ?, ?, ?, ?, ?)`,
                     [userId, displayName, score, ageGroup || null, questionsAnswered || 0, maxDifficulty || 'easy']);
