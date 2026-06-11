@@ -714,6 +714,7 @@ body {
     padding: var(--space-6) var(--space-6) var(--space-5);
     border: 2px solid var(--border-default);
     border-bottom: 4px solid var(--border-default);
+    min-height: 380px;
     margin-bottom: var(--space-4);
 }
 
@@ -861,6 +862,26 @@ body {
     color: white;
 }
 
+.option-btn {
+    animation: optionIn var(--duration-normal) var(--ease-spring-gentle) both;
+}
+
+.option-btn:nth-child(1) { animation-delay: 0ms; }
+.option-btn:nth-child(2) { animation-delay: 50ms; }
+.option-btn:nth-child(3) { animation-delay: 100ms; }
+.option-btn:nth-child(4) { animation-delay: 150ms; }
+
+@keyframes optionIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .option-btn.disabled {
     cursor: not-allowed;
     opacity: 0.45;
@@ -886,14 +907,18 @@ body {
 
 /* Feedback */
 .feedback-message {
-    padding: var(--space-3) var(--space-4);
+    padding: 0;
     border-radius: var(--radius-md);
     font-weight: 700;
     font-size: var(--text-sm);
     text-align: center;
     margin-top: var(--space-3);
-    display: none;
-    animation: feedbackIn var(--duration-normal) var(--ease-spring);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height var(--duration-normal) var(--ease-out-expo),
+                opacity var(--duration-normal) var(--ease-out-expo),
+                padding var(--duration-normal) var(--ease-out-expo);
 }
 
 @keyframes feedbackIn {
@@ -907,31 +932,44 @@ body {
     }
 }
 
+.feedback-message.success,
+.feedback-message.error,
+.feedback-message.retry {
+    max-height: 60px;
+    opacity: 1;
+    padding: var(--space-3) var(--space-4);
+}
+
 .feedback-message.success {
     background: var(--success-50);
     color: var(--success-600);
     border: 2px solid rgba(88, 204, 2, 0.2);
-    display: block;
 }
 
 .feedback-message.error {
     background: var(--error-50);
     color: var(--error-500);
     border: 2px solid rgba(255, 75, 75, 0.2);
-    display: block;
 }
 
 .feedback-message.retry {
     background: var(--warning-50);
     color: #B7791F;
     border: 2px solid rgba(255, 200, 0, 0.2);
-    display: block;
 }
 
 /* Next button */
 .next-btn {
     margin-top: var(--space-4);
     display: flex;
+    transition: opacity var(--duration-normal) var(--ease-out-expo),
+                transform var(--duration-normal) var(--ease-spring-gentle);
+}
+
+.next-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
 }
 
 /* Auto-advance countdown */
@@ -1224,6 +1262,7 @@ button, .option-btn {
 
     .quiz-card {
         padding: var(--space-4);
+        min-height: 320px;
     }
 
     .question-text {

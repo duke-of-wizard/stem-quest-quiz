@@ -491,7 +491,7 @@ function setupQuizUI() {
     els.currentScore.textContent = '0';
     els.difficultyBadge.textContent = 'Easy';
     els.streakBadge.style.display = 'none';
-    els.nextQuestionBtn.style.display = 'none';
+    els.nextQuestionBtn.classList.add('hidden');
 
     // Prep character avatar (panel hidden by default)
     updateCharacterAvatar('happy');
@@ -643,7 +643,7 @@ async function loadNextQuestion() {
 
     gameState.attempt = 1;
     gameState.answered = false;
-    els.nextQuestionBtn.style.display = 'none';
+    els.nextQuestionBtn.classList.add('hidden');
 
     // Update progress
     updateProgress();
@@ -700,47 +700,48 @@ function displayQuestion() {
     // Track category for badges
     gameState.categoriesSeen.add(cat);
 
-    // Slide transition for question text
+    // Phase 1: Fade out old content (question + options together)
     const container = els.questionContainer;
     container.classList.add('slide-out');
+    els.optionsContainer.style.opacity = '0';
+    els.optionsContainer.style.transition = 'opacity 150ms ease-out';
+    els.feedbackMessage.className = 'feedback-message';
 
+    // Phase 2: After fade-out, swap content and fade in
     setTimeout(() => {
         // Update question text
         els.questionText.textContent = gameState.currentQuestion.question;
+        document.getElementById('characterHint').textContent = '';
 
         container.classList.remove('slide-out');
         container.classList.add('slide-in');
-
         setTimeout(() => container.classList.remove('slide-in'), 500);
+
+        // Rebuild options
+        els.optionsContainer.innerHTML = '';
+        const letters = ['A', 'B', 'C', 'D'];
+
+        gameState.currentQuestion.options.forEach((option, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.dataset.index = index;
+
+            btn.innerHTML = `
+                <span class="option-letter">${letters[index]}</span>
+                <span class="option-text">${option}</span>
+                <span class="option-shortcut">${index + 1}</span>
+            `;
+
+            btn.addEventListener('click', () => handleAnswer(index));
+            els.optionsContainer.appendChild(btn);
+        });
+
+        // Fade options back in (stagger handled by CSS animation on .option-btn)
+        els.optionsContainer.style.opacity = '1';
+
+        // Update progress label
+        if (els.progressLabel) els.progressLabel.textContent = `${gameState.questionsAnswered + 1} answered`;
     }, 200);
-
-    // Clear hint
-    document.getElementById('characterHint').textContent = '';
-
-    // Clear and build options
-    els.optionsContainer.innerHTML = '';
-    els.feedbackMessage.style.display = 'none';
-    els.feedbackMessage.className = 'feedback-message';
-
-    const letters = ['A', 'B', 'C', 'D'];
-
-    gameState.currentQuestion.options.forEach((option, index) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.dataset.index = index;
-
-        btn.innerHTML = `
-            <span class="option-letter">${letters[index]}</span>
-            <span class="option-text">${option}</span>
-            <span class="option-shortcut">${index + 1}</span>
-        `;
-
-        btn.addEventListener('click', () => handleAnswer(index));
-        els.optionsContainer.appendChild(btn);
-    });
-
-    // Update progress label
-    if (els.progressLabel) els.progressLabel.textContent = `${gameState.questionsAnswered + 1} answered`;
 }
 
 // ============================================
@@ -842,7 +843,6 @@ async function handleAnswer(selectedIndex) {
                 els.feedbackMessage.textContent = gameState.attempt === 1
                     ? `Excellent! +${data.pointsEarned} points`
                     : `Correct! +${data.pointsEarned} point`;
-                els.feedbackMessage.style.display = 'block';
 
                 // Difficulty increase
                 if (gameState.correctStreak >= 3) {
@@ -857,7 +857,7 @@ async function handleAnswer(selectedIndex) {
                 });
 
                 // Auto-advance after 1.5s
-                els.nextQuestionBtn.style.display = 'flex';
+                els.nextQuestionBtn.classList.remove('hidden');
                 gameState.autoAdvanceTimer = setTimeout(() => {
                     loadNextQuestion();
                 }, 1500);
@@ -876,8 +876,7 @@ async function handleAnswer(selectedIndex) {
 
                     els.feedbackMessage.className = 'feedback-message retry';
                     els.feedbackMessage.textContent = 'Not quite! Try again';
-                    els.feedbackMessage.style.display = 'block';
-
+    
                     // Re-enable remaining buttons
                     optionButtons.forEach(btn => {
                         if (btn.dataset.index !== selectedIndex.toString()) {
@@ -906,15 +905,14 @@ async function handleAnswer(selectedIndex) {
                     } else {
                         els.feedbackMessage.textContent = `The answer was: ${gameState.currentQuestion.options[correctIndex]}`;
                     }
-                    els.feedbackMessage.style.display = 'block';
-
+    
                     // Check for difficulty downgrade (3 wrong in last 5)
                     if (gameState.recentWrong >= 3) {
                         decreaseDifficulty();
                         gameState.recentWrong = 0;
                     }
 
-                    els.nextQuestionBtn.style.display = 'flex';
+                    els.nextQuestionBtn.classList.remove('hidden');
 
                     // Reset expression after panel hides
                     setTimeout(() => setCharacterExpression('neutral'), 3200);
