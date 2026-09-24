@@ -1,5 +1,9 @@
 # 🚀 STEM Quest - Kids Quiz App
 
+[![Play now](https://img.shields.io/badge/▶_Play_Now-kidsquiz.up.railway.app-7B68EE?style=for-the-badge)](https://kidsquiz.up.railway.app/)
+
+**👉 Play it live: [kidsquiz.up.railway.app](https://kidsquiz.up.railway.app/)**
+
 An interactive STEM quiz application designed for kids to learn Math, Science, Riddles, Spelling, and India-specific knowledge through engaging gameplay.
 
 ## Features
