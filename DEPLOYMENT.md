@@ -265,9 +265,7 @@ Vercel is serverless, so SQLite needs special handling. I've included a `vercel.
 
 ### 2. Share Your App
 Your app is now live! Share the URL:
-- `https://your-app-name.up.railway.app` (Railway)
-- `https://stem-quest-quiz.onrender.com` (Render)
-- `https://stem-quest-quiz.vercel.app` (Vercel)
+- https://kidsquiz.up.railway.app/ (Railway)
 
 ### 3. Custom Domain (Optional)
 All platforms support custom domains:
